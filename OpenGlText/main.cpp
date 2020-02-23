@@ -1,14 +1,21 @@
-﻿#include<iostream>
+﻿//2020.2.23 练习创建三角形
+//2020.2.23 增加索引绘画正方形
+#include<iostream>
 #include<glad/glad.h>
 #include<GLFW/glfw3.h>
 using namespace std;
 
 float vertexArr[] = {
-	 0.0f, 0.5f,0.0f,		//top
-	-0.5f,-0.5f,0.0f,	//left
-	 0.5f,-0.5f,0.0f		//right
+	 0.5f, 0.5f,0.0f, 1.0f,0.0f,0.0f,
+	-0.5f, 0.5f,0.0f, 0.0f,1.0f,0.0f,		//top
+	-0.5f,-0.5f,0.0f, 0.5f,0.5f,0.0f,	    //left
+	 0.5f,-0.5f,0.0f, 0.0f,0.0f,1.0f		//right
 };
 
+GLuint elements[] = {
+	0,1,2,
+	0,2,3
+};
 void makeShaderCompiledLog(GLuint shaderID)
 {
 	int success;
@@ -25,7 +32,7 @@ void makeShaderCompiledLog(GLuint shaderID)
 
 int main()
 {
-	//2020.2.23 练习创建三角形
+	
 
 	//初始化glfw环境
 	glfwInit();
@@ -49,6 +56,11 @@ int main()
 		return -1;
 	}
 	
+	
+	GLuint VAOID;
+	glGenVertexArrays(1, &VAOID);
+	glBindVertexArray(VAOID);
+
 	//创建VBO
 	GLuint VBOID;
 	glGenBuffers(1, &VBOID);
@@ -56,25 +68,39 @@ int main()
 
 	glBufferData(GL_ARRAY_BUFFER,sizeof(vertexArr),vertexArr,GL_STATIC_DRAW);
 	//glBindBuffer(GL_ARRAY_BUFFER, VBOID);放在这里是错误的
+	
+	//创建EBO（必须是在处于vao绑定状态时才可以绑定EBO，否则绑不上会报错）
+	GLuint EBOID;
+	glGenBuffers(1, &EBOID);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBOID);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW);
+
 
 	//创建VAO
-	GLuint VAOID;
-	glGenVertexArrays(1, &VAOID);
-	glBindVertexArray(VAOID);	
+	//GLuint VAOID;
+	//glGenVertexArrays(1, &VAOID);
+	//glBindVertexArray(VAOID);
+	//VAO的创建不能够在VEO之后
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+	
 	//glBindVertexArray(VAOID); 放在这里是错误的，必须先绑定再设置属性指针
+	
 	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(1);
 
 	//创建着色器
 	//1.顶点着色器
 	 const GLchar* vertexShaderCore =
 	"#version 330 core\n"
 	"layout (location = 0) in vec3 aPos;\n"
-	//"out vec3 outVex;\n"
+	"layout (location = 1) in vec3 aColor;\n"
+	"out vec4 vexOutColor;\n"
 	"void main()\n"
 	"{\n"
 	"	gl_Position = vec4(aPos.x,aPos.y,aPos.z,1.0);\n"
+	"   vexOutColor = vec4(aColor,1.0f);"
 	"}\0";
 
 	auto vertexShader = glCreateShader(GL_VERTEX_SHADER);		//创建着色器
@@ -85,10 +111,12 @@ int main()
 
 	const GLchar* fragmentShaderCore =
 	"#version 330 core\n"
+	"in vec4 vexOutColor;\n"
 	"out vec4 aColor;\n"
 	"void main()\n"
 	"{\n"
-	"	aColor = vec4(0.3f,0.5f,0.0f,0.0f);\n"
+	"	aColor = vexOutColor;\n"
+		//"	aColor = vec4(0,0.2f,0.2f,1);\n"
 	"}\0";
 
 	auto fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
@@ -111,13 +139,13 @@ int main()
 
 		
 		glUseProgram(shaderProgream);
-		glDrawArrays(GL_TRIANGLES, 0, 3);
-		
+		//glDrawArrays(GL_TRIANGLES, 0, 3);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
 		glfwSwapBuffers(windows);
 		glfwPollEvents();
 	}
 
-
+	glfwTerminate();
 	return 0;
 }
