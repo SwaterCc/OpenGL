@@ -29,5 +29,8 @@
     <ClInclude Include="..\opengl\include\GLFW\glfw3native.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\opengl\include\stb_image.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
