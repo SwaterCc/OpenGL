@@ -1,8 +1,10 @@
 ﻿//2020.2.23 练习创建三角形
 //2020.2.23 增加索引绘画正方形
 #include<iostream>
+
 #include<glad/glad.h>
 #include<GLFW/glfw3.h>
+#include"../Classes/Shader.h"
 using namespace std;
 
 float vertexArr[] = {
@@ -16,24 +18,9 @@ GLuint elements[] = {
 	0,1,2,
 	0,2,3
 };
-void makeShaderCompiledLog(GLuint shaderID)
-{
-	int success;
-	char log[512];
-	memset(log, 0, sizeof(log));
-
-	glGetShaderiv(shaderID, GL_COMPILE_STATUS, &success);
-	if (!success)
-	{
-		glGetShaderInfoLog(shaderID, sizeof(log), NULL, log);
-		cout << log << endl;
-	}
-}
 
 int main()
 {
-	
-
 	//初始化glfw环境
 	glfwInit();
 	//初始化glfw库
@@ -91,54 +78,19 @@ int main()
 	glEnableVertexAttribArray(1);
 
 	//创建着色器
-	//1.顶点着色器
-	 const GLchar* vertexShaderCore =
-	"#version 330 core\n"
-	"layout (location = 0) in vec3 aPos;\n"
-	"layout (location = 1) in vec3 aColor;\n"
-	"out vec4 vexOutColor;\n"
-	"void main()\n"
-	"{\n"
-	"	gl_Position = vec4(aPos.x,aPos.y,aPos.z,1.0);\n"
-	"   vexOutColor = vec4(aColor,1.0f);"
-	"}\0";
+	Shader shaderManager;
 
-	auto vertexShader = glCreateShader(GL_VERTEX_SHADER);		//创建着色器
-	glShaderSource(vertexShader, 1, &vertexShaderCore, NULL);	//将代码拷贝至着色器上
-	glCompileShader(vertexShader);								//编译源码
-	makeShaderCompiledLog(vertexShader);
-	//2.片段着手器
+	shaderManager.createShader("test_1.txt", GL_VERTEX_SHADER);
+	shaderManager.createShader("test_1.txt", GL_FRAGMENT_SHADER);
 
-	const GLchar* fragmentShaderCore =
-	"#version 330 core\n"
-	"in vec4 vexOutColor;\n"
-	"out vec4 aColor;\n"
-	"void main()\n"
-	"{\n"
-	"	aColor = vexOutColor;\n"
-		//"	aColor = vec4(0,0.2f,0.2f,1);\n"
-	"}\0";
-
-	auto fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(fragmentShader, 1, &fragmentShaderCore, NULL);
-	glCompileShader(fragmentShader);
-	makeShaderCompiledLog(fragmentShader);
-
-	//创建着色器程序
-
-	auto shaderProgream = glCreateProgram();
-
-	glAttachShader(shaderProgream, vertexShader);
-	glAttachShader(shaderProgream, fragmentShader);
-	glLinkProgram(shaderProgream);
-
+	shaderManager.createProgram();
 	while (!glfwWindowShouldClose(windows))
 	{
 		glClearColor(0.2f, 0.3f, 0.1f, 1);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		
-		glUseProgram(shaderProgream);
+		shaderManager.useShaderProgream();
+		//glUseProgram(shaderProgream);
 		//glDrawArrays(GL_TRIANGLES, 0, 3);
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
