@@ -78,8 +78,8 @@
     <LibraryPath>E:\OPGL\OpenGlText\opengl\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>E:\OPGL\OpenGlText\opengl\include;$(IncludePath)</IncludePath>
-    <LibraryPath>E:\OPGL\OpenGlText\opengl\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>E:\OpenGLTest\opengl\include;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\OpenGLTest\opengl\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>E:\OPGL\OpenGlText\opengl\include;$(IncludePath)</IncludePath>
@@ -138,10 +138,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Classes\Shader.cpp" />
     <ClCompile Include="..\opengl\src\glad.c" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Classes\Shader.h" />
     <ClInclude Include="..\opengl\include\GLFW\glfw3.h" />
     <ClInclude Include="..\opengl\include\GLFW\glfw3native.h" />
     <ClInclude Include="..\opengl\include\stb_image.h" />
