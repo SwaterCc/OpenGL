@@ -11,6 +11,8 @@ public:
 	void createShader(std::string ShaderFile , unsigned int shaderType);
 	void createProgram();
 	void useShaderProgream();
+
+	GLuint getShaderProgram() { return m_nShaderProgram; }
 private:
 	string readFile(std::string path);
 	void ShaderCompiledLog(GLuint shaderID);
