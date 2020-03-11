@@ -162,8 +162,11 @@ int main()
 	
 	shaderManager.useShaderProgream();
 	
-	glUniform1i(glGetUniformLocation(shaderManager.getShaderProgram(), "ourTexture1"), 0);
-	glUniform1i(glGetUniformLocation(shaderManager.getShaderProgram(), "ourTexture2"), 1);
+	//glUniform1i(glGetUniformLocation(shaderManager.getShaderProgram(), "ourTexture1"), 0);
+	//glUniform1i(glGetUniformLocation(shaderManager.getShaderProgram(), "ourTexture2"), 1);
+
+	shaderManager.setUniformOneInt("ourTexture1", 0);
+	shaderManager.setUniformOneInt("ourTexture2", 1);
 
 	while (!glfwWindowShouldClose(windows))
 	{

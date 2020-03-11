@@ -81,10 +81,9 @@ void Shader::useShaderProgream()
 {
 	glUseProgram(m_nShaderProgram);
 	m_bIsShaderProgramUsed = true;
-	runUniformQueue();
 }
 
-void Shader::setUniformInt(string valName, int value)
+void Shader::setUniformOneInt(string valName, int value)
 {
 	if (m_nShaderProgram)
 	{
@@ -93,32 +92,14 @@ void Shader::setUniformInt(string valName, int value)
 		{
 			glUniform1i(localUniform,value);
 		}
-		else
-		{
-			std::cout << "Warning shaderProgram is not Used,But Uniform Value push in then queue!" << endl;
-			name_uniform nu;
-			nu.valName = valName;
-			uniformValue u;
-			u.tag = 'i';
-			u.uu.ival = value;
-			nu.u = u;
-			m_uniformQueue.push(nu);
-		}
 	}
 	else
 	{
-		std::cout << "Warning shaderProgram is NULL,But Uniform Value push in then queue!" << endl;
-		name_uniform nu;
-		nu.valName = valName;
-		uniformValue u;
-		u.tag = 'i';
-		u.uu.ival = value;
-		nu.u = u;
-		m_uniformQueue.push(nu);
+		std::cout << "error shaderProgram is NULL" << endl;
 	}
 }
 
-void Shader::setUniformUInt(string valName, uint value)
+void Shader::setUniformOneUInt(string valName, uint value)
 {
 	if (m_nShaderProgram)
 	{
@@ -129,30 +110,16 @@ void Shader::setUniformUInt(string valName, uint value)
 		}
 		else
 		{
-			std::cout << "Warning shaderProgram is not Used,But Uniform Value push in then queue!" << endl;
-			name_uniform nu;
-			nu.valName = valName;
-			uniformValue u;
-			u.tag = 'u';
-			u.uu.uval = value;
-			nu.u = u;
-			m_uniformQueue.push(nu);
+			std::cout << "error shaderProgram is NULL" << endl;
 		}
 	}
 	else
 	{
-		std::cout << "Warning shaderProgram is NULL,But Uniform Value push in then queue!" << endl;
-		name_uniform nu;
-		nu.valName = valName;
-		uniformValue u;
-		u.tag = 'u';
-		u.uu.uval = value;
-		nu.u = u;
-		m_uniformQueue.push(nu);
+		std::cout << "error shaderProgram is NULL" << endl;
 	}
 }
 
-void Shader::setUniformFloat(string valName, float value)
+void Shader::setUniformOneFloat(string valName, float value)
 {
 	if (m_nShaderProgram)
 	{
@@ -163,26 +130,14 @@ void Shader::setUniformFloat(string valName, float value)
 		}
 		else
 		{
-			std::cout << "Warning shaderProgram is not Used,But Uniform Value push in then queue!" << endl;
-			name_uniform nu;
-			nu.valName = valName;
-			uniformValue u;
-			u.tag = 'f';
-			u.uu.fval = value;
-			nu.u = u;
-			m_uniformQueue.push(nu);
+			std::cout << "error shaderProgram is NULL" << endl;
+		
 		}
 	}
 	else
 	{
-		std::cout << "Warning shaderProgram is NULL,But Uniform Value push in then queue!" << endl;
-		name_uniform nu;
-		nu.valName = valName;
-		uniformValue u;
-		u.tag = 'f';
-		u.uu.fval = value;
-		nu.u = u;
-		m_uniformQueue.push(nu);
+		std::cout << "error shaderProgram is NULL" << endl;
+	
 	}
 }
 
@@ -197,15 +152,12 @@ void Shader::setUniform4F(string valName, uniform_fv fv)
 		}
 		else
 		{
-			std::cout << "Warning shaderProgram is not Used,But Uniform Value push in then queue!" << endl;
-			
-			m_uniform4FQueue.push({ valName,fv });
+			std::cout << "error shaderProgram is NULL" << endl;
 		}
 	}
 	else
 	{
-		std::cout << "Warning shaderProgram is NULL,But Uniform Value push in then queue!" << endl;
-		m_uniform4FQueue.push({ valName,fv });
+		std::cout << "error shaderProgram is NULL" << endl;
 	}
 }
 
@@ -254,35 +206,5 @@ void Shader::releseShader()
 	for (size_t i = 0; i < m_uFragmentShaderCount; i++)
 	{
 		glDeleteShader(m_FragmentShader[i]);
-	}
-}
-
-void Shader::runUniformQueue()
-{
-	while (!m_uniformQueue.empty())
-	{
-		name_uniform nu = m_uniformQueue.front();
-		m_uniformQueue.pop();
-
-		
-		switch (nu.u.tag)
-		{
-		case 'i':
-			setUniformInt(nu.valName, nu.u.uu.ival);
-		case 'u':
-			setUniformInt(nu.valName, nu.u.uu.uval);
-		case 'f':
-			setUniformInt(nu.valName, nu.u.uu.fval);
-		default:
-			cout << "Tag ERROR!" << endl;
-		}
-	}
-
-	while (!m_uniform4FQueue.empty())
-	{
-		name_uniformFV nfv = m_uniform4FQueue.front();
-		m_uniform4FQueue.pop();
-
-		setUniform4F(nfv.valName, nfv.u);
 	}
 }
