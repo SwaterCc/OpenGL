@@ -143,6 +143,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Classes\data.h" />
     <ClInclude Include="..\Classes\Shader.h" />
     <ClInclude Include="..\opengl\include\GLFW\glfw3.h" />
     <ClInclude Include="..\opengl\include\GLFW\glfw3native.h" />

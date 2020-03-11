@@ -69,19 +69,22 @@ int main()
 
 	stbi_set_flip_vertically_on_load(true);
 
+	
+	
+
+	
 	//加入纹理
 	int height, width, nrChannels;
 	unsigned char* TextureData = stbi_load("../Resources/1.jpg", &width, &height, &nrChannels, 0);
-	
-	int h, w, c;
-	uchar* TextureData2 = stbi_load("../Resources/bg.jpg", &w, &h, &c, 0);
 
 	//创建纹理对象
 	unsigned int Texture;
 	glGenTextures(1, &Texture);
 
-	uint TexBg;
-	glGenTextures(1, &TexBg);
+	//激活纹理单元
+	glActiveTexture(GL_TEXTURE0);
+	//绑定纹理
+	glBindTexture(GL_TEXTURE_2D, Texture);
 
 	//设置纹理环绕方式
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
@@ -90,11 +93,6 @@ int main()
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);//纹理放大不可以使用多级渐远来设置纹理过滤
 
-
-	//激活纹理单元
-	glActiveTexture(GL_TEXTURE0);
-	//绑定纹理
-	glBindTexture(GL_TEXTURE_2D, Texture);
 	//传入纹理数据
 	if (TextureData)
 	{
@@ -110,11 +108,23 @@ int main()
 	{
 		std::cerr << "loading image failed !" << endl;
 	}
+	int h, w, c;
+	uchar* TextureData2 = stbi_load("../Resources/bg.jpg", &w, &h, &c, 0);
+
+	uint TexBg;
+	glGenTextures(1, &TexBg);
+
 	glActiveTexture(GL_TEXTURE1);
 	glBindTexture(GL_TEXTURE_2D, TexBg);
+	//设置纹理环绕方式
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
+	//设置纹理过滤方式
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);//纹理放大不可以使用多级渐远来设置纹理过滤
 	if (TextureData2)
 	{
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, TextureData2);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, TextureData2);
 		//第一个是纹理类型，第二个为多级渐远纹理的级别，0则为手动设置，第三个参数是希望opengl将图片以什么格式存储，第四个第五个是长宽，第六个固定为0
 		//第七第八为原图片格式的固定类型，最后是利用库取出的图片的真正数据
 		glGenerateMipmap(GL_TEXTURE_2D);

@@ -4,4 +4,24 @@
 typedef unsigned int uint;
 typedef unsigned char uchar;
 
+
+typedef union uniformValue_union {
+	int ival;
+	uint uval;
+	float fval;
+}uniformValue_union;
+
+
+typedef struct uniformValue {
+	char tag;
+	uniformValue_union uu;
+}uniformValue;
+
+typedef struct uniform_fv {
+	float v1;
+	float v2;
+	float v3;
+	float v4;
+}uniform_fv;
+
 #endif // !_DATA_H_
