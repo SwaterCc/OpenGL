@@ -4,6 +4,12 @@
 typedef unsigned int uint;
 typedef unsigned char uchar;
 
+enum ShaderType
+{
+	VertexShader = 1,
+	FragmentShader,
+};
+
 
 typedef union uniformValue_union {
 	int ival;

@@ -83,6 +83,7 @@ void Shader::useShaderProgream()
 	m_bIsShaderProgramUsed = true;
 }
 
+
 void Shader::setUniformOneInt(string valName, int value)
 {
 	if (m_nShaderProgram)

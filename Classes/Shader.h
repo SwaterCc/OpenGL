@@ -17,6 +17,7 @@ public:
 
 	GLuint getShaderProgram() { return m_nShaderProgram; }
 
+
 	void setUniformOneInt(string valName,int value);
 	void setUniformOneUInt(string valName, uint value);
 	void setUniformOneFloat(string valName, float value);

@@ -4,6 +4,11 @@
 
 #include<glad/glad.h>
 #include<GLFW/glfw3.h>
+
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 #include"../Classes/Shader.h"
 #include"../Classes/data.h"
 #define STB_IMAGE_IMPLEMENTATION
@@ -168,11 +173,19 @@ int main()
 	shaderManager.setUniformOneInt("ourTexture1", 0);
 	shaderManager.setUniformOneInt("ourTexture2", 1);
 
+	//先将当前矩形旋转后缩放
+	glm::mat4 tran = glm::mat4(1.0f);
+	tran = glm::rotate(tran, glm::radians(30.0f)/*将角度转换为弧度制*/, glm::vec3(0, 0, 1)/*三个值分别对应xyz轴*/);	//绕Z轴旋转85°
+	tran = glm::scale(tran, glm::vec3(0.7, 0.7, 0.7)/*对每个轴乘一个系数*/);
+
+	uint transform = glGetUniformLocation(shaderManager.getShaderProgram(), "transform");
+	glUniformMatrix4fv(transform, 1, GL_FALSE, glm::value_ptr(tran));
+
+
 	while (!glfwWindowShouldClose(windows))
 	{
 		glClearColor(0.2f, 0.3f, 0.1f, 1);
 		glClear(GL_COLOR_BUFFER_BIT);
-
 		
 		//glUseProgram(shaderProgream);
 		//glDrawArrays(GL_TRIANGLES, 0, 3);
