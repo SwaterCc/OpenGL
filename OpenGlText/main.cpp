@@ -1,20 +1,14 @@
 ﻿//2020.2.23 练习创建三角形
 //2020.2.23 增加索引绘画正方形
-#include<iostream>
 
-#include<glad/glad.h>
-#include<GLFW/glfw3.h>
-
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
-
+#include"../Classes/Include.h"
 #include"../Classes/Shader.h"
 #include"../Classes/data.h"
+
+
 #define STB_IMAGE_IMPLEMENTATION
 #include<stb_image.h>
 
-using namespace std;
 
 float vertexArr[] = {
 	 0.5f, 0.5f,0.0f, 1.0f,0.0f,0.0f, 1.0f,1.0f,
@@ -173,8 +167,20 @@ int main()
 	shaderManager.setUniformOneInt("ourTexture1", 0);
 	shaderManager.setUniformOneInt("ourTexture2", 1);
 
-	
+	//坐标系变换
 
+	glm::mat4 model = glm::mat4(1.0f);
+	model = rotate(model, radians(-55.0f), vec3(1.0, 0, 0));//绕x轴旋转
+
+	mat4 view = mat4(1.0f);
+	view = translate(view, vec3(0, 0, -3));	//沿着Z轴向后移动
+
+	mat4 projection = mat4(1.0f);
+	projection = perspective(radians(45.0f), float(800.0 / 600.0), 1.0f, 100.0f);
+
+	shaderManager.setUniform4MatrixFV("model", model);
+	shaderManager.setUniform4MatrixFV("view", view);
+	shaderManager.setUniform4MatrixFV("projection", projection);
 
 	while (!glfwWindowShouldClose(windows))
 	{
@@ -187,9 +193,9 @@ int main()
 		tran = glm::rotate(tran, (float)glfwGetTime()/*将角度转换为弧度制*/, glm::vec3(0.5, 1, 0)/*三个值分别对应xyz轴*/);	//绕Z轴旋转85°
 		tran = glm::scale(tran, glm::vec3(0.7, 0.7, 0.7)/*对每个轴乘一个系数*/);
 
-		uint transform = glGetUniformLocation(shaderManager.getShaderProgram(), "transform");
-		glUniformMatrix4fv(transform, 1, GL_FALSE, glm::value_ptr(tran));
-
+		//uint transform = glGetUniformLocation(shaderManager.getShaderProgram(), "transform");
+		//glUniformMatrix4fv(transform, 1, GL_FALSE, glm::value_ptr(tran));
+		//shaderManager.setUniform4MatrixFV("transform", tran);
 
 
 		//glUseProgram(shaderProgream);

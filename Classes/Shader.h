@@ -1,11 +1,10 @@
 #ifndef _Shader_H_
 #define _Shader_H_
-#include<iostream>
+
 #include<vector>
 #include<queue>
-#include<glad/glad.h>
 #include"data.h"
-using namespace std;
+#include "Include.h"
 
 class Shader{
 public:
@@ -23,6 +22,7 @@ public:
 	void setUniformOneFloat(string valName, float value);
 	void setUniform4F(string valName, uniform_fv fv);
 
+	void setUniform4MatrixFV(string valName, mat4 matrix);
 private:
 	string readFile(std::string path);
 	void ShaderCompiledLog(GLuint shaderID);
