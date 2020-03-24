@@ -4,7 +4,7 @@
 #include"../Classes/Include.h"
 #include"../Classes/Shader.h"
 #include"../Classes/data.h"
-
+#include"../Classes/Text_Vertexs_Data.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include<stb_image.h>
@@ -57,19 +57,18 @@ int main()
 	glGenBuffers(1, &VBOID);
 	glBindBuffer(GL_ARRAY_BUFFER, VBOID);//一定注意先绑定后设置属性
 
-	glBufferData(GL_ARRAY_BUFFER,sizeof(vertexArr),vertexArr,GL_STATIC_DRAW);
+	//glBufferData(GL_ARRAY_BUFFER,sizeof(vertexArr),vertexArr,GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(six_rect_vertices),six_rect_vertices,GL_STATIC_DRAW);
 	//glBindBuffer(GL_ARRAY_BUFFER, VBOID);放在这里是错误的
 	
 	//创建EBO（必须是在处于vao绑定状态时才可以绑定EBO，否则绑不上会报错）
-	GLuint EBOID;
-	glGenBuffers(1, &EBOID);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBOID);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW);
+	//2020.3.24 FIX
+	//GLuint EBOID;
+	//glGenBuffers(1, &EBOID);
+	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBOID);
+	//glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW);
 
 	stbi_set_flip_vertically_on_load(true);
-
-	
-	
 
 	
 	//加入纹理
@@ -143,19 +142,23 @@ int main()
 	//glBindVertexArray(VAOID);
 	//VAO的创建不能够在VEO之后
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
-	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+	//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+	//glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+	//glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * SIZE_FLOAT, (void*)(0));
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * SIZE_FLOAT, (void*)(3 * SIZE_FLOAT));
+
 	//glBindVertexArray(VAOID); 放在这里是错误的，必须先绑定再设置属性指针
 	
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
-	glEnableVertexAttribArray(2);
+	//glEnableVertexAttribArray(2);
 	//创建着色器
 	Shader shaderManager;
 
-	shaderManager.createShader("test_1.txt", GL_VERTEX_SHADER);
-	shaderManager.createShader("test_1.txt", GL_FRAGMENT_SHADER);
+	shaderManager.createShader("test_1.vs", GL_VERTEX_SHADER);
+	shaderManager.createShader("test_1.fs", GL_FRAGMENT_SHADER);
 
 	shaderManager.createProgram();
 	
@@ -168,40 +171,62 @@ int main()
 	shaderManager.setUniformOneInt("ourTexture2", 1);
 
 	//坐标系变换
+	
+	glm::vec3 cubePositions[] = {
+		glm::vec3(0.0f,  0.0f,  0.0f),
+		glm::vec3(2.0f,  5.0f, -15.0f),
+		glm::vec3(-1.5f, -2.2f, -2.5f),
+		glm::vec3(-3.8f, -2.0f, -12.3f),
+		glm::vec3(2.4f, -0.4f, -3.5f),
+		glm::vec3(-1.7f,  3.0f, -7.5f),
+		glm::vec3(1.3f, -2.0f, -2.5f),
+		glm::vec3(1.5f,  2.0f, -2.5f),
+		glm::vec3(1.5f,  0.2f, -1.5f),
+		glm::vec3(-1.3f,  1.0f, -1.5f)
+	};
 
-	glm::mat4 model = glm::mat4(1.0f);
-	model = rotate(model, radians(-55.0f), vec3(1.0, 0, 0));//绕x轴旋转
-
+	
 	mat4 view = mat4(1.0f);
-	view = translate(view, vec3(0, 0, -3));	//沿着Z轴向后移动
+	view = translate(view, vec3(0, 0, -3));
 
 	mat4 projection = mat4(1.0f);
 	projection = perspective(radians(45.0f), float(800.0 / 600.0), 1.0f, 100.0f);
+	
 
-	shaderManager.setUniform4MatrixFV("model", model);
-	shaderManager.setUniform4MatrixFV("view", view);
-	shaderManager.setUniform4MatrixFV("projection", projection);
+	glEnable(GL_DEPTH_TEST);
 
 	while (!glfwWindowShouldClose(windows))
 	{
 		glClearColor(0.2f, 0.3f, 0.1f, 1);
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 		
 
 		//先将当前矩形旋转后缩放
-		glm::mat4 tran = glm::mat4(1.0f);
-		tran = glm::rotate(tran, (float)glfwGetTime()/*将角度转换为弧度制*/, glm::vec3(0.5, 1, 0)/*三个值分别对应xyz轴*/);	//绕Z轴旋转85°
-		tran = glm::scale(tran, glm::vec3(0.7, 0.7, 0.7)/*对每个轴乘一个系数*/);
+		//glm::mat4 tran = glm::mat4(1.0f);
+		//tran = glm::rotate(tran, (float)glfwGetTime()/*将角度转换为弧度制*/, glm::vec3(0.5, 1, 0)/*三个值分别对应xyz轴*/);	//绕Z轴旋转85°
+		//tran = glm::scale(tran, glm::vec3(0.7, 0.7, 0.7)/*对每个轴乘一个系数*/);
 
 		//uint transform = glGetUniformLocation(shaderManager.getShaderProgram(), "transform");
 		//glUniformMatrix4fv(transform, 1, GL_FALSE, glm::value_ptr(tran));
 		//shaderManager.setUniform4MatrixFV("transform", tran);
+		for (int i = 0; i < 10; i++)
+		{
+			glm::mat4 model = glm::mat4(1.0f);
+			
+
+			model = translate(model, cubePositions[i]);
+			model = rotate(model, float(glfwGetTime()*(i+2)), vec3(1.0, 1.0, 0.5));//绕x轴旋转
+			//矩阵的顺序会影响结果
+
+			shaderManager.setUniform4MatrixFV("model", model);
+			shaderManager.setUniform4MatrixFV("view", view);
+			shaderManager.setUniform4MatrixFV("projection", projection);
 
 
-		//glUseProgram(shaderProgream);
-		//glDrawArrays(GL_TRIANGLES, 0, 3);
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-
+			//glUseProgram(shaderProgream);
+			glDrawArrays(GL_TRIANGLES, 0, 36);
+			//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		}
 		glfwSwapBuffers(windows);
 		glfwPollEvents();
 	}

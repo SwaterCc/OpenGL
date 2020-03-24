@@ -44,5 +44,8 @@
     <ClInclude Include="..\Classes\Include.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Text_Vertexs_Data.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

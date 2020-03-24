@@ -1,7 +1,7 @@
 #ifndef _DATA_H_
 #define _DATA_H_
 
-
+const int SIZE_FLOAT = sizeof(float);
 
 typedef unsigned int uint;
 typedef unsigned char uchar;
