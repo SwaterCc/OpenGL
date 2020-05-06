@@ -70,16 +70,16 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>E:\OpenGLTest\opengl\include;$(IncludePath)</IncludePath>
-    <LibraryPath>E:\openGL\OpenGlText\opengl\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>F:\OpenGL\opengl\include;$(IncludePath)</IncludePath>
+    <LibraryPath>F:\OpenGL\opengl\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>E:\OPGL\OpenGlText\opengl\include;$(IncludePath)</IncludePath>
     <LibraryPath>E:\OPGL\OpenGlText\opengl\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>E:\OpenGLTest\opengl\include;$(IncludePath)</IncludePath>
-    <LibraryPath>E:\OpenGLTest\opengl\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>F:\OpenGL\opengl\include;$(IncludePath)</IncludePath>
+    <LibraryPath>F:\OpenGL\opengl\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>E:\OPGL\OpenGlText\opengl\include;$(IncludePath)</IncludePath>
