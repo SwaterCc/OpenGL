@@ -186,18 +186,40 @@ int main()
 	};
 
 	
-	mat4 view = mat4(1.0f);
-	view = translate(view, vec3(0, 0, -3));
+	/*mat4 view = mat4(1.0f);
+	view = translate(view, vec3(0, 0, -3));*/
 
 	mat4 projection = mat4(1.0f);
 	projection = perspective(radians(45.0f), float(800.0 / 600.0), 1.0f, 100.0f);
 	
 
-	glEnable(GL_DEPTH_TEST);
+	//2020.5.6
+	//创建摄像机
 
+	//vec3 cameraPos = glm::vec3(0, 0, 3.0f);	//摄像机位置
+
+	vec3 cameraTarget = glm::vec3(0, 0, 0);//世界坐标原点
+	//vec3 cameraDirection = glm::vec3(cameraPos - cameraTarget); // 获得指向摄像机的方向向量（摄像机Z轴正方向）
+
+	vec3 Up = glm::vec3(0.0, 1.0, 0.0);//上轴
+	//vec3 cameraX = glm::normalize(glm::cross(Up, cameraDirection));//x轴
+	//vec3 cameraY = glm::normalize(glm::cross(cameraX, cameraDirection));//Y轴
+
+
+	//Look At 矩阵
+	mat4 view = mat4(1.0f);
+	
+	float radios = 10.0f;
+	
+	
+
+
+
+	glEnable(GL_DEPTH_TEST);
+	shaderManager.setUniform4MatrixFV("projection", projection);
 	while (!glfwWindowShouldClose(windows))
 	{
-		glClearColor(0.2f, 0.3f, 0.1f, 1);
+		glClearColor(0.2f, 0.35f, 0.5f, 1);
 		glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 		
 
@@ -209,6 +231,15 @@ int main()
 		//uint transform = glGetUniformLocation(shaderManager.getShaderProgram(), "transform");
 		//glUniformMatrix4fv(transform, 1, GL_FALSE, glm::value_ptr(tran));
 		//shaderManager.setUniform4MatrixFV("transform", tran);
+		
+		float glmX = sin(glfwGetTime()) * radios;
+		float glmZ = cos(glfwGetTime()) * radios;
+
+		vec3 cameraShow = vec3(glmX, 0, glmZ);
+		view = glm::lookAt(cameraShow, cameraTarget, Up);//需要三个参数，摄像机位置向量，目标原点向量，上向量
+
+		shaderManager.setUniform4MatrixFV("view", view);
+
 		for (int i = 0; i < 10; i++)
 		{
 			glm::mat4 model = glm::mat4(1.0f);
@@ -219,10 +250,6 @@ int main()
 			//矩阵的顺序会影响结果
 
 			shaderManager.setUniform4MatrixFV("model", model);
-			shaderManager.setUniform4MatrixFV("view", view);
-			shaderManager.setUniform4MatrixFV("projection", projection);
-
-
 			//glUseProgram(shaderProgream);
 			glDrawArrays(GL_TRIANGLES, 0, 36);
 			//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
