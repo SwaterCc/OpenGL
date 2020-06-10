@@ -22,6 +22,22 @@ GLuint elements[] = {
 	0,2,3
 };
 
+bool firstMoveCursor = true;
+
+double YawN = -90.0f;
+double Pitch = 0.0f;
+//默认第一次为屏幕中心
+float lastX = 400;
+float lastY = 300;
+float fov = 45.0f;
+vec3 gload_cameraPos;
+
+vec3 cameraFront = vec3(0,0,-1);
+
+void processInput(GLFWwindow* window);
+
+void mouse_callBack(GLFWwindow* window,double xpos,double ypos);
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 int main()
 {
 	//初始化glfw环境
@@ -190,14 +206,14 @@ int main()
 	view = translate(view, vec3(0, 0, -3));*/
 
 	mat4 projection = mat4(1.0f);
-	projection = perspective(radians(45.0f), float(800.0 / 600.0), 1.0f, 100.0f);
+	
 	
 
 	//2020.5.6
 	//创建摄像机
 
-	//vec3 cameraPos = glm::vec3(0, 0, 3.0f);	//摄像机位置
-
+	vec3 cameraPos = glm::vec3(0, 0, 3.0f);	//摄像机位置
+	gload_cameraPos = cameraPos;
 	vec3 cameraTarget = glm::vec3(0, 0, 0);//世界坐标原点
 	//vec3 cameraDirection = glm::vec3(cameraPos - cameraTarget); // 获得指向摄像机的方向向量（摄像机Z轴正方向）
 
@@ -207,18 +223,24 @@ int main()
 
 
 	//Look At 矩阵
-	mat4 view = mat4(1.0f);
-	
+	mat4 view = mat4(1.0f);	
 	float radios = 10.0f;
+
+	//创建FPS视角
+	glfwSetInputMode(windows, GLFW_CURSOR, GLFW_CURSOR_DISABLED);//窗口关闭光标显示
 	
-	
-
-
-
+	//注册鼠标回调函数
+	glfwSetCursorPosCallback(windows, mouse_callBack);
+	//注册滚轮回调函数
+	glfwSetScrollCallback(windows, scroll_callback);
 	glEnable(GL_DEPTH_TEST);
-	shaderManager.setUniform4MatrixFV("projection", projection);
+	
 	while (!glfwWindowShouldClose(windows))
 	{
+
+		processInput(windows);
+
+
 		glClearColor(0.2f, 0.35f, 0.5f, 1);
 		glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 		
@@ -232,12 +254,15 @@ int main()
 		//glUniformMatrix4fv(transform, 1, GL_FALSE, glm::value_ptr(tran));
 		//shaderManager.setUniform4MatrixFV("transform", tran);
 		
-		float glmX = sin(glfwGetTime()) * radios;
-		float glmZ = cos(glfwGetTime()) * radios;
+		//float glmX = sin(glfwGetTime()) * radios;
+		//float glmZ = cos(glfwGetTime()) * radios;
 
-		vec3 cameraShow = vec3(glmX, 0, glmZ);
-		view = glm::lookAt(cameraShow, cameraTarget, Up);//需要三个参数，摄像机位置向量，目标原点向量，上向量
-
+		//vec3 cameraShow = vec3(glmX, 0, glmZ);
+		//view = glm::lookAt(cameraShow, cameraTarget, Up);//需要三个参数，摄像机位置向量，目标原点向量，上向量
+		projection = perspective(radians(fov), float(800.0 / 600.0), 1.0f, 100.0f);
+		shaderManager.setUniform4MatrixFV("projection", projection);
+		view = glm::lookAt(gload_cameraPos, cameraTarget + cameraFront, Up);
+		
 		shaderManager.setUniform4MatrixFV("view", view);
 
 		for (int i = 0; i < 10; i++)
@@ -260,4 +285,62 @@ int main()
 
 	glfwTerminate();
 	return 0;
+}
+
+void processInput(GLFWwindow* window)
+{
+	float cameraSpeed = 0.5f;
+
+	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+		gload_cameraPos += cameraSpeed * cameraFront;
+	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+		gload_cameraPos -= cameraSpeed * cameraFront;
+	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+		gload_cameraPos -= glm::normalize(glm::cross(cameraFront, vec3(0,1,0))) * cameraSpeed;
+	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+		gload_cameraPos += glm::normalize(glm::cross(cameraFront, vec3(0, 1, 0))) * cameraSpeed;
+}
+
+void mouse_callBack(GLFWwindow* window, double xpos, double ypos)
+{
+
+	if (firstMoveCursor)
+	{
+		lastX = xpos;
+		lastY = ypos;
+		firstMoveCursor = false;
+	}
+
+	float xoffset = xpos - lastX;
+	float yoffset = lastY - ypos;
+	lastX = xpos;
+	lastY = ypos;
+
+	float sensitivity = 0.05;
+	xoffset *= sensitivity;
+	yoffset *= sensitivity;
+
+	YawN += xoffset;
+	Pitch += yoffset;
+
+	if (Pitch > 89.0f)
+		Pitch = 89.0f;
+	if (Pitch < -89.0f)
+		Pitch = -89.0f;
+
+	glm::vec3 front;
+	front.x = cos(glm::radians(YawN)) * cos(glm::radians(Pitch));
+	front.y = sin(glm::radians(Pitch));
+	front.z = sin(glm::radians(YawN)) * cos(glm::radians(Pitch));
+	cameraFront = glm::normalize(front);
+}
+
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
+{
+	if (fov >= 1.0f && fov <= 45.0f)
+		fov -= yoffset;
+	if (fov <= 1.0f)
+		fov = 1.0f;
+	if (fov >= 45.0f)
+		fov = 45.0f;
 }
