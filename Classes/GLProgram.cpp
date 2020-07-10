@@ -1,9 +1,9 @@
-#include "Shader.h"
+#include "GLProgram.h"
 #include<fstream>
 #include<string>
 #include<sstream>
 
-Shader::Shader()
+GLProgram::GLProgram()
 {
 	m_VertexShader.clear();
 	m_FragmentShader.clear();
@@ -15,7 +15,7 @@ Shader::Shader()
 	m_bIsShaderProgramUsed = false;
 }
 
-void Shader::createShader(std::string ShaderFile, unsigned int shaderType)
+void GLProgram::createShader(std::string ShaderFile, unsigned int shaderType)
 {
 	string path = "";
 	if (shaderType == GL_VERTEX_SHADER)
@@ -54,7 +54,7 @@ void Shader::createShader(std::string ShaderFile, unsigned int shaderType)
 	}	
 }
 
-void Shader::createProgram()
+void GLProgram::createProgram()
 {
 	m_nShaderProgram = glCreateProgram();
 	if (m_VertexShader.size())
@@ -77,14 +77,14 @@ void Shader::createProgram()
 	releseShader();
 }
 
-void Shader::useShaderProgream()
+void GLProgram::useShaderProgream()
 {
 	glUseProgram(m_nShaderProgram);
 	m_bIsShaderProgramUsed = true;
 }
 
 
-void Shader::setUniformOneInt(string valName, int value)
+void GLProgram::setUniformOneInt(string valName, int value)
 {
 	if (m_nShaderProgram)
 	{
@@ -100,7 +100,7 @@ void Shader::setUniformOneInt(string valName, int value)
 	}
 }
 
-void Shader::setUniformOneUInt(string valName, uint value)
+void GLProgram::setUniformOneUInt(string valName, uint value)
 {
 	if (m_nShaderProgram)
 	{
@@ -120,7 +120,7 @@ void Shader::setUniformOneUInt(string valName, uint value)
 	}
 }
 
-void Shader::setUniformOneFloat(string valName, float value)
+void GLProgram::setUniformOneFloat(string valName, float value)
 {
 	if (m_nShaderProgram)
 	{
@@ -142,7 +142,7 @@ void Shader::setUniformOneFloat(string valName, float value)
 	}
 }
 
-void Shader::setUniform4F(string valName, uniform_fv fv)
+void GLProgram::setUniform4F(string valName, uniform_fv fv)
 {
 	if (m_nShaderProgram)
 	{
@@ -162,7 +162,7 @@ void Shader::setUniform4F(string valName, uniform_fv fv)
 	}
 }
 
-void Shader::setUniform4MatrixFV(string valName, mat4 matrix)
+void GLProgram::setUniform4MatrixFV(string valName, mat4 matrix)
 {
 	if (m_nShaderProgram)
 	{
@@ -182,7 +182,7 @@ void Shader::setUniform4MatrixFV(string valName, mat4 matrix)
 	}
 }
 
-string Shader::readFile(std::string path)
+string GLProgram::readFile(std::string path)
 {
 	ifstream ins;
 	stringstream stros;
@@ -204,7 +204,7 @@ string Shader::readFile(std::string path)
 	return res;
 }
 
-void Shader::ShaderCompiledLog(GLuint shaderID)
+void GLProgram::ShaderCompiledLog(GLuint shaderID)
 {
 	int success;
 	char log[512];
@@ -218,7 +218,7 @@ void Shader::ShaderCompiledLog(GLuint shaderID)
 	}
 }
 
-void Shader::releseShader()
+void GLProgram::releseShader()
 {
 	for (size_t i = 0; i < m_uVertexShaderCount; i++)
 	{

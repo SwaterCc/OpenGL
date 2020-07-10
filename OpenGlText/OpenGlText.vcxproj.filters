@@ -1,51 +1,126 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="源文件">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="头文件">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="资源文件">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ThirdPartylib">
+      <UniqueIdentifier>{b186e410-f2ef-48df-9094-f14b23b67037}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Framework">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Utility">
+      <UniqueIdentifier>{82e9360f-07fa-41de-a2a4-ea305326fcde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sence">
+      <UniqueIdentifier>{585b8c6c-fc1d-438f-9d98-e1764581efc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{834c467b-4368-43e5-b14a-69bdf0528929}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Base">
+      <UniqueIdentifier>{310e7dfe-c6c1-4427-b1ad-85924be5b09a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Cube">
+      <UniqueIdentifier>{6ea0df90-55fd-42ed-bce3-3eaaa798f335}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Square">
+      <UniqueIdentifier>{4415fec4-ff49-4069-9ed4-d6cc262be793}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\opengl\src\glad.c">
-      <Filter>源文件</Filter>
+      <Filter>ThirdPartylib</Filter>
+    </ClCompile>
+    <ClCompile Include="GlfWwindow.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\RenderPipelineManager.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DefaultSence.cpp">
+      <Filter>Sence</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Square.cpp">
+      <Filter>Object\Square</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GLShaderProgreamCatch.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GLProgram.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ObjectBase.cpp">
+      <Filter>Object\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="main_old.cpp">
+      <Filter>Framework</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Shader.cpp">
-      <Filter>头文件</Filter>
+      <Filter>Framework</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\opengl\include\GLFW\glfw3.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\opengl\include\GLFW\glfw3native.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\opengl\include\stb_image.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Shader.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\data.h">
-      <Filter>头文件</Filter>
+      <Filter>Include</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Include.h">
-      <Filter>头文件</Filter>
+      <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Text_Vertexs_Data.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="..\opengl\include\GLFW\glfw3native.h">
+      <Filter>ThirdPartylib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\include\GLFW\glfw3.h">
+      <Filter>ThirdPartylib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\include\stb_image.h">
+      <Filter>ThirdPartylib</Filter>
+    </ClInclude>
+    <ClInclude Include="GlfWwindow.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\RenderPipelineManager.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ObjectBase.h">
+      <Filter>Object\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CustomUtilityTool.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DefaultSence.h">
+      <Filter>Sence</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ISence.h">
+      <Filter>Sence</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SenceInclude.h">
+      <Filter>Sence</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Square.h">
+      <Filter>Object\Square</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\makeFileInclude.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GLObject.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Vertexs_Data.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GLShaderProgreamCatch.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GLProgram.h">
+      <Filter>Framework</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

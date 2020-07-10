@@ -10,6 +10,7 @@
 
 #include <cmath>
 
+#include "data.h"
 using namespace std;
 using namespace glm;
 

@@ -1,14 +1,14 @@
-#ifndef _Shader_H_
-#define _Shader_H_
+#ifndef _GLProgram_H_
+#define _GLProgram_H_
 
 #include<vector>
 #include<queue>
 #include"data.h"
 #include "Include.h"
 
-class Shader{
+class GLProgram{
 public:
-	Shader();
+	GLProgram();
 public:
 	void createShader(std::string ShaderFile , unsigned int shaderType);
 	void createProgram();
@@ -27,7 +27,6 @@ private:
 	string readFile(std::string path);
 	void ShaderCompiledLog(GLuint shaderID);
 	void releseShader();
-	
 private:
 
 	std::vector<GLuint> m_VertexShader;
@@ -39,8 +38,7 @@ private:
 
 	//uniform÷µ¥Ê¥¢
 	bool m_bIsShaderProgramUsed;//shaderProgram ±ªuse
-
 };
 
 
-#endif // _ShaderManager_H_
+#endif // _GLProgram_H_
