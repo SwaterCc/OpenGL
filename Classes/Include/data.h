@@ -57,11 +57,11 @@ typedef struct ColorData
 	float B;
 	float A;
 
-	ColorData(float r = 0.0f, float g = 0.0f, float b = 0.0f, float a = 0.0f)
+	ColorData(float r = 0.0f, float g = 0.0f, float b = 0.0f, float a = 1.0f)
 		:R(r),G(g),B(b),A(a) {}
-};
+}Color4;
 #define c3(r,g,b) ColorData(r,g,b)
-
+#define c4(r,g,b,a) ColorData(r,g,b,a)
 
 typedef struct VertexData_3
 {
@@ -73,6 +73,20 @@ typedef struct VertexData_3
 		:X(x), Y(y), Z(z) {}
 
 }Vec3;
+
+typedef struct uVertexData_3
+{
+	uint X;
+	uint Y;
+	uint Z;
+
+	uVertexData_3(uint x = 0, uint y = 0, uint z = 0)
+		:X(x), Y(y), Z(z) {}
+
+}uVec3;
+
+#define v3(x,y,z) Vec3(x,y,z)
+#define uv3(x,y,z) uVec3(x,y,z)
 
 typedef struct VertexData_4
 {
@@ -99,6 +113,7 @@ typedef struct Quad_Vertex
 	VCT_Data lt;
 	VCT_Data lb;
 	VCT_Data rb;
+
 }Quad_Vertex;
 
 #define SIZE_QUAD_UNIT sizeof(VCT_Data)

@@ -1,8 +1,8 @@
 #ifndef _ObjectBase_h_
 #define _ObjectBase_h_
 #include<iostream>
-#include "RenderPipelineManager.h"
-#include "GLProgram.h"
+#include "../Framework/RenderPipelineManager.h"
+#include "../Framework/GLProgram.h"
 enum {
 	VertexAttrib_Position = 0,
 	VertexAttrib_Color = 1,

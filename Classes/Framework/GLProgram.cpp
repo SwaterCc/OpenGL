@@ -73,6 +73,14 @@ void GLProgram::createProgram()
 		}
 	}
 	glLinkProgram(m_nShaderProgram);
+	int success = 0;
+	char infoLog[512];
+	memset(infoLog, 0, 512);
+	glGetProgramiv(m_nShaderProgram, GL_LINK_STATUS, &success);
+	if (!success) {
+		glGetProgramInfoLog(m_nShaderProgram, 512, NULL, infoLog);
+		std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
+	}
 
 	releseShader();
 }
@@ -127,7 +135,7 @@ void GLProgram::setUniformOneFloat(string valName, float value)
 		uint localUniform = glGetUniformLocation(m_nShaderProgram, valName.c_str());
 		if (m_bIsShaderProgramUsed)
 		{
-			glUniform1i(localUniform, value);
+			glUniform1f(localUniform, value);
 		}
 		else
 		{

@@ -1,6 +1,6 @@
 ﻿//2020.2.23 练习创建三角形
 //2020.2.23 增加索引绘画正方形
-
+/**
 #include"../Classes/Include.h"
 #include"../Classes/GLProgram.h"
 #include"../Classes/data.h"
@@ -345,3 +345,4 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 	if (fov >= 45.0f)
 		fov = 45.0f;
 }
+**/

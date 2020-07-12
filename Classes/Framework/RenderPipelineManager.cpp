@@ -1,6 +1,6 @@
 #include "RenderPipelineManager.h"
-#include "ObjectBase.h"
-#include "SenceInclude.h"
+#include "../Object/ObjectBase.h"
+#include "../Sence/SenceInclude.h"
 #include "GLShaderProgreamCatch.h"
 
 RenderPiplineManager* RenderPiplineManager::m_pInstance = nullptr;

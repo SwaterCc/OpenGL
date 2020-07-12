@@ -4,28 +4,28 @@
 /***************************************************/
 /*************用于控制GLFW窗口初始化****************/
 /***************************************************/
-#include"../Classes/Include.h"
+#include"../Include/Include.h"
 
-class GLFWwindow
+class GLMainWindow
 {
 	const int _VIEW_HEIGHT_ = 600;
 	const int _VIEW_WIDTH_ = 800;
 	const char* _VIEW_TITLE_ = "OpenGL";
 public:
-	static GLFWwindow* getInstance();
+	static GLMainWindow* getInstance();
 
 	void start();
 protected:
 
 private:
-	GLFWwindow();
-	~GLFWwindow();
+	GLMainWindow();
+	~GLMainWindow();
 	
 	GLFWwindow* m_pGLFWwindow;
 
 	void initGLAD();
 	
-	static GLFWwindow* m_pInstance;
+	static GLMainWindow* m_pInstance;
 };
 
 

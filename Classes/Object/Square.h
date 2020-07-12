@@ -1,8 +1,8 @@
 #ifndef _Square_h_
 #define _Square_h_
-#include "Include.h"
+#include "../Include/Include.h"
 #include "ObjectBase.h"
-#include "makeFileInclude.h"
+#include "../Include/makeFileInclude.h"
 OBJECT_BEGIN
 
 class Square : public ObjectBase
@@ -19,7 +19,7 @@ private:
 	GLuint m_uVEO;
 
 	Quad_Vertex  m_pSquareVertexData;
-	Vec3 m_pSquareVertexElement[2];
+	uVec3 m_pSquareVertexElement[2];
 };
 
 OBJECT_END

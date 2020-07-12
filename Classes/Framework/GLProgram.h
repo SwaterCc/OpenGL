@@ -3,8 +3,8 @@
 
 #include<vector>
 #include<queue>
-#include"data.h"
-#include "Include.h"
+#include"../Include/data.h"
+#include "../Include/Include.h"
 
 class GLProgram{
 public:

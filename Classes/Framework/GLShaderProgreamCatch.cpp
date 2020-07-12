@@ -47,7 +47,7 @@ void GLShaderProgreamCatch::init()
 
 void GLShaderProgreamCatch::loadShaderFile(GLProgram* p, std::string vertexShaderFile, std::string fragmentShaderFile)
 {
-	assert(vertexShaderFile != "" && fragmentShaderFile != "","shaderFilePath is not empty!");
+	assert(vertexShaderFile != "" && fragmentShaderFile != "");
 	p->createShader(vertexShaderFile, GL_VERTEX_SHADER);
 	p->createShader(fragmentShaderFile, GL_FRAGMENT_SHADER);
 }

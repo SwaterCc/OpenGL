@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="资源文件">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="ThirdPartylib">
       <UniqueIdentifier>{b186e410-f2ef-48df-9094-f14b23b67037}</UniqueIdentifier>
     </Filter>
@@ -34,31 +30,13 @@
     <Filter Include="Object\Square">
       <UniqueIdentifier>{4415fec4-ff49-4069-9ed4-d6cc262be793}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\Triangle">
+      <UniqueIdentifier>{80a366b0-dd3a-42cf-8c49-9e85c171ae78}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\opengl\src\glad.c">
       <Filter>ThirdPartylib</Filter>
-    </ClCompile>
-    <ClCompile Include="GlfWwindow.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\RenderPipelineManager.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\DefaultSence.cpp">
-      <Filter>Sence</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Square.cpp">
-      <Filter>Object\Square</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\GLShaderProgreamCatch.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\GLProgram.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ObjectBase.cpp">
-      <Filter>Object\Base</Filter>
     </ClCompile>
     <ClCompile Include="main_old.cpp">
       <Filter>Framework</Filter>
@@ -66,14 +44,29 @@
     <ClCompile Include="main.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Framework\GLProgram.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Framework\GLShaderProgreamCatch.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Framework\RenderPipelineManager.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Object\ObjectBase.cpp">
+      <Filter>Object\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Object\Square.cpp">
+      <Filter>Object\Square</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Sence\DefaultSence.cpp">
+      <Filter>Sence</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Framework\GlMainWindow.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Classes\data.h">
-      <Filter>Include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Include.h">
-      <Filter>Include</Filter>
-    </ClInclude>
     <ClInclude Include="..\opengl\include\GLFW\glfw3native.h">
       <Filter>ThirdPartylib</Filter>
     </ClInclude>
@@ -83,43 +76,49 @@
     <ClInclude Include="..\opengl\include\stb_image.h">
       <Filter>ThirdPartylib</Filter>
     </ClInclude>
-    <ClInclude Include="GlfWwindow.h">
+    <ClInclude Include="..\Classes\Framework\GLProgram.h">
       <Filter>Framework</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\RenderPipelineManager.h">
+    <ClInclude Include="..\Classes\Framework\GLShaderProgreamCatch.h">
       <Filter>Framework</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\ObjectBase.h">
+    <ClInclude Include="..\Classes\Framework\RenderPipelineManager.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Include\data.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Include\GLObject.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Include\Include.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Include\makeFileInclude.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Object\ObjectBase.h">
       <Filter>Object\Base</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\CustomUtilityTool.h">
-      <Filter>Utility</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\DefaultSence.h">
-      <Filter>Sence</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ISence.h">
-      <Filter>Sence</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\SenceInclude.h">
-      <Filter>Sence</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Square.h">
+    <ClInclude Include="..\Classes\Object\Square.h">
       <Filter>Object\Square</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\makeFileInclude.h">
-      <Filter>Include</Filter>
+    <ClInclude Include="..\Classes\Sence\DefaultSence.h">
+      <Filter>Sence</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\GLObject.h">
-      <Filter>Include</Filter>
+    <ClInclude Include="..\Classes\Sence\ISence.h">
+      <Filter>Sence</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Vertexs_Data.h">
-      <Filter>Include</Filter>
+    <ClInclude Include="..\Classes\Sence\SenceInclude.h">
+      <Filter>Sence</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\GLShaderProgreamCatch.h">
-      <Filter>Framework</Filter>
+    <ClInclude Include="..\Classes\Object\Vertexs_Data.h">
+      <Filter>Object\Base</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\GLProgram.h">
+    <ClInclude Include="..\Classes\Utility\CustomUtilityTool.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Framework\GlMainWindow.h">
       <Filter>Framework</Filter>
     </ClInclude>
   </ItemGroup>

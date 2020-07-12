@@ -1,18 +1,18 @@
-#include "GlfWwindow.h"
-#include "../Classes/RenderPipelineManager.h"
-#include "../Classes/GLShaderProgreamCatch.h"
-GLFWwindow* GLFWwindow::m_pInstance = nullptr;
+#include "GlMainWindow.h"
+#include "RenderPipelineManager.h"
+#include "GLShaderProgreamCatch.h"
+GLMainWindow* GLMainWindow::m_pInstance = nullptr;
 
-GLFWwindow* GLFWwindow::getInstance()
+GLMainWindow* GLMainWindow::getInstance()
 {
 	if (m_pInstance == nullptr)
 	{
-		m_pInstance = new GLFWwindow();
+		m_pInstance = new GLMainWindow();
 	}
 	return m_pInstance;
 }
 
-void GLFWwindow::start()
+void GLMainWindow::start()
 {
 	if (m_pGLFWwindow == nullptr)
 		m_pGLFWwindow = glfwCreateWindow(_VIEW_WIDTH_, _VIEW_HEIGHT_, _VIEW_TITLE_, NULL, NULL);
@@ -22,7 +22,7 @@ void GLFWwindow::start()
 	//场景初始化
 	RenderPiplineManager::getInstance()->createSence(SenceType_Default);//默认
 	//模式设置
-	glEnable(GL_DEPTH_TEST);
+	//glEnable(GL_DEPTH_TEST);
 	//主循环
 
 	while (!glfwWindowShouldClose(m_pGLFWwindow))
@@ -46,7 +46,7 @@ void GLFWwindow::start()
 }
 
 
-GLFWwindow::GLFWwindow()
+GLMainWindow::GLMainWindow()
 {
 	m_pGLFWwindow = nullptr;
 	//初始化GLFW环境
@@ -60,12 +60,12 @@ GLFWwindow::GLFWwindow()
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 }
 
-GLFWwindow::~GLFWwindow()
+GLMainWindow::~GLMainWindow()
 {
 	
 }
 
-void GLFWwindow::initGLAD()
+void GLMainWindow::initGLAD()
 {
 	//初始化GLAD 
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))

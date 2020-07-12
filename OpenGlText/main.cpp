@@ -1,7 +1,7 @@
-#include"GlfWwindow.h"
+#include"../Classes/Framework/GlMainWindow.h"
 
 int main()
 {
-	GLFWwindow::getInstance()->start();
+	GLMainWindow::getInstance()->start();
 	return 0;
 }
