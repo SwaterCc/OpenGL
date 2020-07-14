@@ -1,5 +1,5 @@
 #include "Square.h"
-#include "../Framework/GLShaderProgreamCatch.h"
+
 OBJECT_BEGIN
 
 Square* Square::create()
@@ -31,9 +31,9 @@ void Square::init()
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(m_pSquareVertexElement), &m_pSquareVertexElement, GL_STATIC_DRAW);
 	
 	//顶点属性
-	glVertexAttribPointer(VertexAttrib_Position, 3, GL_FLOAT, GL_FALSE, sizeof(VCT_Data), (void*)0);
-	glVertexAttribPointer(VertexAttrib_Color, 4, GL_FLOAT, GL_FALSE, sizeof(VCT_Data), OFFSET_COLOR);
-	glVertexAttribPointer(VertexAttrib_Texture, 2, GL_FLOAT, GL_FALSE, sizeof(VCT_Data), OFFSET_TEXTURE);
+	glVertexAttribPointer(VertexAttrib_Position, 3, GL_FLOAT, GL_FALSE, SIZE_VERTEX_UNIT, OFFSET_POSITION);
+	glVertexAttribPointer(VertexAttrib_Color, 4, GL_FLOAT, GL_FALSE, SIZE_VERTEX_UNIT, OFFSET_COLOR);
+	glVertexAttribPointer(VertexAttrib_Texture, 2, GL_FLOAT, GL_FALSE, SIZE_VERTEX_UNIT, OFFSET_TEXTURE);
 	
 	//属性激活
 	for (int i = 0; i < VertexAttrib_MaxNum; i++)
@@ -51,7 +51,7 @@ void Square::init()
 
 void Square::draw()
 {
-	m_uShaderProgram->useShaderProgream();
+	m_ShaderProgram->useShaderProgream();
 	glBindVertexArray(m_uVAO);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }

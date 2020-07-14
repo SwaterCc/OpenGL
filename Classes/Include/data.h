@@ -116,7 +116,37 @@ typedef struct Quad_Vertex
 
 }Quad_Vertex;
 
-#define SIZE_QUAD_UNIT sizeof(VCT_Data)
+typedef struct Triangle_Vertex
+{
+	VCT_Data p1;
+	VCT_Data p2;
+	VCT_Data p3;
+
+}Triangle_Vertex;
+
+typedef struct Point
+{
+	float X;
+	float Y;
+	Point(float x = 0.0f, float y = 0.0f):X(x),Y(y)
+	{}
+}point;
+
+typedef struct Size
+{
+	float width;
+	float height;
+	Size() :width(0), height(0) {}
+	Size(float w,float h):width(w),height(h){}
+};
+
+#define SizeMake(w,h) Size(w,h)
+
+
+#define PointZero Point(0,0)
+#define PointCenter Point(0.5f,0.5f);
+
+#define SIZE_VERTEX_UNIT sizeof(VCT_Data)
 #define QUAD_UNIT_NUM (sizeof(Vec3)+sizeof(ColorData)+sizeof(TextureCoord))
 #define OFFSET_POSITION (void*)(0)
 #define OFFSET_COLOR (void*)(sizeof(Vec3))

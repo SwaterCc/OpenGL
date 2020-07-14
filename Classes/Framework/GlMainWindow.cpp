@@ -20,9 +20,11 @@ void GLMainWindow::start()
 
 	initGLAD();
 	//场景初始化
+	RenderPiplineManager::getInstance()->setWinSize(SizeMake(_VIEW_WIDTH_, _VIEW_HEIGHT_));
 	RenderPiplineManager::getInstance()->createSence(SenceType_Default);//默认
 	//模式设置
-	//glEnable(GL_DEPTH_TEST);
+	glEnable(GL_DEPTH_TEST);
+	
 	//主循环
 
 	while (!glfwWindowShouldClose(m_pGLFWwindow))

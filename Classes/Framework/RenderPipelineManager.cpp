@@ -21,6 +21,7 @@ void RenderPiplineManager::mainLoop()
 	for (it = m_RenderingList.begin(); it != m_RenderingList.end(); it++)
 	{
 		(it->second)->draw();
+		glBindVertexArray(0);
 	}
 }
 
@@ -63,6 +64,7 @@ RenderPiplineManager::RenderPiplineManager()
 {
 	m_RenderingList.clear();
 	m_pProgramCatchInstance = GLShaderProgreamCatch::getInstance();
+	m_WindowSize = { 0,0 };
 }
 
 RenderPiplineManager::~RenderPiplineManager()

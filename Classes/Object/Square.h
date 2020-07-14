@@ -1,8 +1,8 @@
 #ifndef _Square_h_
 #define _Square_h_
-#include "../Include/Include.h"
+
 #include "ObjectBase.h"
-#include "../Include/makeFileInclude.h"
+
 OBJECT_BEGIN
 
 class Square : public ObjectBase

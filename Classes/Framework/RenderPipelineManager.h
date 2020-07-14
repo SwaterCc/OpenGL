@@ -2,14 +2,17 @@
 #define _RenderPiplineManager_H_
 
 #include "../Include/Include.h"
+#include "../Include/makeFileInclude.h"
 
 #include <map>
+
 
 class ObjectBase;
 class Sence;
 class GLShaderProgreamCatch;
 //typedef std::map<SenceType, Sence*> SenceList;
 typedef std::map<int,ObjectBase*> RenderingList;
+
 
 class RenderPiplineManager
 {
@@ -20,6 +23,8 @@ public:
 	void removeObjectAtIndex(int idx);
 
 	void createSence(SenceType type);
+	void setWinSize(Size size) { m_WindowSize = size; }
+	Size getWinSize() { return m_WindowSize; }
 private:
 	RenderPiplineManager();
 	~RenderPiplineManager();
@@ -30,6 +35,7 @@ private:
 	RenderingList m_RenderingList;
 	GLShaderProgreamCatch* m_pProgramCatchInstance;
 	//SenceList m_SenceList;
+	Size m_WindowSize;
 };
 
 

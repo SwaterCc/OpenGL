@@ -3,6 +3,8 @@
 #include<iostream>
 #include "../Framework/RenderPipelineManager.h"
 #include "../Framework/GLProgram.h"
+#include "../Include/makeFileInclude.h"
+#include "../Framework/GLShaderProgreamCatch.h"
 enum {
 	VertexAttrib_Position = 0,
 	VertexAttrib_Color = 1,
@@ -31,22 +33,24 @@ public:
 
 	virtual void draw() {}
 	
-
+	int& getRenderTag() { return _nRenderTag; }
 protected:
 	virtual void setProgram(GLProgram * GLProgram) { 
-		m_uShaderProgram = GLProgram; 
-		m_uProgramTarget = m_uShaderProgram->getShaderProgram();
+		m_ShaderProgram = GLProgram; 
+		m_uProgramTarget = m_ShaderProgram->getShaderProgram();
 	}
 protected:
 
 	virtual void init() {}
 
-	int getRenderTag() { return _nRenderTag; }
+	
 	int _nRenderTag;
 
 	GLuint m_uVBO, m_uVAO;
-	GLProgram * m_uShaderProgram;
+	GLProgram * m_ShaderProgram;
 	GLuint m_uProgramTarget;
+
+	Point m_AnchorPoint;
 };
 
 

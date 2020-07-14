@@ -33,6 +33,9 @@
     <Filter Include="Object\Triangle">
       <UniqueIdentifier>{80a366b0-dd3a-42cf-8c49-9e85c171ae78}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\Sprite">
+      <UniqueIdentifier>{f61d1b39-0442-426c-b41b-4553494bdd2f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\opengl\src\glad.c">
@@ -64,6 +67,15 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Framework\GlMainWindow.cpp">
       <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Object\Triangle.cpp">
+      <Filter>Object\Triangle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Sence\ISence.cpp">
+      <Filter>Sence</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Object\Sprite.cpp">
+      <Filter>Object\Sprite</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -120,6 +132,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Framework\GlMainWindow.h">
       <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Object\Triangle.h">
+      <Filter>Object\Triangle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Object\Sprite.h">
+      <Filter>Object\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Cube.h">
+      <Filter>Object\Cube</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
