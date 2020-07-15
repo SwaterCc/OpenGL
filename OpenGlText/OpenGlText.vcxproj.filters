@@ -77,6 +77,9 @@
     <ClCompile Include="..\Classes\Object\Sprite.cpp">
       <Filter>Object\Sprite</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Object\Cube.cpp">
+      <Filter>Object\Cube</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\opengl\include\GLFW\glfw3native.h">
@@ -139,8 +142,14 @@
     <ClInclude Include="..\Classes\Object\Sprite.h">
       <Filter>Object\Sprite</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Cube.h">
+    <ClInclude Include="..\Classes\Object\Cube.h">
       <Filter>Object\Cube</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Object\Texture.h">
+      <Filter>Object\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Object\VertexConfig.h">
+      <Filter>Object\Base</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
