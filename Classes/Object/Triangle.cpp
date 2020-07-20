@@ -23,7 +23,7 @@ Triangle* Triangle::create(Triangle_Vertex vertex)
 void Triangle::draw()
 {
 	m_ShaderProgram->useShaderProgream();
-	glBindVertexArray(m_uVAO);
+	glBindVertexArray(m_VertexConfig->getVAO());
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 }
 
@@ -41,32 +41,16 @@ Triangle::Triangle(Triangle_Vertex vertex):ObjectBase(),m_VertexData(vertex)
 
 Triangle::~Triangle()
 {
-	delete this;
+
 }
 
 void Triangle::init()
 {
-	glGenVertexArrays(1, &m_uVAO);
-	glBindVertexArray(m_uVAO);
-
-	glGenBuffers(1, &m_uVBO);
-	glBindBuffer(GL_ARRAY_BUFFER, m_uVBO);
-
-	glBufferData(GL_ARRAY_BUFFER, sizeof(Triangle_Vertex), &m_VertexData, GL_STATIC_DRAW);
-
-	glVertexAttribPointer(VertexAttrib_Position, 3, GL_FLOAT, GL_FALSE, SIZE_VERTEX_UNIT, OFFSET_POSITION);
-	glVertexAttribPointer(VertexAttrib_Color, 4, GL_FLOAT, GL_FALSE, SIZE_VERTEX_UNIT, OFFSET_COLOR);
-	glVertexAttribPointer(VertexAttrib_Texture, 2, GL_FLOAT, GL_FALSE, SIZE_VERTEX_UNIT, OFFSET_TEXTURE);
-
-	for (size_t i = 0; i < VertexAttrib_MaxNum; i++)
-	{
-		glEnableVertexAttribArray(i);
-	}
+	m_VertexConfig->setVBO(&m_VertexData, 1);
+	m_VertexConfig->setup(VERTEX_ATTRIB_POSITION | VERTEX_ATTRIB_COLOR | VERTEX_ATTRIB_TEXTURE);
 
 	auto program = GLShaderProgreamCatch::getInstance()->getGLProgream(ShaderProgramType_Default);
 	setProgram(program);
-
-	glBindVertexArray(0);
 }
 
 

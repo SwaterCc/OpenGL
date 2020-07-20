@@ -12,11 +12,11 @@ ObjectBase* ObjectBase::create()
 
 ObjectBase::ObjectBase()
 {
-	m_uVAO = 0;
-	m_uVBO = 0;
+	m_VertexConfig = new VertexConfig();
 	m_ShaderProgram = nullptr;
 	m_uProgramTarget = 0;
 
+	m_uVAO = m_VertexConfig->getVAO();
 	m_AnchorPoint = PointCenter;
 }
 

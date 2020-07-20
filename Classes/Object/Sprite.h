@@ -2,6 +2,8 @@
 #define _Sprite_h_
 
 #include"ObjectBase.h"
+#include"Texture.h"
+
 OBJECT_BEGIN
 class Sprite:public ObjectBase
 {
@@ -20,12 +22,7 @@ private:
 
 
 	std::string m_sTextureFile;
-	int m_nTexture_height;
-	int m_nTexture_width;
-	int m_nTexture_nrChanners;
-
-	GLuint m_uTexture;
-
+	Texture2D* m_pTex;
 	Quad_Vertex m_VertexData;
 };
 OBJECT_END

@@ -5,12 +5,8 @@
 #include "../Framework/GLProgram.h"
 #include "../Include/makeFileInclude.h"
 #include "../Framework/GLShaderProgreamCatch.h"
-enum {
-	VertexAttrib_Position = 0,
-	VertexAttrib_Color = 1,
-	VertexAttrib_Texture = 2,
-	VertexAttrib_MaxNum,
-};
+#include "VertexConfig.h"
+
 
 class ObjectBase
 {
@@ -19,7 +15,7 @@ public:
 	ObjectBase();
 	virtual ~ObjectBase();
 
-
+	virtual void setVertexConfig(VertexConfig * config) { m_VertexConfig = config; }
 
 	virtual void addToRenderingList() 
 	{
@@ -34,22 +30,24 @@ public:
 	virtual void draw() {}
 	
 	int& getRenderTag() { return _nRenderTag; }
+
 protected:
+
 	virtual void setProgram(GLProgram * GLProgram) { 
 		m_ShaderProgram = GLProgram; 
 		m_uProgramTarget = m_ShaderProgram->getShaderProgram();
 	}
+
 protected:
 
 	virtual void init() {}
 
-	
 	int _nRenderTag;
 
-	GLuint m_uVBO, m_uVAO;
+	GLuint m_uVAO;
+	VertexConfig * m_VertexConfig;
 	GLProgram * m_ShaderProgram;
 	GLuint m_uProgramTarget;
-
 	Point m_AnchorPoint;
 };
 

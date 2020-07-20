@@ -30,4 +30,7 @@ void DefaultSence::init()
 
 	auto* sprite = Sprite::create("1.jpg");
 	this->addToRenderingList(sprite);
+
+	auto* cube = Cube::create();
+	//this->addToRenderingList(cube);
 }

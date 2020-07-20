@@ -15,44 +15,18 @@ Square* Square::create()
 
 void Square::init()
 {
-	//VAO
-	glGenVertexArrays(1, &m_uVAO);
-	glBindVertexArray(m_uVAO);
-
-	//VBO
-	glGenBuffers(1, &m_uVBO);
-	glBindBuffer(GL_ARRAY_BUFFER, m_uVBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(m_pSquareVertexData), &m_pSquareVertexData, GL_STATIC_DRAW);
-	
-	//VEO
-	///索引的值必须是uint类型，否则会无法识别
-	glGenBuffers(1, &m_uVEO);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_uVEO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(m_pSquareVertexElement), &m_pSquareVertexElement, GL_STATIC_DRAW);
-	
-	//顶点属性
-	glVertexAttribPointer(VertexAttrib_Position, 3, GL_FLOAT, GL_FALSE, SIZE_VERTEX_UNIT, OFFSET_POSITION);
-	glVertexAttribPointer(VertexAttrib_Color, 4, GL_FLOAT, GL_FALSE, SIZE_VERTEX_UNIT, OFFSET_COLOR);
-	glVertexAttribPointer(VertexAttrib_Texture, 2, GL_FLOAT, GL_FALSE, SIZE_VERTEX_UNIT, OFFSET_TEXTURE);
-	
-	//属性激活
-	for (int i = 0; i < VertexAttrib_MaxNum; i++)
-	{
-		glEnableVertexAttribArray(i);
-	}
-
+	m_VertexConfig->setVBO(&m_pSquareVertexData, 1);
+	m_VertexConfig->setVEO(m_pSquareVertexElement, 2);
+	m_VertexConfig->setup(VERTEX_ATTRIB_POSITION | VERTEX_ATTRIB_COLOR);
 	//着色器
 	GLProgram * program = GLShaderProgreamCatch::getInstance()->getGLProgream(ShaderProgramType_Default);
 	setProgram(program);
-
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glBindVertexArray(0);
 }
 
 void Square::draw()
 {
 	m_ShaderProgram->useShaderProgream();
-	glBindVertexArray(m_uVAO);
+	glBindVertexArray(m_VertexConfig->getVAO());
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }
 Square::Square() :ObjectBase()

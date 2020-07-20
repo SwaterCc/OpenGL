@@ -12,7 +12,10 @@ Cube* Cube::create()
 
 void Cube::draw()
 {
+	m_ShaderProgram->useShaderProgream();
+	glBindVertexArray(m_uVAO);
 
+	glDrawArrays(GL_TRIANGLES, 0, 36);
 }
 
 void Cube::addTexture()
@@ -21,7 +24,14 @@ void Cube::addTexture()
 
 void Cube::init()
 {
-
+	//VBO
+	int len = sizeof(m_CubeVexData) / sizeof(Quad_Vertex);
+	m_VertexConfig->setVBO(m_CubeVexData, len);
+	//顶点属性
+	m_VertexConfig->setup(VERTEX_ATTRIB_POSITION | VERTEX_ATTRIB_COLOR | VERTEX_ATTRIB_TEXTURE);
+	//着色器
+	GLProgram* program = GLShaderProgreamCatch::getInstance()->getGLProgream(ShaderProgramType_Default);
+	setProgram(program);
 }
 
 Cube::Cube()

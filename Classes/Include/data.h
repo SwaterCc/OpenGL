@@ -9,6 +9,7 @@ const int SIZE_FLOAT = sizeof(float);
 typedef unsigned int uint;
 typedef unsigned char uchar;
 
+
 enum ShaderType
 {
 	VertexShader = 1,
@@ -107,32 +108,32 @@ typedef struct VertexColorTexture_DataStruct
 	TextureCoord texture;
 }VCT_Data;
 
-typedef struct Quad_Vertex
+struct Quad_Vertex
 {
 	VCT_Data rt;
 	VCT_Data lt;
 	VCT_Data lb;
 	VCT_Data rb;
 
-}Quad_Vertex;
+};
 
-typedef struct Triangle_Vertex
+struct Triangle_Vertex
 {
 	VCT_Data p1;
 	VCT_Data p2;
 	VCT_Data p3;
 
-}Triangle_Vertex;
+};
 
-typedef struct Point
+struct Point
 {
 	float X;
 	float Y;
 	Point(float x = 0.0f, float y = 0.0f):X(x),Y(y)
 	{}
-}point;
+};
 
-typedef struct Size
+struct Size
 {
 	float width;
 	float height;

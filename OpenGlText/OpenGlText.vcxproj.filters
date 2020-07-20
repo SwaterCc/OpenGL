@@ -36,6 +36,12 @@
     <Filter Include="Object\Sprite">
       <UniqueIdentifier>{f61d1b39-0442-426c-b41b-4553494bdd2f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\Vertex">
+      <UniqueIdentifier>{88748b06-3c0b-44b9-8101-c2bbc6a0f5fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Texture">
+      <UniqueIdentifier>{151767d7-53d1-4308-9b4f-7d8ad3ce0834}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\opengl\src\glad.c">
@@ -79,6 +85,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Object\Cube.cpp">
       <Filter>Object\Cube</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Object\VertexConfig.cpp">
+      <Filter>Object\Vertex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Object\Texture.cpp">
+      <Filter>Object\Texture</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -145,11 +157,11 @@
     <ClInclude Include="..\Classes\Object\Cube.h">
       <Filter>Object\Cube</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Object\Texture.h">
-      <Filter>Object\Base</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Object\VertexConfig.h">
-      <Filter>Object\Base</Filter>
+      <Filter>Object\Vertex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Object\Texture.h">
+      <Filter>Object\Texture</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

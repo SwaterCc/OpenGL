@@ -19,7 +19,7 @@ protected:
 	~Cube();
 private:
 	Triangle_Vertex m_CubeVexData[12];
-	std::vector<Texture> m_TextureCatch;
+	std::vector<Texture2D> m_TextureCatch;
 };
 OBJECT_END
 

@@ -2,3 +2,4 @@
 #include"../Object/Square.h"
 #include"../Object/Triangle.h"
 #include"../Object/Sprite.h"
+#include"../Object/Cube.h"

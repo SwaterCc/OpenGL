@@ -1,10 +1,10 @@
 ﻿//2020.2.23 练习创建三角形
 //2020.2.23 增加索引绘画正方形
 /**
-#include"../Classes/Include.h"
-#include"../Classes/GLProgram.h"
-#include"../Classes/data.h"
-#include"../Classes/Vertexs_Data.h"
+#include"../Classes/Include/Include.h"
+#include"../Classes/Framework/GLProgram.h"
+#include"../Classes/Include/data.h"
+#include"../Classes/Object/Vertexs_Data.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include<stb_image.h>
@@ -38,7 +38,7 @@ void processInput(GLFWwindow* window);
 
 void mouse_callBack(GLFWwindow* window,double xpos,double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
-int main_old()
+int main()
 {
 	//初始化glfw环境
 	glfwInit();
