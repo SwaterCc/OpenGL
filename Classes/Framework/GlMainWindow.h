@@ -24,6 +24,7 @@ private:
 	GLFWwindow* m_pGLFWwindow;
 
 	void initGLAD();
+	void initGL3W();
 	
 	static GLMainWindow* m_pInstance;
 };

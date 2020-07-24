@@ -72,6 +72,7 @@ void GLProgram::createProgram()
 			glAttachShader(m_nShaderProgram, m_FragmentShader[i]);
 		}
 	}
+	
 	glLinkProgram(m_nShaderProgram);
 	int success = 0;
 	char infoLog[512];

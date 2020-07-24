@@ -42,6 +42,9 @@
     <Filter Include="Object\Texture">
       <UniqueIdentifier>{151767d7-53d1-4308-9b4f-7d8ad3ce0834}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utility\Matrix">
+      <UniqueIdentifier>{6ce67bb5-be55-481c-8673-d7aa8cbd155e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\opengl\src\glad.c">
@@ -91,6 +94,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Object\Texture.cpp">
       <Filter>Object\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opengl\src\gl3w.c">
+      <Filter>ThirdPartylib</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +168,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Object\Texture.h">
       <Filter>Object\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Camera\Camera.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Matrix\Matrix.h">
+      <Filter>Utility\Matrix</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

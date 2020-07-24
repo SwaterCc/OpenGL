@@ -151,11 +151,13 @@
     <ClCompile Include="..\Classes\Object\VertexConfig.cpp" />
     <ClCompile Include="..\Classes\Sence\DefaultSence.cpp" />
     <ClCompile Include="..\Classes\Sence\ISence.cpp" />
+    <ClCompile Include="..\opengl\src\gl3w.c" />
     <ClCompile Include="..\opengl\src\glad.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="main_old.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Classes\Camera\Camera.h" />
     <ClInclude Include="..\Classes\Framework\GlMainWindow.h" />
     <ClInclude Include="..\Classes\Framework\GLProgram.h" />
     <ClInclude Include="..\Classes\Framework\GLShaderProgreamCatch.h" />
@@ -176,6 +178,7 @@
     <ClInclude Include="..\Classes\Sence\ISence.h" />
     <ClInclude Include="..\Classes\Sence\SenceInclude.h" />
     <ClInclude Include="..\Classes\Utility\CustomUtilityTool.h" />
+    <ClInclude Include="..\Classes\Utility\Matrix\Matrix.h" />
     <ClInclude Include="..\opengl\include\GLFW\glfw3.h" />
     <ClInclude Include="..\opengl\include\GLFW\glfw3native.h" />
     <ClInclude Include="..\opengl\include\stb_image.h" />
