@@ -10,14 +10,16 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-using namespace glm;
 #endif
+using std::string;
+using std::cout;
+using std::endl;
 
 class GLProgram{
 public:
 	GLProgram();
 public:
-	void createShader(std::string ShaderFile , unsigned int shaderType);
+	void createShader(string ShaderFile , unsigned int shaderType);
 	void createProgram();
 	void useShaderProgream();
 
@@ -29,7 +31,7 @@ public:
 	void setUniformOneFloat(string valName, float value);
 	void setUniform4F(string valName, uniform_fv fv);
 
-	void setUniform4MatrixFV(string valName, mat4 matrix);
+	void setUniform4MatrixFV(string valName, glm::mat4 matrix);
 private:
 	string readFile(std::string path);
 	void ShaderCompiledLog(GLuint shaderID);

@@ -171,7 +171,7 @@ void GLProgram::setUniform4F(string valName, uniform_fv fv)
 	}
 }
 
-void GLProgram::setUniform4MatrixFV(string valName, mat4 matrix)
+void GLProgram::setUniform4MatrixFV(string valName, glm::mat4 matrix)
 {
 	if (m_nShaderProgram)
 	{
@@ -193,8 +193,9 @@ void GLProgram::setUniform4MatrixFV(string valName, mat4 matrix)
 
 string GLProgram::readFile(std::string path)
 {
-	ifstream ins;
-	stringstream stros;
+	using std::fstream;
+	std::ifstream ins;
+	std::stringstream stros;
 	string res;
 	ins.exceptions(fstream::failbit | fstream::badbit);
 	try

@@ -17,7 +17,7 @@
 #include <cmath>
 
 #include "data.h"
-using namespace std;
+
 
 
 

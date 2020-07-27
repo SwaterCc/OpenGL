@@ -3,9 +3,6 @@
 
 const int SIZE_FLOAT = sizeof(float);
 
-
-
-
 typedef unsigned int uint;
 typedef unsigned char uchar;
 

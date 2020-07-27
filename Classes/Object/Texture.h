@@ -2,7 +2,7 @@
 #define _Texture_h_
 
 #include"../Include/Include.h"
-
+using std::endl;
 
 class Texture2D {
 public:

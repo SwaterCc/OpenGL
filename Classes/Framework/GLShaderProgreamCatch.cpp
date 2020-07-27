@@ -42,12 +42,12 @@ void GLShaderProgreamCatch::init()
 	auto* p1 = new GLProgram;
 	loadShaderFile(p1, "default_VertexShader.vt", "default_FragmentShader.fg");
 	p1->createProgram();
-	m_ProgramList.insert(make_pair(ShaderProgramType_Default, p1));
+	m_ProgramList.insert(std::make_pair(ShaderProgramType_Default, p1));
 
 	auto* p2 = new GLProgram;
 	loadShaderFile(p2, "positionColorTexture_VertexShader.vt", "positionColorTexture_FragmentShader.fg");
 	p2->createProgram();
-	m_ProgramList.insert(make_pair(ShaderProgramType_PositionColorTexture, p2));
+	m_ProgramList.insert(std::make_pair(ShaderProgramType_PositionColorTexture, p2));
 }
 
 void GLShaderProgreamCatch::loadShaderFile(GLProgram* p, std::string vertexShaderFile, std::string fragmentShaderFile)
