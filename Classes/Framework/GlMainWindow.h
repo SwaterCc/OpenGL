@@ -8,8 +8,8 @@
 
 class GLMainWindow
 {
-	float _VIEW_HEIGHT_ = 720;
-	float _VIEW_WIDTH_ = 1080;
+	int _VIEW_HEIGHT_ = 720;
+	int _VIEW_WIDTH_ = 1080;
 	const char* _VIEW_TITLE_ = "OpenGL";
 public:
 	static GLMainWindow* getInstance();

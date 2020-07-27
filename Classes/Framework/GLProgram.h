@@ -3,8 +3,15 @@
 
 #include<vector>
 #include<queue>
-
+#define NOT_USE_CUSTOM_MATRIX
 #include "../Include/Include.h"
+
+#if defined(NOT_USE_CUSTOM_MATRIX)
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+using namespace glm;
+#endif
 
 class GLProgram{
 public:
