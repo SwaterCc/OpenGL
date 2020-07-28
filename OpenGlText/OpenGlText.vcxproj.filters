@@ -45,6 +45,9 @@
     <Filter Include="Utility\Matrix">
       <UniqueIdentifier>{6ce67bb5-be55-481c-8673-d7aa8cbd155e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utility\Vec">
+      <UniqueIdentifier>{afe5e949-fd6f-41ec-9ebb-5f8902e98bf8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\opengl\src\glad.c">
@@ -174,6 +177,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Utility\Matrix\Matrix.h">
       <Filter>Utility\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\Vector\Vec3.h">
+      <Filter>Utility\Vec</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

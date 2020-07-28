@@ -179,6 +179,7 @@
     <ClInclude Include="..\Classes\Sence\SenceInclude.h" />
     <ClInclude Include="..\Classes\Utility\CustomUtilityTool.h" />
     <ClInclude Include="..\Classes\Utility\Matrix\Matrix.h" />
+    <ClInclude Include="..\Classes\Utility\Vector\Vec3.h" />
     <ClInclude Include="..\opengl\include\GLFW\glfw3.h" />
     <ClInclude Include="..\opengl\include\GLFW\glfw3native.h" />
     <ClInclude Include="..\opengl\include\stb_image.h" />

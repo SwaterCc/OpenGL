@@ -1,11 +1,7 @@
 #ifndef _Matrix_H_
 #define _Matrix_H_
 #include"../../Include/data.h"
-
-#define GL_MATH_BEGIN namespace gl_math{
-#define GL_MATH_END }
-
-
+#include"../../Include/makeFileInclude.h"
 GL_MATH_BEGIN
 
 #include <iostream>
@@ -17,7 +13,7 @@ public:
 	Matrix4(T num);
 	~Matrix4();
 
-	static Matrix4<T> LookAt(Vec3 camreaPosition, Vec3 origin, Vec3 up);
+	static Matrix4<T> LookAt(Vec3 camreaPos, Vec3 targetPos, Vec3 origin, Vec3 up);
 	static Matrix4<T> projection(float angle/*角度*/, float Aspect_ratio/*宽高比*/, float near, float far);
 public:
 	//矩阵变换
@@ -53,8 +49,14 @@ inline Matrix4<T>::~Matrix4()
 }
 
 template<typename T>
-inline Matrix4<T> Matrix4<T>::LookAt(Vec3 camreaPosition, Vec3 origin, Vec3 up)
+inline Matrix4<T> Matrix4<T>::LookAt(Vec3 camreaPos, Vec3 targetPos, Vec3 origin, Vec3 up)
 {
+	Matrix4<T> res =  Matrix4<T>(1.0);
+
+	//1.获取摄像机的方向向量
+	Vec3 camreaDir = 
+
+	res.translation(camreaPosition);
 	return Matrix();
 }
 
