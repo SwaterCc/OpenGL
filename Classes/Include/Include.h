@@ -2,7 +2,7 @@
 #define _INCLUDE_H_
 #include<iostream>
 
-#define GL3W_SETUP
+
 
 #if defined(GLAD_SETUP)
 #include<glad/glad.h>

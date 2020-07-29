@@ -2,7 +2,8 @@
 #include "RenderPipelineManager.h"
 #include "GLShaderProgreamCatch.h"
 GLMainWindow* GLMainWindow::m_pInstance = nullptr;
-
+using std::cerr;
+using std::endl;
 GLMainWindow* GLMainWindow::getInstance()
 {
 	if (m_pInstance == nullptr)
