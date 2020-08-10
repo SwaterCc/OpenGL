@@ -42,11 +42,20 @@
     <Filter Include="Object\Texture">
       <UniqueIdentifier>{151767d7-53d1-4308-9b4f-7d8ad3ce0834}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Utility\Matrix">
-      <UniqueIdentifier>{6ce67bb5-be55-481c-8673-d7aa8cbd155e}</UniqueIdentifier>
+    <Filter Include="ThirdPartylib\glm">
+      <UniqueIdentifier>{61b0a414-da8f-4ac5-bac5-e65bc30efd86}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Utility\Vec">
-      <UniqueIdentifier>{afe5e949-fd6f-41ec-9ebb-5f8902e98bf8}</UniqueIdentifier>
+    <Filter Include="ThirdPartylib\glm\detil">
+      <UniqueIdentifier>{c8bbb5c6-179d-4a46-94bd-1c7cfefd7473}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility\glmath">
+      <UniqueIdentifier>{1e193dfd-c6a8-4821-a38f-3f9bde004a1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility\glmath\vec">
+      <UniqueIdentifier>{f4743de1-3632-4589-aab6-56f386d48c2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility\glmath\matrix">
+      <UniqueIdentifier>{684a358c-07fd-4a11-a790-b59ad81f8ec6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -100,6 +109,12 @@
     </ClCompile>
     <ClCompile Include="..\opengl\src\gl3w.c">
       <Filter>ThirdPartylib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opengl\glm\detail\glm.cpp">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utility\glmath\vec\glmath.cpp">
+      <Filter>Utility\glmath\vec</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -175,11 +190,294 @@
     <ClInclude Include="..\Classes\Camera\Camera.h">
       <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Utility\Matrix\Matrix.h">
-      <Filter>Utility\Matrix</Filter>
+    <ClInclude Include="..\opengl\glm\common.hpp">
+      <Filter>ThirdPartylib\glm</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Utility\Vector\Vec3.h">
-      <Filter>Utility\Vec</Filter>
+    <ClInclude Include="..\opengl\glm\exponential.hpp">
+      <Filter>ThirdPartylib\glm</Filter>
     </ClInclude>
+    <ClInclude Include="..\opengl\glm\ext.hpp">
+      <Filter>ThirdPartylib\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\fwd.hpp">
+      <Filter>ThirdPartylib\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\geometric.hpp">
+      <Filter>ThirdPartylib\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\glm.hpp">
+      <Filter>ThirdPartylib\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\integer.hpp">
+      <Filter>ThirdPartylib\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\mat2x2.hpp">
+      <Filter>ThirdPartylib\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\mat2x3.hpp">
+      <Filter>ThirdPartylib\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\mat2x4.hpp">
+      <Filter>ThirdPartylib\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\mat3x2.hpp">
+      <Filter>ThirdPartylib\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\mat3x3.hpp">
+      <Filter>ThirdPartylib\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\mat3x4.hpp">
+      <Filter>ThirdPartylib\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\mat4x2.hpp">
+      <Filter>ThirdPartylib\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\mat4x3.hpp">
+      <Filter>ThirdPartylib\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\mat4x4.hpp">
+      <Filter>ThirdPartylib\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\matrix.hpp">
+      <Filter>ThirdPartylib\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\packing.hpp">
+      <Filter>ThirdPartylib\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\trigonometric.hpp">
+      <Filter>ThirdPartylib\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\vec2.hpp">
+      <Filter>ThirdPartylib\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\vec3.hpp">
+      <Filter>ThirdPartylib\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\vec4.hpp">
+      <Filter>ThirdPartylib\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\vector_relational.hpp">
+      <Filter>ThirdPartylib\glm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\detail\_features.hpp">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\detail\_fixes.hpp">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\detail\_noise.hpp">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\detail\_swizzle.hpp">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\detail\_swizzle_func.hpp">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\detail\_vectorize.hpp">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\detail\compute_common.hpp">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\detail\compute_vector_relational.hpp">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\detail\qualifier.hpp">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\detail\setup.hpp">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\detail\type_float.hpp">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\detail\type_half.hpp">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\detail\type_mat2x2.hpp">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\detail\type_mat2x3.hpp">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\detail\type_mat2x4.hpp">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\detail\type_mat3x2.hpp">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\detail\type_mat3x3.hpp">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\detail\type_mat3x4.hpp">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\detail\type_mat4x2.hpp">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\detail\type_mat4x3.hpp">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\detail\type_mat4x4.hpp">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\detail\type_quat.hpp">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\detail\type_vec1.hpp">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\detail\type_vec2.hpp">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\detail\type_vec3.hpp">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opengl\glm\detail\type_vec4.hpp">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\glmath\glmath.hpp">
+      <Filter>Utility\glmath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\glmath\vec\glvec3.hpp">
+      <Filter>Utility\glmath\vec</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\glmath\vec\glvec4.hpp">
+      <Filter>Utility\glmath\vec</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\glmath\vec\glvecMathEx.hpp">
+      <Filter>Utility\glmath\vec</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\glmath\vec\glvec2.hpp">
+      <Filter>Utility\glmath\vec</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\glmath\matrix\glmatrix4x4.hpp">
+      <Filter>Utility\glmath\matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\glmath\matrix\glmatrix2x2.hpp">
+      <Filter>Utility\glmath\matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\glmath\matrix\glmatrix3x3.hpp">
+      <Filter>Utility\glmath\matrix</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\opengl\glm\CMakeLists.txt">
+      <Filter>ThirdPartylib\glm</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\opengl\glm\detail\func_common.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\func_common_simd.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\func_exponential.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\func_exponential_simd.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\func_geometric.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\func_geometric_simd.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\func_integer.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\func_integer_simd.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\func_matrix.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\func_matrix_simd.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\func_packing.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\func_packing_simd.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\func_trigonometric.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\func_trigonometric_simd.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\func_vector_relational.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\func_vector_relational_simd.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\type_half.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\type_mat2x2.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\type_mat2x3.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\type_mat2x4.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\type_mat3x2.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\type_mat3x3.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\type_mat3x4.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\type_mat4x2.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\type_mat4x3.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\type_mat4x4.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\type_mat4x4_simd.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\type_quat.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\type_quat_simd.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\type_vec1.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\type_vec2.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\type_vec3.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\type_vec4.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\opengl\glm\detail\type_vec4_simd.inl">
+      <Filter>ThirdPartylib\glm\detil</Filter>
+    </None>
+    <None Include="..\Classes\Utility\glmath\vec\glvec3.inl">
+      <Filter>Utility\glmath\vec</Filter>
+    </None>
+    <None Include="..\Classes\Utility\glmath\vec\glvec4.inl">
+      <Filter>Utility\glmath\vec</Filter>
+    </None>
+    <None Include="..\Classes\Utility\glmath\vec\glvec2.inl">
+      <Filter>Utility\glmath\vec</Filter>
+    </None>
   </ItemGroup>
 </Project>
