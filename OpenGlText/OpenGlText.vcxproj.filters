@@ -113,8 +113,11 @@
     <ClCompile Include="..\opengl\glm\detail\glm.cpp">
       <Filter>ThirdPartylib\glm\detil</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Utility\glmath\vec\glmath.cpp">
-      <Filter>Utility\glmath\vec</Filter>
+    <ClCompile Include="..\Classes\Utility\glmath\vec\gl_math_template.cpp">
+      <Filter>Utility\glmath</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utility\glmath\matrix\glmatrix3x3.inl">
+      <Filter>Utility\glmath\matrix</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -337,9 +340,6 @@
     <ClInclude Include="..\opengl\glm\detail\type_vec4.hpp">
       <Filter>ThirdPartylib\glm\detil</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Utility\glmath\glmath.hpp">
-      <Filter>Utility\glmath</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Utility\glmath\vec\glvec3.hpp">
       <Filter>Utility\glmath\vec</Filter>
     </ClInclude>
@@ -360,6 +360,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Utility\glmath\matrix\glmatrix3x3.hpp">
       <Filter>Utility\glmath\matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\glmath\gl_math_template.hpp">
+      <Filter>Utility\glmath</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -478,6 +481,9 @@
     </None>
     <None Include="..\Classes\Utility\glmath\vec\glvec2.inl">
       <Filter>Utility\glmath\vec</Filter>
+    </None>
+    <None Include="..\Classes\Utility\glmath\matrix\glmatrix2x2.inl">
+      <Filter>Utility\glmath\matrix</Filter>
     </None>
   </ItemGroup>
 </Project>

@@ -152,7 +152,8 @@
     <ClCompile Include="..\Classes\Object\VertexConfig.cpp" />
     <ClCompile Include="..\Classes\Sence\DefaultSence.cpp" />
     <ClCompile Include="..\Classes\Sence\ISence.cpp" />
-    <ClCompile Include="..\Classes\Utility\glmath\vec\glmath.cpp" />
+    <ClCompile Include="..\Classes\Utility\glmath\matrix\glmatrix3x3.inl" />
+    <ClCompile Include="..\Classes\Utility\glmath\vec\gl_math_template.cpp" />
     <ClCompile Include="..\opengl\glm\detail\glm.cpp" />
     <ClCompile Include="..\opengl\src\gl3w.c" />
     <ClCompile Include="..\opengl\src\glad.c" />
@@ -181,7 +182,7 @@
     <ClInclude Include="..\Classes\Sence\ISence.h" />
     <ClInclude Include="..\Classes\Sence\SenceInclude.h" />
     <ClInclude Include="..\Classes\Utility\CustomUtilityTool.h" />
-    <ClInclude Include="..\Classes\Utility\glmath\glmath.hpp" />
+    <ClInclude Include="..\Classes\Utility\glmath\gl_math_template.hpp" />
     <ClInclude Include="..\Classes\Utility\glmath\matrix\glmatrix4x4.hpp" />
     <ClInclude Include="..\Classes\Utility\glmath\matrix\glmatrix2x2.hpp" />
     <ClInclude Include="..\Classes\Utility\glmath\matrix\glmatrix3x3.hpp" />
@@ -246,6 +247,7 @@
     <Text Include="..\opengl\glm\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Classes\Utility\glmath\matrix\glmatrix2x2.inl" />
     <None Include="..\Classes\Utility\glmath\vec\glvec2.inl" />
     <None Include="..\Classes\Utility\glmath\vec\glvec3.inl" />
     <None Include="..\Classes\Utility\glmath\vec\glvec4.inl" />

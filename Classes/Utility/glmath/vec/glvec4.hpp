@@ -1,7 +1,7 @@
 #pragma once
 #ifndef _glmath_vec_4_
 #define _glmath_vec_4_
-#include"../glmath.hpp"
+#include"../gl_math_template.hpp"
 
 namespace glmath
 {
