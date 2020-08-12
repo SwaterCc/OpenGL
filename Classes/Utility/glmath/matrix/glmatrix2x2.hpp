@@ -1,6 +1,6 @@
 #ifndef _Matrix2x2_
 #define _Matrix2x2_
-#include"../gl_math_template.hpp"
+#include"../vec/glvec2.hpp"
 namespace glmath {
 	template<typename T>
 	class glmatrix<2, 2, T>

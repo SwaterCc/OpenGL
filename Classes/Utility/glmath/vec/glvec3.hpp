@@ -7,9 +7,9 @@ namespace glmath
 	template <typename T> class glvec<3, T>
 	{
 	public:
-		union { T  x, r, s };
-		union { T  y, g, t };
-		union { T  z, b, p };
+		union { T  x, r, s; };
+		union { T  y, g, t; };
+		union { T  z, b, p; };
 
 		static length_t length() { return 3; }
 	public:

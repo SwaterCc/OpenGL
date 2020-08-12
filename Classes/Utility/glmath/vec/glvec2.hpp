@@ -8,8 +8,8 @@ namespace glmath
 	template <typename T> class glvec<2, T>
 	{
 	public:
-		union { T  x, r, s };
-		union { T  y, g, t };
+		union { T  x, r, s; };
+		union { T  y, g, t; };
 
 		static length_t length() { return 2; }
 	public:

@@ -1,6 +1,6 @@
 #ifndef _Matrix3x3_
 #define _Matrix3x3_
-#include"../gl_math_template.hpp"
+#include"../vec/glvec3.hpp"
 namespace glmath {
 	template<typename T>
 	class glmatrix<3,3,T> 
@@ -28,11 +28,8 @@ namespace glmath {
 		constexpr glmatrix<3,3,T>& operator+=(const glmatrix<3, 3, T>&);
 		constexpr glmatrix<3,3,T>& operator-=(T s);
 		constexpr glmatrix<3,3,T>& operator-= (const glmatrix<3, 3, T>&);
-		constexpr glmatrix<3,3,T>& operator-=(T s);
-		constexpr glmatrix<3,3,T>& operator-= (const glmatrix<3, 3, T>&);
 		constexpr glmatrix<3,3,T>& operator*=(T s);
-		template<length_t row> constexpr glmatrix<3, 3, T>& operator*= (const glmatrix<3, row, T>&);
-		template<length_t row> constexpr glmatrix<3, 3, T>& operator*= (const glvec<3, T>&);
+		constexpr glmatrix<3, 3, T>& operator*= (const glmatrix<3, 3, T>&);
 		constexpr glmatrix<3, 3, T>& operator/=(T s);
 		constexpr glmatrix<3, 3, T>& operator%=(T s);
 		// -- 自增运算符 --
@@ -40,6 +37,8 @@ namespace glmath {
 		constexpr glmatrix<3, 3, T> operator++(int);
 		// -- 索引运算符 --
 		constexpr glmatrix<3, 3, T>& operator[](int i);
+		// -- 成员函数 --
+		constexpr glvec<3, T>& glmatrix<3, 3, T>::getRowByIndex(int i);
 	public:
 		col_type value[3];
 	};
