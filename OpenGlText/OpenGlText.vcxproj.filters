@@ -367,11 +367,18 @@
     <ClInclude Include="..\Classes\Utility\glmath\glmathlib.h">
       <Filter>Utility\glmath</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Framework\ShaderDefaultValue.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\glmath\matrix\glmatrixTrans.hpp">
+      <Filter>Utility\glmath\matrix</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\opengl\glm\CMakeLists.txt">
       <Filter>ThirdPartylib\glm</Filter>
     </Text>
+    <Text Include="log.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\opengl\glm\detail\func_common.inl">

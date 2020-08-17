@@ -18,6 +18,8 @@ ObjectBase::ObjectBase()
 
 	m_uVAO = m_VertexConfig->getVAO();
 	m_AnchorPoint = PointCenter;
+
+	m_objModel = glmath::mat4(1.0);
 }
 
 ObjectBase::~ObjectBase()

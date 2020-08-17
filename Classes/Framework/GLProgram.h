@@ -3,6 +3,7 @@
 
 #include<vector>
 #include<queue>
+#include"ShaderDefaultValue.h"
 #define NOT_USE_CUSTOM_MATRIX
 #include "../Include/Include.h"
 
@@ -25,25 +26,22 @@ public:
 
 	GLuint getShaderProgram() { return m_nShaderProgram; }
 
+	void updateUniform();
 
 	void setUniformOneInt(string valName,int value);
 	void setUniformOneUInt(string valName, uint value);
 	void setUniformOneFloat(string valName, float value);
 	void setUniform4F(string valName, uniform_fv fv);
-
 	void setUniform4MatrixFV(string valName, glm::mat4 matrix);
 private:
 	string readFile(std::string path);
 	void ShaderCompiledLog(GLuint shaderID);
 	void releseShader();
 private:
-
-	std::vector<GLuint> m_VertexShader;
-	uint m_uVertexShaderCount;
-	std::vector<GLuint> m_FragmentShader;
-	uint m_uFragmentShaderCount;
-
+	GLuint m_glVertexShader;
+	GLuint m_glFragmentShader;
 	GLuint m_nShaderProgram;
+
 
 	//uniform÷µ¥Ê¥¢
 	bool m_bIsShaderProgramUsed;//shaderProgram ±ªuse

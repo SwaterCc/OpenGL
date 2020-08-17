@@ -5,13 +5,9 @@
 
 GLProgram::GLProgram()
 {
-	m_VertexShader.clear();
-	m_FragmentShader.clear();
-
-	m_uVertexShaderCount = 0;
-	m_uFragmentShaderCount = 0;
-	
 	m_nShaderProgram = 0;
+	m_glVertexShader = 0;
+	m_glFragmentShader = 0;
 	m_bIsShaderProgramUsed = false;
 }
 
@@ -35,43 +31,27 @@ void GLProgram::createShader(std::string ShaderFile, unsigned int shaderType)
 
 	if (shaderType == GL_VERTEX_SHADER)
 	{
-		GLuint shader = glCreateShader(shaderType);
-		glShaderSource(shader, 1, &shaderC, NULL);
-		glCompileShader(shader);
-		ShaderCompiledLog(shader);
-		m_VertexShader.push_back(shader);
-		m_uVertexShaderCount++;
+		m_glVertexShader = glCreateShader(shaderType);
+		glShaderSource(m_glVertexShader, 1, &shaderC, NULL);
+		glCompileShader(m_glVertexShader);
+		ShaderCompiledLog(m_glVertexShader);
 	}
 	else if (shaderType == GL_FRAGMENT_SHADER)
 	{
-		GLuint shader = glCreateShader(shaderType);
+		m_glFragmentShader = glCreateShader(shaderType);
 		
-		glShaderSource(shader, 1, &shaderC, NULL);
-		glCompileShader(shader);
-		ShaderCompiledLog(shader);
-		m_FragmentShader.push_back(shader);
-		m_uFragmentShaderCount++;
+		glShaderSource(m_glFragmentShader, 1, &shaderC, NULL);
+		glCompileShader(m_glFragmentShader);
+		ShaderCompiledLog(m_glFragmentShader);
 	}	
 }
 
 void GLProgram::createProgram()
 {
 	m_nShaderProgram = glCreateProgram();
-	if (m_VertexShader.size())
-	{
-		for (size_t i = 0; i < m_uVertexShaderCount; i++)
-		{
-			glAttachShader(m_nShaderProgram, m_VertexShader[i]);
-		}
-		
-	}
-	if (m_FragmentShader.size())
-	{
-		for (size_t i = 0; i < m_uFragmentShaderCount; i++)
-		{
-			glAttachShader(m_nShaderProgram, m_FragmentShader[i]);
-		}
-	}
+	
+	glAttachShader(m_nShaderProgram, m_glVertexShader);
+	glAttachShader(m_nShaderProgram, m_glFragmentShader);
 	
 	glLinkProgram(m_nShaderProgram);
 	int success = 0;
@@ -230,12 +210,6 @@ void GLProgram::ShaderCompiledLog(GLuint shaderID)
 
 void GLProgram::releseShader()
 {
-	for (size_t i = 0; i < m_uVertexShaderCount; i++)
-	{
-		glDeleteShader(m_VertexShader[i]);
-	}
-	for (size_t i = 0; i < m_uFragmentShaderCount; i++)
-	{
-		glDeleteShader(m_FragmentShader[i]);
-	}
+	glDeleteShader(m_glVertexShader);
+	glDeleteShader(m_glFragmentShader);
 }

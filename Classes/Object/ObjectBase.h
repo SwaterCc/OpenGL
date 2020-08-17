@@ -6,7 +6,7 @@
 #include "../Include/makeFileInclude.h"
 #include "../Framework/GLShaderProgreamCatch.h"
 #include "VertexConfig.h"
-
+#include "../Utility/glmath/glmathlib.h"
 
 class ObjectBase
 {
@@ -31,6 +31,9 @@ public:
 	
 	int& getRenderTag() { return _nRenderTag; }
 
+	//model±ä»»
+
+
 protected:
 
 	virtual void setProgram(GLProgram * GLProgram) { 
@@ -49,6 +52,9 @@ protected:
 	GLProgram * m_ShaderProgram;
 	GLuint m_uProgramTarget;
 	Point m_AnchorPoint;
+
+private:
+	glmath::mat4 m_objModel;
 };
 
 

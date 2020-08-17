@@ -166,6 +166,7 @@
     <ClInclude Include="..\Classes\Framework\GLProgram.h" />
     <ClInclude Include="..\Classes\Framework\GLShaderProgreamCatch.h" />
     <ClInclude Include="..\Classes\Framework\RenderPipelineManager.h" />
+    <ClInclude Include="..\Classes\Framework\ShaderDefaultValue.h" />
     <ClInclude Include="..\Classes\Include\data.h" />
     <ClInclude Include="..\Classes\Include\GLObject.h" />
     <ClInclude Include="..\Classes\Include\Include.h" />
@@ -187,6 +188,7 @@
     <ClInclude Include="..\Classes\Utility\glmath\matrix\glmatrix4x4.hpp" />
     <ClInclude Include="..\Classes\Utility\glmath\matrix\glmatrix2x2.hpp" />
     <ClInclude Include="..\Classes\Utility\glmath\matrix\glmatrix3x3.hpp" />
+    <ClInclude Include="..\Classes\Utility\glmath\matrix\glmatrixTrans.hpp" />
     <ClInclude Include="..\Classes\Utility\glmath\vec\glvec2.hpp" />
     <ClInclude Include="..\Classes\Utility\glmath\vec\glvec3.hpp" />
     <ClInclude Include="..\Classes\Utility\glmath\vec\glvecMathEx.hpp" />
@@ -246,6 +248,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\opengl\glm\CMakeLists.txt" />
+    <Text Include="log.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Classes\Utility\glmath\matrix\glmatrix2x2.inl" />

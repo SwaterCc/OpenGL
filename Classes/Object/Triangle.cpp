@@ -29,7 +29,7 @@ void Triangle::draw()
 
 Triangle::Triangle():ObjectBase()
 {
-	m_VertexData.p1 = {v3(0,0.5f,0),c4(1,0,0,0.5)};
+	m_VertexData.p1 = { v3(0,0.5f,0),c4(1,0,0,0.5) };
 	m_VertexData.p2 = { v3(0.5f,-0.5f,0),c4(0,1,0,0.5) };
 	m_VertexData.p3 = { v3(-0.5f,-0.5f,0),c4(0,0,1,0.5) };
 }
