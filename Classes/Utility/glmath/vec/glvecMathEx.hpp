@@ -1,6 +1,6 @@
 #ifndef _gl_vec_math_
 #define _gl_vec_math_
-#include"../gl_math_template.hpp"
+#include"../gl_math_template.h"
 
 namespace glmath
 {	

@@ -5,7 +5,6 @@
 #include"matrix/glmatrix3x3.hpp"
 #include"matrix/glmatrix4x4.hpp"
 #include"vec/glvecMathEx.hpp"
-#include"gl_math_template.hpp"
 
 namespace glmath
 {

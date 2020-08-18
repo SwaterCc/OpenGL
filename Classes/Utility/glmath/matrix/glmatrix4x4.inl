@@ -34,7 +34,7 @@ namespace glmath
 	{
 	}
 	template<typename T>
-	inline constexpr glmatrix<4, 4, T>& glmatrix<4, 4, T>::operator+=(T s)
+	inline glmatrix<4, 4, T>& glmatrix<4, 4, T>::operator+=(T s)
 	{
 		this->value[0] += s;
 		this->value[1] += s;
@@ -43,7 +43,7 @@ namespace glmath
 		return *this;
 	}
 	template<typename T>
-	inline constexpr glmatrix<4, 4, T>& glmatrix<4, 4, T>::operator+=(const glmatrix<4, 4, T>& m)
+	inline glmatrix<4, 4, T>& glmatrix<4, 4, T>::operator+=(const glmatrix<4, 4, T>& m)
 	{
 		this->valuep[0] += m[0];
 		this->valuep[1] += m[1];
@@ -52,7 +52,7 @@ namespace glmath
 		return *this;
 	}
 	template<typename T>
-	inline constexpr glmatrix<4, 4, T>& glmatrix<4, 4, T>::operator-=(T s)
+	inline glmatrix<4, 4, T>& glmatrix<4, 4, T>::operator-=(T s)
 	{
 		this->value[0] -= s;
 		this->value[1] -= s;
@@ -61,7 +61,7 @@ namespace glmath
 		return *this;
 	}
 	template<typename T>
-	inline constexpr glmatrix<4, 4, T>& glmatrix<4, 4, T>::operator-=(const glmatrix<4, 4, T>& m)
+	inline glmatrix<4, 4, T>& glmatrix<4, 4, T>::operator-=(const glmatrix<4, 4, T>& m)
 	{
 		this->value[0] -= m[0];
 		this->value[1] -= m[1];
@@ -70,7 +70,7 @@ namespace glmath
 		return *this;
 	}
 	template<typename T>
-	inline constexpr glmatrix<4, 4, T>& glmatrix<4, 4, T>::operator*=(T s)
+	inline glmatrix<4, 4, T>& glmatrix<4, 4, T>::operator*=(T s)
 	{
 		this->value[0] *= s;
 		this->value[1] *= s;
@@ -80,14 +80,14 @@ namespace glmath
 	}
 
 	template<typename T>
-	inline constexpr glmatrix<4, 4, T>& glmatrix<4, 4, T>::operator*=(const glmatrix<4, 4, T>& m)
+	inline glmatrix<4, 4, T>& glmatrix<4, 4, T>::operator*=(const glmatrix<4, 4, T>& m)
 	{
 		(*this).value = (*this).value * m;
 		return *this;
 	}
 
 	template<typename T>
-	inline constexpr glmatrix<4, 4, T>& glmatrix<4, 4, T>::operator/=(T s)
+	inline glmatrix<4, 4, T>& glmatrix<4, 4, T>::operator/=(T s)
 	{
 		this->value[0] /= s;
 		this->value[1] /= s;
@@ -97,7 +97,7 @@ namespace glmath
 	}
 
 	template<typename T>
-	inline constexpr glmatrix<4, 4, T>& glmatrix<4, 4, T>::operator%=(T s)
+	inline glmatrix<4, 4, T>& glmatrix<4, 4, T>::operator%=(T s)
 	{
 		this->value[0] %= s;
 		this->value[1] %= s;
@@ -107,7 +107,7 @@ namespace glmath
 	}
 
 	template<typename T>
-	inline constexpr glmatrix<4, 4, T>& glmatrix<4, 4, T>::operator++()
+	inline glmatrix<4, 4, T>& glmatrix<4, 4, T>::operator++()
 	{
 		++value[0];
 		++value[1];
@@ -117,7 +117,7 @@ namespace glmath
 	}
 
 	template<typename T>
-	inline constexpr glmatrix<4, 4, T> glmatrix<4, 4, T>::operator++(int)
+	inline glmatrix<4, 4, T> glmatrix<4, 4, T>::operator++(int)
 	{
 		glmatrix<4, 4, T> res(*this);
 		++value[0];
@@ -128,15 +128,17 @@ namespace glmath
 	}
 
 	template<typename T>
-	inline constexpr glmatrix<4, 4, T>& glmatrix<4, 4, T>::operator[](int i)
+	inline glmatrix<4, 4, T>& glmatrix<4, 4, T>::operator[](int i)
 	{
 		return value[i];
 	}
 	template<typename T>
-	inline constexpr glvec<4, T>& glmatrix<4, 4, T>::getRowByIndex(int i)
+	inline glvec<4, T>& glmatrix<4, 4, T>::getRowByIndex(int i)
 	{
 		return glvec<4, T>(value[0][i], value[1][i], value[2][i], value[3][i]);
 	}
+
+
 	template<typename T>
 	glmatrix<4, 4, T> operator+(const glmatrix<4, 4, T>& m)
 	{

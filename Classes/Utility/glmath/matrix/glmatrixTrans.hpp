@@ -19,9 +19,21 @@ namespace glmath {
 		return res;
 	}
 	template<typename T>  
-	glmatrix<4, 4, T>& rotation(glmatrix<4, 4, T>& mat,float radios, glvec<3, T> v)
+	glmatrix<4, 4, T>& rotation(glmatrix<4, 4, T>& mat, float radios, glvec<3, T> r)//radios ª°∂»÷∆
 	{
-		glmatrix<4, 4, T> res(1.0);
+		float cosRad = cos(radios);
+		float mCosRad = 1 - cosRad;
+		float sinRad = sin(radios);
+
+		glmatrix<4, 4, T> temp = {
+			{cosRad + r.x * r.x * mCosRad,			r.x * r.y * mCosRad - r.z*sinRad,	r.x * r.z * mCosRad + r.y * sinRad,	0 },
+			{r.y * r.x * mCosRad + r.z * sinRad,	cosRad + r.y * r.y * mCosRad,		r.y * r.z * mCosRad - r.x * sinRad,	0 },
+			{r.z * r.x * mCosRad - r.y * sinRad,	r.z * r.y * mCosRad + r.x + sinRad,	cosRad + r.z * r.z * mCosRad,		0 },
+			{0,									0,									 0,										1 }
+		};
+
+		glmatrix<4,4,T> res = temp * mat;
+		return res;
 	}
 }
 

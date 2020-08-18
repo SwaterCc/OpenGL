@@ -24,23 +24,24 @@ namespace glmath {
 		constexpr glmatrix(const glmatrix& obj) = default;
 		// -- 重载运算符 --
 		// -- 赋值运算符 --
-		constexpr glmatrix<4, 4, T>& operator=(const glmatrix<4, 4, T>&) = default;
-		constexpr glmatrix<4, 4, T>& operator+=(T s);
-		constexpr glmatrix<4, 4, T>& operator+=(const glmatrix<4, 4, T>&);
-		constexpr glmatrix<4, 4, T>& operator-=(T s);
-		constexpr glmatrix<4, 4, T>& operator-= (const glmatrix<4, 4, T>&);
-		constexpr glmatrix<4, 4, T>& operator*=(T s);
-		constexpr glmatrix<4, 4, T>& operator*= (const glmatrix<4, 4, T>&);
-		
-		constexpr glmatrix<4, 4, T>& operator/=(T s);
-		constexpr glmatrix<4, 4, T>& operator%=(T s);
+		glmatrix<4, 4, T>& operator=(const glmatrix<4, 4, T>&) = default;
+	
+		glmatrix<4, 4, T>& operator+=(T s);
+		glmatrix<4, 4, T>& operator+=(const glmatrix<4, 4, T>&);
+		glmatrix<4, 4, T>& operator-=(T s);
+		glmatrix<4, 4, T>& operator-= (const glmatrix<4, 4, T>&);
+		glmatrix<4, 4, T>& operator*=(T s);
+		glmatrix<4, 4, T>& operator*= (const glmatrix<4, 4, T>&);
+
+		glmatrix<4, 4, T>& operator/=(T s);
+		glmatrix<4, 4, T>& operator%=(T s);
 		// -- 自增运算符 --
-		constexpr glmatrix<4, 4, T>& operator++();
-		constexpr glmatrix<4, 4, T> operator++(int);
+	    glmatrix<4, 4, T>& operator++();
+	    glmatrix<4, 4, T> operator++(int);
 		// -- 索引运算符 --
-		constexpr glmatrix<4, 4, T>& operator[](int i);
+		glmatrix<4, 4, T>& operator[](int i);
 		// -- 成员函数 --
-		constexpr glvec<4, T>& getRowByIndex(int i);
+		glvec<4, T>& getRowByIndex(int i);
 	public:
 		col_type value[4];
 	};

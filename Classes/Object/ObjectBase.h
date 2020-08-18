@@ -54,7 +54,7 @@ protected:
 	Point m_AnchorPoint;
 	
 private:
-	glmath::mat4 * m_objModel;
+	glmath::mat4 * m_pObjModelMatrix;
 };
 
 

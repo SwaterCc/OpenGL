@@ -1,6 +1,6 @@
 #ifndef _glmath_vec_3_
 #define _glmath_vec_3_
-#include"../gl_math_template.hpp"
+#include"../gl_math_template.h"
 
 namespace glmath
 {
@@ -22,68 +22,66 @@ namespace glmath
 		constexpr explicit glvec(T scalar);
 		//  -- 拷贝构造函数 --
 		constexpr glvec(const glvec& obj) = default;
-		//
-
 		//  -- 重载运算符 --
-		constexpr glvec<3, T>& operator=(const glvec& obj) = default;
+		glvec<3, T>& operator=(const glvec<3, T>& obj) = default;
 		
-		constexpr T& operator[](const size_t i);
+		T& operator[](const size_t i);
 		
-		constexpr glvec<3, T>& operator++();//++v
-		constexpr glvec<3, T> operator++(int);//v++
-
-		constexpr glvec<3, T>& operator--();//--v
-		constexpr glvec<3, T> operator--(int);//v--
-
-		constexpr glvec<3, T>& operator+=(const T& scalar);
-		constexpr glvec<3, T>& operator+=(const glvec& v1);
-							
-		constexpr glvec<3, T>& operator-=(const T& scalar);
-		constexpr glvec<3, T>& operator-=(const glvec& v1);
-							 
-		constexpr glvec<3, T>& operator*=(const T& scalar);
-		constexpr glvec<3, T>& operator/=(const T& scalar);
-		constexpr glvec<3, T>& operator%=(const T& scalar);
+		glvec<3, T>& operator++();//++v
+		glvec<3, T> operator++(int);//v++
+		
+		glvec<3, T>& operator--();//--v
+		glvec<3, T> operator--(int);//v--
+		
+		glvec<3, T>& operator+=(const T& scalar);
+		glvec<3, T>& operator+=(const glvec& v1);
+				
+		glvec<3, T>& operator-=(const T& scalar);
+		glvec<3, T>& operator-=(const glvec& v1);
+				 
+		glvec<3, T>& operator*=(const T& scalar);
+		glvec<3, T>& operator/=(const T& scalar);
+		glvec<3, T>& operator%=(const T& scalar);
 	private:
 		//一下方法在数学中未定义
-		constexpr glvec<3, T>& operator*=(const glvec& v1);
-		constexpr glvec<3, T>& operator/=(const glvec& v1);
-		constexpr glvec<3, T>& operator%=(const glvec& v1);
+		glvec<3, T>& operator*=(const glvec& v1);
+		glvec<3, T>& operator/=(const glvec& v1);
+		glvec<3, T>& operator%=(const glvec& v1);
 
 		
-		constexpr glvec<3, T>& operator*(const glvec<3, T>& v) {}
-		constexpr glvec<3, T>& operator/(const glvec<3, T>& v) {}
-		constexpr glvec<3, T>& operator%(const glvec<3, T>& v) {}
+		glvec<3, T>& operator*(const glvec<3, T>& v) {}
+		glvec<3, T>& operator/(const glvec<3, T>& v) {}
+		glvec<3, T>& operator%(const glvec<3, T>& v) {}
 	};
 	//  -- 一元运算符 --
 	template<typename T>
-	constexpr glvec<3, T> operator+(const glvec<3, T>& v);
+	glvec<3, T> operator+(const glvec<3, T>& v);
 	template<typename T>
-	constexpr glvec<3, T> operator-(const glvec<3, T>& v);
+	glvec<3, T> operator-(const glvec<3, T>& v);
 	//  -- 重载运算符 --
 	template<typename T>
-	constexpr glvec<3, T> operator+(T const& scalar , const glvec<3,T> & v2);
+	glvec<3, T> operator+(T const& scalar , const glvec<3,T> & v2);
 	template<typename T>
-	constexpr glvec<3, T> operator+(const glvec<3, T>& v1, glvec<3, T> const& v2);
+	glvec<3, T> operator+(const glvec<3, T>& v1, glvec<3, T> const& v2);
 
 	template<typename T>
-	constexpr glvec<3, T> operator-(T const& scalar, const glvec<3, T>& v2);
+	glvec<3, T> operator-(T const& scalar, const glvec<3, T>& v2);
 	template<typename T>
-	constexpr glvec<3, T> operator-(const glvec<3, T>& v1, T const& scalar);
+	glvec<3, T> operator-(const glvec<3, T>& v1, T const& scalar);
 	template<typename T>
-	constexpr glvec<3, T> operator-(const glvec<3, T>& v1, glvec<3, T> const& v2);
+	glvec<3, T> operator-(const glvec<3, T>& v1, glvec<3, T> const& v2);
 	
 	template<typename T>
-	constexpr glvec<3, T> operator*(T const& scalar, const glvec<3, T>& v2);
+	glvec<3, T> operator*(T const& scalar, const glvec<3, T>& v2);
 	
 	// --点乘--
 	template<typename T>
-	constexpr T operator*(const glvec<3, T>& v1, glvec<3, T> const& v2);
+	T operator*(const glvec<3, T>& v1, glvec<3, T> const& v2);
 
 	template<typename T>
-	constexpr glvec<3, T> operator/(T const& scalar, const glvec<3, T>& v2);
+	glvec<3, T> operator/(T const& scalar, const glvec<3, T>& v2);
 	template<typename T>
-	constexpr glvec<3, T> operator%(T const& scalar, const glvec<3, T>& v2);
+	glvec<3, T> operator%(T const& scalar, const glvec<3, T>& v2);
 }
 #include"glvec3.inl"
 #endif // !_glmath_vec_3_

@@ -1,4 +1,4 @@
-#include"../gl_math_template.hpp"
+#include"gl_math_template.h"
 
 namespace glmath
 {	//ÏÔÊ¾ÊµÀı»¯

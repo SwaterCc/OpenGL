@@ -6,7 +6,7 @@ namespace glmath
 
 	}
 	template<typename T>
-	inline constexpr glmatrix<3, 3, T>::glmatrix(T scaler) : value{ col_type.x(scaler),col_type.y(scaler),col_type.z(scaler)}
+	inline constexpr glmatrix<3, 3, T>::glmatrix(T scaler) : value{ col_type(scaler,0,0),col_type(0,scaler,0),col_type(0,0,scaler) }
 	{
 	}
 	template<typename T>
@@ -25,7 +25,7 @@ namespace glmath
 	{
 	}
 	template<typename T>
-	inline constexpr glmatrix<3, 3, T>& glmatrix<3, 3, T>::operator+=(T s)
+	inline glmatrix<3, 3, T>& glmatrix<3, 3, T>::operator+=(T s)
 	{
 		this->value[0] += s;
 		this->value[1] += s;
@@ -33,15 +33,15 @@ namespace glmath
 		return *this;
 	}
 	template<typename T>
-	inline constexpr glmatrix<3, 3, T>& glmatrix<3, 3, T>::operator+=(const glmatrix<3, 3, T>& m)
+	inline glmatrix<3, 3, T>& glmatrix<3, 3, T>::operator+=(const glmatrix<3, 3, T>& m)
 	{
-		this->valuep[0] += m[0];
-		this->valuep[1] += m[1];
-		this->valuep[2] += m[2];
+		this->value[0] += m[0];
+		this->value[1] += m[1];
+		this->value[2] += m[2];
 		return *this;
 	}
 	template<typename T>
-	inline constexpr glmatrix<3, 3, T>& glmatrix<3, 3, T>::operator-=(T s)
+	inline glmatrix<3, 3, T>& glmatrix<3, 3, T>::operator-=(T s)
 	{
 		this->value[0] -= s;
 		this->value[1] -= s;
@@ -49,7 +49,7 @@ namespace glmath
 		return *this;
 	}
 	template<typename T>
-	inline constexpr glmatrix<3, 3, T>& glmatrix<3, 3, T>::operator-=(const glmatrix<3, 3, T>& m)
+	inline glmatrix<3, 3, T>& glmatrix<3, 3, T>::operator-=(const glmatrix<3, 3, T>& m)
 	{
 		this->value[0] -= m[0];
 		this->value[1] -= m[1];
@@ -57,7 +57,7 @@ namespace glmath
 		return *this;
 	}
 	template<typename T>
-	inline constexpr glmatrix<3, 3, T>& glmatrix<3, 3, T>::operator*=(T s)
+	inline glmatrix<3, 3, T>& glmatrix<3, 3, T>::operator*=(T s)
 	{
 		this->value[0] *= s;
 		this->value[1] *= s;
@@ -66,14 +66,14 @@ namespace glmath
 	}
 
 	template<typename T>
-	inline constexpr glmatrix<3, 3, T>& glmatrix<3, 3, T>::operator*=(const glmatrix<3, 3, T>& m)
+	inline glmatrix<3, 3, T>& glmatrix<3, 3, T>::operator*=(const glmatrix<3, 3, T>& m)
 	{
 		(*this).value = (*this).value * m;
 		return *this;
 	}
 
 	template<typename T>
-	inline constexpr glmatrix<3, 3, T>& glmatrix<3, 3, T>::operator/=(T s)
+	inline glmatrix<3, 3, T>& glmatrix<3, 3, T>::operator/=(T s)
 	{
 		this->value[0] /= s;
 		this->value[1] /= s;
@@ -82,7 +82,7 @@ namespace glmath
 	}
 
 	template<typename T>
-	inline constexpr glmatrix<3, 3, T>& glmatrix<3, 3, T>::operator%=(T s)
+	inline glmatrix<3, 3, T>& glmatrix<3, 3, T>::operator%=(T s)
 	{
 		this->value[0] %= s;
 		this->value[1] %= s;
@@ -91,7 +91,7 @@ namespace glmath
 	}
 
 	template<typename T>
-	inline constexpr glmatrix<3, 3, T>& glmatrix<3, 3, T>::operator++()
+	inline glmatrix<3, 3, T>& glmatrix<3, 3, T>::operator++()
 	{
 		++value[0];
 		++value[1];
@@ -100,7 +100,7 @@ namespace glmath
 	}
 
 	template<typename T>
-	inline constexpr glmatrix<3, 3, T> glmatrix<3, 3, T>::operator++(int)
+	inline glmatrix<3, 3, T> glmatrix<3, 3, T>::operator++(int)
 	{
 		glmatrix<3, 3, T> res(*this);
 		++value[0];
@@ -110,15 +110,17 @@ namespace glmath
 	}
 
 	template<typename T>
-	inline constexpr glmatrix<3, 3, T>& glmatrix<3, 3, T>::operator[](int i)
+	inline glmatrix<3, 3, T>& glmatrix<3, 3, T>::operator[](int i)
 	{
 		return value[i];
 	}
 	template<typename T>
-	inline constexpr glvec<3, T>& glmatrix<3, 3, T>::getRowByIndex(int i)
+	inline glvec<3, T>& glmatrix<3, 3, T>::getRowByIndex(int i)
 	{
 		return glvec<3, T>(value[0][i], value[1][i],value[2][i]);
 	}
+
+
 	template<typename T>
 	glmatrix<3, 3, T> operator+(const glmatrix<3, 3, T>& m)
 	{

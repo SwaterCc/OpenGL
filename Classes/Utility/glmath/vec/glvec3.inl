@@ -28,7 +28,7 @@ namespace glmath {
 	}
 	
 	template<typename T>
-	inline constexpr T& glvec<3, T>::operator[](const size_t i)
+	inline T& glvec<3, T>::operator[](const size_t i)
 	{
 		switch (i)
 		{
@@ -43,7 +43,7 @@ namespace glmath {
 		}
 	}
 	template<typename T>
-	inline constexpr glvec<3, T>& glvec<3, T>::operator++()
+	inline glvec<3, T>& glvec<3, T>::operator++()
 	{
 		++x;
 		++y;
@@ -51,14 +51,14 @@ namespace glmath {
 		return *this;
 	}
 	template<typename T>
-	inline constexpr glvec<3, T> glvec<3, T>::operator++(int)
+	inline glvec<3, T> glvec<3, T>::operator++(int)
 	{
 		glvec<3, T>res(*this);
 		++(*this);
 		return *this;
 	}
 	template<typename T>
-	inline constexpr glvec<3, T>& glvec<3, T>::operator--()
+	inline glvec<3, T>& glvec<3, T>::operator--()
 	{
 		--x;
 		--y;
@@ -66,14 +66,14 @@ namespace glmath {
 		return *this;
 	}
 	template<typename T>
-	inline constexpr glvec<3, T> glvec<3, T>::operator--(int)
+	inline glvec<3, T> glvec<3, T>::operator--(int)
 	{
 		glvec<3, T>res(*this);
 		--(*this);
 		return *this;
 	}
 	template<typename T>
-	inline constexpr glvec<3, T>& glvec<3, T>::operator+=(const T& scalar)
+	inline glvec<3, T>& glvec<3, T>::operator+=(const T& scalar)
 	{
 		(*this).x += scalar;
 		(*this).y += scalar;
@@ -82,7 +82,7 @@ namespace glmath {
 		return (*this);
 	}
 	template<typename T>
-	inline constexpr glvec<3, T>& glvec<3, T>::operator+=(const glvec& v1)
+	inline glvec<3, T>& glvec<3, T>::operator+=(const glvec& v1)
 	{
 		(*this).x += v1.x;
 		(*this).y += v1.y;
@@ -91,7 +91,7 @@ namespace glmath {
 		return (*this);
 	}
 	template<typename T>
-	inline constexpr glvec<3, T>& glvec<3, T>::operator-=(const T& scalar)
+	inline glvec<3, T>& glvec<3, T>::operator-=(const T& scalar)
 	{
 		(*this).x -= scalar;
 		(*this).y -= scalar;
@@ -100,7 +100,7 @@ namespace glmath {
 		return (*this);
 	}
 	template<typename T>
-	inline constexpr glvec<3, T>& glvec<3, T>::operator-=(const glvec& v1)
+	inline glvec<3, T>& glvec<3, T>::operator-=(const glvec& v1)
 	{
 		(*this).x -= v1.x;
 		(*this).y -= v1.y;
@@ -109,7 +109,7 @@ namespace glmath {
 		return (*this);
 	}
 	template<typename T>
-	inline constexpr glvec<3, T>& glvec<3, T>::operator*=(const T& scalar)
+	inline glvec<3, T>& glvec<3, T>::operator*=(const T& scalar)
 	{
 		(*this).x *= scalar;
 		(*this).y *= scalar;
@@ -118,7 +118,7 @@ namespace glmath {
 		return (*this);
 	}
 	template<typename T>
-	inline constexpr glvec<3, T>& glvec<3, T>::operator*=(const glvec& v1)
+	inline glvec<3, T>& glvec<3, T>::operator*=(const glvec& v1)
 	{
 		(*this).x *= v1.x;
 		(*this).y *= v1.y;
@@ -127,7 +127,7 @@ namespace glmath {
 		return (*this);
 	}
 	template<typename T>
-	inline constexpr glvec<3, T>& glvec<3, T>::operator/=(const T& scalar)
+	inline glvec<3, T>& glvec<3, T>::operator/=(const T& scalar)
 	{
 		(*this).x /= scalar;
 		(*this).y /= scalar;
@@ -136,7 +136,7 @@ namespace glmath {
 		return (*this);
 	}
 	template<typename T>
-	inline constexpr glvec<3, T>& glvec<3, T>::operator/=(const glvec& v1)
+	inline glvec<3, T>& glvec<3, T>::operator/=(const glvec& v1)
 	{
 		(*this).x /= v1.x;
 		(*this).y /= v1.y;
@@ -145,7 +145,7 @@ namespace glmath {
 		return (*this);
 	}
 	template<typename T>
-	inline constexpr glvec<3, T>& glvec<3, T>::operator%=(const T& scalar)
+	inline glvec<3, T>& glvec<3, T>::operator%=(const T& scalar)
 	{
 		(*this).x %= scalar;
 		(*this).y %= scalar;
@@ -154,7 +154,7 @@ namespace glmath {
 		return (*this);
 	}
 	template<typename T>
-	inline constexpr glvec<3, T>& glvec<3, T>::operator%=(const glvec& v1)
+	inline glvec<3, T>& glvec<3, T>::operator%=(const glvec& v1)
 	{
 		(*this).x %= v1.x;
 		(*this).y %= v1.y;
@@ -164,18 +164,18 @@ namespace glmath {
 	}
 
 	template<typename T>
-	constexpr glvec<3, T> operator+(const glvec<3, T>& v)
+    glvec<3, T> operator+(const glvec<3, T>& v)
 	{
 		return v;
 	}
 	template<typename T>
-	constexpr glvec<3, T> operator-(const glvec<3, T>& v)
+	glvec<3, T> operator-(const glvec<3, T>& v)
 	{
 		return glvec<3, T>(-v.x,-v.y,-v.y);
 	}
 
 	template<typename T>
-	constexpr glvec<3, T> operator+(T const& scalar, const glvec<3, T>& v2)
+	glvec<3, T> operator+(T const& scalar, const glvec<3, T>& v2)
 	{
 		return glvec<3, T>(
 			scalar + v2.x,
@@ -184,7 +184,7 @@ namespace glmath {
 			);
 	}
 	template<typename T>
-	constexpr glvec<3, T> operator+(const glvec<3, T>& v1, glvec<3, T> const& v2)
+	glvec<3, T> operator+(const glvec<3, T>& v1, glvec<3, T> const& v2)
 	{
 		return glvec<3, T>(
 			v1.x + v2.x,
@@ -194,7 +194,7 @@ namespace glmath {
 	}
 
 	template<typename T>
-	constexpr glvec<3, T> operator-(T const& scalar, const glvec<3, T>& v2)
+	glvec<3, T> operator-(T const& scalar, const glvec<3, T>& v2)
 	{
 		return glvec<3, T>(
 			scalar - v2.x,
@@ -203,7 +203,7 @@ namespace glmath {
 			);
 	}
 	template<typename T>
-	constexpr glvec<3, T> operator-(const glvec<3, T>& v1, T const& scalar)
+	glvec<3, T> operator-(const glvec<3, T>& v1, T const& scalar)
 	{
 		return glvec<3, T>(
 			v1.x - scalar,
@@ -212,7 +212,7 @@ namespace glmath {
 			);
 	}
 	template<typename T>
-	constexpr glvec<3, T> operator-(const glvec<3, T>& v1, glvec<3, T> const& v2)
+	glvec<3, T> operator-(const glvec<3, T>& v1, glvec<3, T> const& v2)
 	{
 		return glvec<3, T>(
 			v1.x - v2.x,
@@ -222,7 +222,7 @@ namespace glmath {
 	}
 
 	template<typename T>
-	constexpr glvec<3, T> operator*(T const& scalar, const glvec<3, T>& v2)
+	glvec<3, T> operator*(T const& scalar, const glvec<3, T>& v2)
 	{
 		return glvec<3, T>(
 			scalar * v2.x,
@@ -231,7 +231,7 @@ namespace glmath {
 			);
 	}
 	template<typename T>
-	constexpr T operator*(const glvec<3, T>& v1, glvec<3, T> const& v2)
+	T operator*(const glvec<3, T>& v1, glvec<3, T> const& v2)
 	{
 		
 		T a1 = v1.x * v2.x;
@@ -242,7 +242,7 @@ namespace glmath {
 	}
 
 	template<typename T>
-	constexpr glvec<3, T> operator/(T const& scalar, const glvec<3, T>& v2)
+	glvec<3, T> operator/(T const& scalar, const glvec<3, T>& v2)
 	{
 		return glvec<3, T>(
 			scalar / v2.x,
@@ -252,7 +252,7 @@ namespace glmath {
 	}
 
 	template<typename T>
-	constexpr glvec<3, T> operator%(T const& scalar, const glvec<3, T>& v2)
+	glvec<3, T> operator%(T const& scalar, const glvec<3, T>& v2)
 	{
 		return glvec<3, T>(
 			scalar % v2.x,
