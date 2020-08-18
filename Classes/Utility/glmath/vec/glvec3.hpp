@@ -85,5 +85,5 @@ namespace glmath
 	template<typename T>
 	constexpr glvec<3, T> operator%(T const& scalar, const glvec<3, T>& v2);
 }
-
+#include"glvec3.inl"
 #endif // !_glmath_vec_3_

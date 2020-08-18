@@ -152,7 +152,7 @@
     <ClCompile Include="..\Classes\Object\VertexConfig.cpp" />
     <ClCompile Include="..\Classes\Sence\DefaultSence.cpp" />
     <ClCompile Include="..\Classes\Sence\ISence.cpp" />
-    <ClCompile Include="..\Classes\Utility\glmath\matrix\glmatrix3x3.inl" />
+    <ClCompile Include="..\Classes\Utility\glmath\matrix\glmatrix3x3.cpp" />
     <ClCompile Include="..\Classes\Utility\glmath\vec\gl_math_template.inl" />
     <ClCompile Include="..\opengl\glm\detail\glm.cpp" />
     <ClCompile Include="..\opengl\src\gl3w.c" />

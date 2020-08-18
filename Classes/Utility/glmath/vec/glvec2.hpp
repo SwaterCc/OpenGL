@@ -86,5 +86,5 @@ namespace glmath
 	constexpr T operator*(const glvec<2, T>& v1, glvec<2, T> const& v2);
 	//  --向量与向量运算结束--
 }
-
+#include"glvec2.inl"
 #endif // !_glmath_vec_2_

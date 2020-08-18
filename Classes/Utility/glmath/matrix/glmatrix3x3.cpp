@@ -1,4 +1,3 @@
-#include"glmatrix3x3.hpp"
 namespace glmath
 {
 	template<typename T>
@@ -7,7 +6,7 @@ namespace glmath
 
 	}
 	template<typename T>
-	inline constexpr glmatrix<3, 3, T>::glmatrix(T scaler) : value{ col_type(scaler),col_type(scaler),col_type(scaler)}
+	inline constexpr glmatrix<3, 3, T>::glmatrix(T scaler) : value{ col_type.x(scaler),col_type.y(scaler),col_type.z(scaler)}
 	{
 	}
 	template<typename T>
@@ -175,6 +174,6 @@ namespace glmath
 	template<typename T>
 	glvec<3, T> operator*(const glmatrix<3, 3, T>& m, const glvec<3, T>& n)
 	{
-		return glvec<2, T>(m[0] * n, m[1] * n, m[2] * n);
+		return glvec<3, T>(m[0] * n, m[1] * n, m[2] * n);
 	}
 }

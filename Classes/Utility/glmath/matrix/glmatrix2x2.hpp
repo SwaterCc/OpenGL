@@ -56,10 +56,8 @@ namespace glmath {
 	template<typename T> glmatrix<2, 2, T> operator*(const glmatrix<2, 2, T>& m, const glmatrix<2, 2, T>& n);
 	// -- 与向量运算 --
 	template<typename T> glvec<2,T> operator*(const glmatrix<2, 2, T>& m, const glvec<2, T>& n);
-	
-	
 }
-
+#include"glmatrix2x2.inl"
 
 
 

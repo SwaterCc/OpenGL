@@ -1,4 +1,3 @@
-#include"glmatrix2x2.hpp"
 namespace glmath
 {
 	template<typename T>
@@ -7,7 +6,7 @@ namespace glmath
 
 	}
 	template<typename T>
-	inline constexpr glmatrix<2, 2, T>::glmatrix(T scaler) : value{col_type(scaler),col_type(scaler)}
+	inline constexpr glmatrix<2, 2, T>::glmatrix(T scaler) : value{col_type.x(scaler),col_type.y(scaler)}
 	{
 	}
 	template<typename T>

@@ -1,6 +1,3 @@
-#pragma once
-#include"glvec2.hpp"
-
 namespace glmath {
 	template<typename T>
 	inline constexpr glvec<2, T>::glvec() :x(0), y(0)

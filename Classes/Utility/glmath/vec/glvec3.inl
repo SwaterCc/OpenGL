@@ -1,5 +1,3 @@
-#include"glvec3.hpp"
-
 namespace glmath {
 	template<typename T>
 	inline constexpr glvec<3, T>::glvec() :x(0), y(0), z(0)
@@ -210,7 +208,7 @@ namespace glmath {
 		return glvec<3, T>(
 			v1.x - scalar,
 			v1.y - scalar,
-			v1.z - scalar,
+			v1.z - scalar
 			);
 	}
 	template<typename T>

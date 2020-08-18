@@ -52,9 +52,9 @@ protected:
 	GLProgram * m_ShaderProgram;
 	GLuint m_uProgramTarget;
 	Point m_AnchorPoint;
-
+	
 private:
-	glmath::mat4 m_objModel;
+	glmath::mat4 * m_objModel;
 };
 
 

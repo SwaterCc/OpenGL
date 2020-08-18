@@ -1,5 +1,3 @@
-#include"glvec4.hpp"
-
 namespace glmath {
 	template<typename T>
 	inline constexpr glvec<4, T>::glvec() :x(0), y(0), z(0),w(0)
@@ -177,10 +175,10 @@ namespace glmath {
 	constexpr glvec<4, T> operator-(const glvec<4, T>& v)
 	{
 		return glvec<4, T>(
-			 - v2.x,
-			 - v2.y,
-			 - v2.z
-			 - v2.w
+			 - v.x,
+			 - v.y,
+			 - v.z,
+			 - v.w
 			);
 	}
 
@@ -200,7 +198,7 @@ namespace glmath {
 		return glvec<4, T>(
 			scalar - v2.x,
 			scalar - v2.y,
-			scalar - v2.z
+			scalar - v2.z,
 			scalar - v2.w
 			);
 	}

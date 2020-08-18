@@ -25,7 +25,7 @@ namespace glmath
 		//  -- 拷贝构造函数 --
 		constexpr glvec(const glvec& obj) = default;
 		//  -- 重载运算符 --
-		constexpr glvec<4, T> operator=(const glvec& obj) = default;
+		constexpr glvec<4, T>& operator=(const glvec& obj) = default;
 
 		constexpr T& operator[](const size_t i);
 
@@ -86,5 +86,5 @@ namespace glmath
 	constexpr T operator*(const glvec<4, T>& v1, glvec<4, T> const& v2);
 	//  --向量与向量运算结束--
 }
-
+#include"glvec4.inl"
 #endif // !_glmath_vec_4_

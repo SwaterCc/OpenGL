@@ -18,7 +18,7 @@ namespace glmath
 	template <length_t len, typename T> constexpr T mod(const glvec<len, T>& v1)
 	{
 		T res = 0;
-		for (size_t i = 0; i < len, i++)
+		for (size_t i = 0; i < len; i++)
 		{
 			res += pow(v1[i],2);
 		}

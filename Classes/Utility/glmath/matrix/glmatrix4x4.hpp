@@ -40,7 +40,7 @@ namespace glmath {
 		// -- 索引运算符 --
 		constexpr glmatrix<4, 4, T>& operator[](int i);
 		// -- 成员函数 --
-		constexpr glvec<4, T>& glmatrix<4, 4, T>::getRowByIndex(int i);
+		constexpr glvec<4, T>& getRowByIndex(int i);
 	public:
 		col_type value[4];
 	};
@@ -59,7 +59,7 @@ namespace glmath {
 	// -- 与向量运算 --
 	template<typename T> glmatrix<4, 4, T> operator*(const glmatrix<4, 4, T>& m, const glvec<4, T>& n);
 }
-
+#include"glmatrix4x4.inl"
 
 
 
