@@ -57,6 +57,9 @@
     <Filter Include="Utility\glmath\matrix">
       <UniqueIdentifier>{684a358c-07fd-4a11-a790-b59ad81f8ec6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{c3623f07-b12f-49e0-9e9e-bf7c00009b5c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\opengl\src\glad.c">
@@ -112,6 +115,9 @@
     </ClCompile>
     <ClCompile Include="..\opengl\glm\detail\glm.cpp">
       <Filter>ThirdPartylib\glm\detil</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Camera\Camera.cpp">
+      <Filter>Camera</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -183,9 +189,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Object\Texture.h">
       <Filter>Object\Texture</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Camera\Camera.h">
-      <Filter>Include</Filter>
     </ClInclude>
     <ClInclude Include="..\opengl\glm\common.hpp">
       <Filter>ThirdPartylib\glm</Filter>
@@ -366,6 +369,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Utility\glmath\gl_math_template.h">
       <Filter>Utility\glmath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Camera\Camera.h">
+      <Filter>Camera</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

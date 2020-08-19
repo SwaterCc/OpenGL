@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{BDA0F69D-DCF9-4426-8CFD-18D9D16E1A8C}</ProjectGuid>
     <RootNamespace>OpenGlText</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Classes\Camera\Camera.cpp" />
     <ClCompile Include="..\Classes\Framework\GlMainWindow.cpp" />
     <ClCompile Include="..\Classes\Framework\GLProgram.cpp" />
     <ClCompile Include="..\Classes\Framework\GLShaderProgreamCatch.cpp" />

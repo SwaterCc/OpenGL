@@ -10,7 +10,7 @@ ObjectBase* ObjectBase::create()
 	return p;
 }
 
-ObjectBase::ObjectBase()
+ObjectBase::ObjectBase():m_pObjModelMatrix(glmath::mat4(1.0f))
 {
 	m_VertexConfig = new VertexConfig();
 	m_ShaderProgram = nullptr;
@@ -18,11 +18,14 @@ ObjectBase::ObjectBase()
 
 	m_uVAO = m_VertexConfig->getVAO();
 	m_AnchorPoint = PointCenter;
-
-	m_pObjModelMatrix = new glmath::mat4(1.0f);
 }
 
 ObjectBase::~ObjectBase()
+{
+
+}
+
+void ObjectBase::update()
 {
 
 }

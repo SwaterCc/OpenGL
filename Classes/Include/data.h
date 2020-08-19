@@ -138,6 +138,11 @@ struct Size
 	Size(float w,float h):width(w),height(h){}
 };
 
+enum Projection_Type
+{
+	Projection_ortho = 10,
+	Projection_Perspective = 12,
+};
 #define SizeMake(w,h) Size(w,h)
 
 
@@ -149,5 +154,6 @@ struct Size
 #define OFFSET_POSITION (void*)(0)
 #define OFFSET_COLOR (void*)(sizeof(Vec3))
 #define OFFSET_TEXTURE (void*)(sizeof(Vec3)+sizeof(ColorData))
+
 
 #endif // !_DATA_H_

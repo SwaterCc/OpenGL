@@ -61,4 +61,7 @@ namespace glmath
 	typedef		glmatrix<4, 4, unsigned int>	umat4;
 	typedef		glmatrix<4, 4, float>			mat4;
 	typedef		glmatrix<4, 4, double>			dmat4;
+
+	typedef		glvec<2, float>			point;
+	typedef		glvec<3, float>			point3;
 }			

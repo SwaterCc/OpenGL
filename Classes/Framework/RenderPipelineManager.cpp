@@ -20,6 +20,12 @@ void RenderPiplineManager::mainLoop()
 	RenderingList::iterator it;
 	for (it = m_RenderingList.begin(); it != m_RenderingList.end(); it++)
 	{
+		(it->second)->update();//此步执行model变换
+		//view变换
+
+		//projection变换
+
+
 		(it->second)->draw();
 		glBindVertexArray(0);
 	}
