@@ -7,8 +7,9 @@
 #include "../Framework/GLShaderProgreamCatch.h"
 #include "VertexConfig.h"
 #include "../Utility/glmath/glmathlib.h"
+#include "../Camera/Camera.h"
 
-class ObjectBase
+class ObjectBase : public CameraTransfomationInterface
 {
 public:
 	static ObjectBase* create();
@@ -80,6 +81,8 @@ protected:
 		m_ShaderProgram = GLProgram; 
 		m_uProgramTarget = m_ShaderProgram->getShaderProgram();
 	}
+
+	virtual glmath::mat4 getModel() { return m_pObjModelMatrix; }
 protected:
 	int _nRenderTag;
 

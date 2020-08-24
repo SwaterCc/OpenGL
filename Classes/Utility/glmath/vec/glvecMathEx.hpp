@@ -24,6 +24,15 @@ namespace glmath
 		}
 		return sqrt(res);
 	}
+
+	// -- 转换为单位向量 --
+	template <length_t len, typename T> constexpr glvec<len,T> normalize(const glvec<len, T>& v)
+	{
+		T modV = mod(v);
+		float normalizeFactor = 1 / modV;
+		glvec<len, T> res = normalizeFactor * v;
+		return res;
+	}
 }
 
 
