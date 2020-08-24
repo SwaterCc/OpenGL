@@ -5,7 +5,7 @@
 namespace glmath
 {	
 	// -- 叉乘 --
-	template <typename T> constexpr glvec<3, T> cross(const glvec<3, T>& v1, const glvec<3, T>& v2)
+	template <typename T> glvec<3, T> cross(const glvec<3, T>& v1, const glvec<3, T>& v2)
 	{
 		return glvec<3, T>(
 			v1.y * v2.z - v1.z * v2.y,
@@ -15,7 +15,7 @@ namespace glmath
 	}
 
 	// -- 向量的模 --
-	template <length_t len, typename T> constexpr T mod(const glvec<len, T>& v1)
+	template <length_t len, typename T> T mod(const glvec<len, T>& v1)
 	{
 		T res = 0;
 		for (size_t i = 0; i < len; i++)
@@ -26,7 +26,7 @@ namespace glmath
 	}
 
 	// -- 转换为单位向量 --
-	template <length_t len, typename T> constexpr glvec<len,T> normalize(const glvec<len, T>& v)
+	template <length_t len, typename T> glvec<len,T> normalize(const glvec<len, T>& v)
 	{
 		T modV = mod(v);
 		float normalizeFactor = 1 / modV;

@@ -25,8 +25,9 @@ namespace glmath
 		//  -- ÖØÔØÔËËã·û --
 		glvec<3, T>& operator=(const glvec<3, T>& obj) = default;
 		
-		T& operator[](const size_t i);
-		
+		T & operator[](size_t i);
+		T const & operator[](size_t i) const;
+
 		glvec<3, T>& operator++();//++v
 		glvec<3, T> operator++(int);//v++
 		

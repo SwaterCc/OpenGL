@@ -28,7 +28,7 @@ public:
 		RenderPiplineManager::getInstance()->removeObjectAtIndex(getRenderTag());
 	}
 
-	virtual void draw() {}
+	virtual void draw();
 	virtual void update();
 	int& getRenderTag() { return _nRenderTag; }
 
@@ -83,6 +83,8 @@ protected:
 	}
 
 	virtual glmath::mat4 getModel() { return m_pObjModelMatrix; }
+	virtual void setMVPMatrix(glmath::mat4 mvp) { m_ObjMVPMatrix = mvp; }
+	virtual void updateUniformOfShader();
 protected:
 	int _nRenderTag;
 
@@ -93,6 +95,7 @@ protected:
 	Point m_AnchorPoint;
 private:
 	glmath::mat4 m_pObjModelMatrix;
+	glmath::mat4 m_ObjMVPMatrix;
 	float m_fScale;
 	float m_fRadio;
 	glmath::vec3 m_objRotateAxle;

@@ -3,7 +3,7 @@
 
 #include "../Include/Include.h"
 #include "../Include/makeFileInclude.h"
-
+#include "../Camera/Camera.h"
 #include <map>
 
 
@@ -12,7 +12,7 @@ class Sence;
 class GLShaderProgreamCatch;
 //typedef std::map<SenceType, Sence*> SenceList;
 typedef std::map<int,ObjectBase*> RenderingList;
-
+typedef std::map<int, Camera*> CameraList;
 
 class RenderPiplineManager
 {
@@ -31,6 +31,9 @@ private:
 private:
 	static RenderPiplineManager* m_pInstance;
 	static int m_nListCount;
+
+	Camera * m_pDefaultCamera;
+	CameraList m_CameraList;
 
 	RenderingList m_RenderingList;
 	GLShaderProgreamCatch* m_pProgramCatchInstance;

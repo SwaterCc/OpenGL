@@ -10,7 +10,7 @@ ObjectBase* ObjectBase::create()
 	return p;
 }
 
-ObjectBase::ObjectBase():m_pObjModelMatrix(glmath::mat4(1.0f))
+ObjectBase::ObjectBase():m_pObjModelMatrix(glmath::mat4(1.0f)), m_ObjMVPMatrix(0.0f)
 {
 	m_VertexConfig = new VertexConfig();
 	m_ShaderProgram = nullptr;
@@ -25,7 +25,17 @@ ObjectBase::~ObjectBase()
 
 }
 
+void ObjectBase::draw()
+{
+	
+}
+
 void ObjectBase::update()
+{
+
+}
+
+void ObjectBase::updateUniformOfShader()
 {
 
 }

@@ -9,6 +9,7 @@ class CameraTransfomationInterface
 {
 public:
 	virtual glmath::mat4 getModel() = 0;
+	virtual glmath::mat4 setMVPMatrix(glmath::mat4 mvp) = 0;
 };
 
 class Camera
@@ -18,7 +19,7 @@ public:
 	static Camera* create(glmath::vec3 cameraPos, glmath::point3 target = { 0,0,0 }, glmath::vec3 upAxis = {0,1,0}, Projection_Type type = Projection_Perspective);
 	// -- 视口投影变换 --
 
-	void makeObjectTransfomation(CameraTransfomationInterface* obj);
+	void makeObjectTransfomation(CameraTransfomationInterface* obj);//MVP矩阵创建
 	
 	void setPosition(glmath::vec3 pos) { m_objPos = pos; }
 	glmath::vec3 getPosition() { return m_objPos; }
@@ -90,8 +91,9 @@ protected:
 	Camera(glmath::vec3 cameraPos, glmath::point3 target, Projection_Type type);
 	void init();
 
-	glmath::mat4& createPerspectiveMat();
-	glmath::mat4& createOrthogonalMat();
+	virtual void createLookAt();
+	virtual void createPerspectiveMat();
+	virtual void createOrthogonalMat();
 private:
 	glmath::point3 m_objTarget;
 	glmath::vec3 m_objPos;

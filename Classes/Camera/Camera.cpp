@@ -58,17 +58,42 @@ Camera* Camera::create(glmath::vec3 cameraPos, glmath::point3 target, glmath::ve
 	return p;
 }
 
+void Camera::makeObjectTransfomation(CameraTransfomationInterface * obj)
+{
+	glmath::mat4 model = obj->getModel();
+	glmath::mat4 mvp = (m_objProjectionMat * (m_objLookAt * model));//注意顺序
+	obj->setMVPMatrix(mvp);
+}
+
 
 void Camera::init()
 {
 	//创建LookAt矩阵
+	createLookAt();
+	//创建projection矩阵
+	switch (m_type)
+	{
+	case Projection_ortho:
+		createOrthogonalMat();
+		break;
+	case Projection_Perspective:
+		createPerspectiveMat();
+		break;
+	default:
+		assert(false);
+		break;
+	}
+}
+
+void Camera::createLookAt()
+{
 	//1.获取摄像机指向方向的单位向量
 	vec3 D = glmath::normalize(m_objPos - m_objTarget);
 	D = -1.0f * D;//方向向量，也就是相机坐标系z在世界坐标系中的表示
-	//2.获取右向量
+				  //2.获取右向量
 	vec3 U = m_objUp;//上向量
 	vec3 R = glmath::normalize(glmath::cross(U, D));//向量叉乘不满足交换律，交换后会得到右向量的负方向
-	//3.获取平移变换矩阵
+													//3.获取平移变换矩阵
 	glmath::mat4 Look_translate = {
 		1.0f, 0.0f, 0.0f, -m_objPos.x,
 		0.0f, 1.0f, 0.0f, -m_objPos.y,
@@ -82,5 +107,35 @@ void Camera::init()
 		glmath::vec4(D,0.0f),
 		glmath::vec4(glmath::vec3(0.0f),1.0f)
 	};
+
+	m_objLookAt = Look_rotation * Look_translate; //矩阵是左乘，有顺序，先平移后旋转
+}
+
+void Camera::createPerspectiveMat()
+{
+
+}
+
+void Camera::createOrthogonalMat()
+{
+	//临时使用，原本需要6个变量，现在默认左平面在0，底面在0，此时坐标的减法和加法是一样的
+	//正交投影变换
+	//在空间中任意一个立方体，转换为[-1,1]范围的正方体
+	//1.将立方体的中点平移至坐标空间的原点处，默认原点为（0，0，0）
+	glmath::mat4 trans = {
+		0.0f,0.0f,0.0f,-(0+m_fViewWidth ) / 2,
+		0.0f,0.0f,0.0f,-(0+m_fViewHeight) / 2,
+		0.0f,0.0f,0.0f,-(m_fNearPlane + m_fFarPlane) / 2,
+		0.0f,0.0f,0.0f,1.0f
+	};
+	//2.将立方体的长宽高缩放成[-1,1]的范围内
+	glmath::mat4 scale = {
+		2 / (m_fViewWidth - 0), 0.0f, 0.0f, 0.0f,
+		0.0f, 2 / (m_fViewHeight-0), 0.0f, 0.0f, 
+		0.0f, 0.0f, 2 / (m_fNearPlane-m_fFarPlane),0.0f,
+		0.0f,0.0f,0.0f,1.0f
+	};
+	//相乘
+	m_objProjectionMat = scale * trans;
 }
 

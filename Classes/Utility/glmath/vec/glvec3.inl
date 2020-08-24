@@ -28,8 +28,9 @@ namespace glmath {
 	}
 	
 	template<typename T>
-	inline T& glvec<3, T>::operator[](const size_t i)
+	inline T & glvec<3, T>::operator[](size_t i) 
 	{
+		assert(i < 3);
 		switch (i)
 		{
 		case 0:
@@ -39,9 +40,29 @@ namespace glmath {
 		case 2:
 			return z;
 		default:
+			std::cerr << "error! glvec range out" << std::endl;
 			break;
 		}
 	}
+
+	template<typename T>
+	inline T const & glvec<3, T>::operator[](size_t i) const
+	{
+		assert(i < 3);
+		switch (i)
+		{
+		case 0:
+			return x;
+		case 1:
+			return y;
+		case 2:
+			return z;
+		default:
+			std::cerr << "error! glvec range out" << std::endl;
+			break;
+		}
+	}
+
 	template<typename T>
 	inline glvec<3, T>& glvec<3, T>::operator++()
 	{

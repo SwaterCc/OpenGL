@@ -21,11 +21,10 @@ void RenderPiplineManager::mainLoop()
 	for (it = m_RenderingList.begin(); it != m_RenderingList.end(); it++)
 	{
 		(it->second)->update();//此步执行model变换
-		//view变换
 
-		//projection变换
-
-
+		//vp变换
+		m_pDefaultCamera->makeObjectTransfomation(it->second);
+		
 		(it->second)->draw();
 		glBindVertexArray(0);
 	}
@@ -69,8 +68,11 @@ void RenderPiplineManager::createSence(SenceType type)
 RenderPiplineManager::RenderPiplineManager()
 {
 	m_RenderingList.clear();
+	m_CameraList.clear();
+	m_pDefaultCamera = 0;
 	m_pProgramCatchInstance = GLShaderProgreamCatch::getInstance();
 	m_WindowSize = { 0,0 };
+
 }
 
 RenderPiplineManager::~RenderPiplineManager()
