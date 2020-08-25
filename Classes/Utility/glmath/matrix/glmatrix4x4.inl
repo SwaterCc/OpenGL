@@ -1,3 +1,4 @@
+#include "glmatrix4x4.hpp"
 namespace glmath
 {
 	template<typename T>
@@ -11,8 +12,8 @@ namespace glmath
 
 	}
 	template<typename T>
-	inline constexpr glmatrix<4, 4, T>::glmatrix(glvec<4, T>& a, glvec<4, T>& b, glvec<4, T>& c, glvec<4, T>& d) :
-		value{ a,b,c }
+	inline constexpr glmatrix<4, 4, T>::glmatrix(glvec<4, T> a, glvec<4, T> b, glvec<4, T> c, glvec<4, T> d) :
+		value{ a,b,c,d }
 	{
 	}
 	template<typename T>
@@ -128,12 +129,23 @@ namespace glmath
 	}
 
 	template<typename T>
-	inline glmatrix<4, 4, T>& glmatrix<4, 4, T>::operator[](int i)
+	inline glvec<4, T>& glmatrix<4, 4, T>::operator[](int i)
 	{
 		return value[i];
 	}
 	template<typename T>
-	inline glvec<4, T>& glmatrix<4, 4, T>::getRowByIndex(int i)
+	inline const glvec<4, T>& glmatrix<4, 4, T>::operator[](int i) const
+	{
+		return value[i];
+	}
+	template<typename T>
+	inline glvec<4, T> glmatrix<4, 4, T>::getRowByIndex(int i)
+	{
+		return glvec<4, T>(value[0][i], value[1][i], value[2][i], value[3][i]);
+	}
+
+	template<typename T>
+	inline const glvec<4, T> glmatrix<4, 4, T>::getRowByIndex(int i) const
 	{
 		return glvec<4, T>(value[0][i], value[1][i], value[2][i], value[3][i]);
 	}

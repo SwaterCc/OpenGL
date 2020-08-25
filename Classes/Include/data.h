@@ -156,4 +156,6 @@ enum Projection_Type
 #define OFFSET_TEXTURE (void*)(sizeof(Vec3)+sizeof(ColorData))
 
 
+#define MVP_MAT "mvp_mat"
+
 #endif // !_DATA_H_

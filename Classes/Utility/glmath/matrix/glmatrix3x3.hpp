@@ -11,7 +11,7 @@ namespace glmath {
 		// -- ¹¹Ôìº¯Êý --
 		constexpr glmatrix();
 		constexpr glmatrix(T scaler);
-		constexpr glmatrix(glvec<3, T>& a, glvec<3, T>& b, glvec<3, T>& c);
+		constexpr glmatrix(glvec<3, T> a, glvec<3, T> b, glvec<3, T> c);
 		constexpr glmatrix(T* arr, size_t t = 9);
 		constexpr glmatrix
 		(

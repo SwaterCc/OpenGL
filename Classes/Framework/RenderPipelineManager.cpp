@@ -3,8 +3,12 @@
 #include "../Sence/SenceInclude.h"
 #include "GLShaderProgreamCatch.h"
 
+constexpr int DEFAULT_CAMERA = 0;
+
 RenderPiplineManager* RenderPiplineManager::m_pInstance = nullptr;
-int RenderPiplineManager::m_nListCount = 0;
+
+int RenderPiplineManager::m_nRenderListCount = 0;
+int RenderPiplineManager::m_nCameraListCount = 1;
 
 RenderPiplineManager* RenderPiplineManager::getInstance()
 {
@@ -23,8 +27,15 @@ void RenderPiplineManager::mainLoop()
 		(it->second)->update();//此步执行model变换
 
 		//vp变换
-		m_pDefaultCamera->makeObjectTransfomation(it->second);
-		
+		if (m_pMainCamera && m_pMainCamera->getActive())
+		{
+			m_pMainCamera->makeObjectTransfomation(it->second);
+		}
+		else
+		{
+			std::cerr << "Wanning MainCamera Not Active or is NULL" << std::endl;
+		}
+
 		(it->second)->draw();
 		glBindVertexArray(0);
 	}
@@ -32,9 +43,9 @@ void RenderPiplineManager::mainLoop()
 
 void RenderPiplineManager::addObjectToList(ObjectBase* object,int & tag)
 {
-	tag = m_nListCount;
-	m_RenderingList[m_nListCount] = object;
-	m_nListCount++;
+	tag = m_nRenderListCount;
+	m_RenderingList[m_nRenderListCount] = object;
+	++m_nRenderListCount;
 }
 
 void RenderPiplineManager::removeObjectAtIndex(int idx)
@@ -47,6 +58,36 @@ void RenderPiplineManager::removeObjectAtIndex(int idx)
 	}
 	//OutputDebugString
 	return;
+}
+
+void RenderPiplineManager::addCameraToList(Camera* obj)
+{
+	obj->setTag(m_nCameraListCount);
+	m_CameraList[m_nCameraListCount] = obj;
+	++m_nCameraListCount;
+}
+
+void RenderPiplineManager::removeCameraAtIndex(int idx)
+{
+	auto it = m_CameraList.find(idx);
+	if (it != m_CameraList.end())
+	{
+		m_CameraList.erase(it);
+		return;
+	}
+	//OutputDebugString
+	return;
+}
+
+void RenderPiplineManager::createMainCamera()
+{
+	m_pMainCamera = Camera::create({ 0,0,3 });
+	m_pMainCamera->setView(m_WindowSize.width, m_WindowSize.height);
+	m_pMainCamera->setNearPlane(10.0f);
+	m_pMainCamera->setFarPlane(500.0f);
+
+	m_CameraList[DEFAULT_CAMERA] = m_pMainCamera;
+	m_pMainCamera->setActive(true);
 }
 
 void RenderPiplineManager::createSence(SenceType type)
@@ -63,13 +104,28 @@ void RenderPiplineManager::createSence(SenceType type)
 	}
 
 	p->init();
+
+	if (m_CameraList.size() < 1)
+	{
+		createMainCamera();
+	}
+}
+
+void RenderPiplineManager::setMainCamera(Camera* c)
+{
+	assert(c);
+	{
+		m_CameraList[m_nCameraListCount] = c;
+		m_pMainCamera = m_CameraList[m_nCameraListCount];
+	}
+	
 }
 
 RenderPiplineManager::RenderPiplineManager()
 {
 	m_RenderingList.clear();
 	m_CameraList.clear();
-	m_pDefaultCamera = 0;
+	m_pMainCamera = nullptr;
 	m_pProgramCatchInstance = GLShaderProgreamCatch::getInstance();
 	m_WindowSize = { 0,0 };
 

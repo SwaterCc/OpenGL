@@ -84,7 +84,7 @@ namespace glmath
 	glvec<4, T> operator-(const glvec<4, T>& v1, glvec<4, T> const& v2);													
 	// --点乘--
 	template<typename T>
-	T operator*(const glvec<4, T>& v1, glvec<4, T> const& v2);
+	T operator*(const glvec<4, T>& v1, const glvec<4, T>& v2);
 	//  --向量与向量运算结束--
 }
 #include"glvec4.inl"

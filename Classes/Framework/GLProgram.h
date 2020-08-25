@@ -12,6 +12,9 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #endif
+
+#include "../Utility/glmath/glmathlib.h"
+
 using std::string;
 using std::cout;
 using std::endl;
@@ -33,6 +36,7 @@ public:
 	void setUniformOneFloat(string valName, float value);
 	void setUniform4F(string valName, uniform_fv fv);
 	void setUniform4MatrixFV(string valName, glm::mat4 matrix);
+	void setUniform4MatrixFV(string valName, glmath::mat4 matrix);
 private:
 	string readFile(std::string path);
 	void ShaderCompiledLog(GLuint shaderID);

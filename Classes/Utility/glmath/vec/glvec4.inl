@@ -287,7 +287,7 @@ namespace glmath {
 			);
 	}
 	template<typename T>
-	T operator*(const glvec<4, T>& v1, glvec<4, T> const& v2)
+	T operator*(const glvec<4, T>& v1, const glvec<4, T> & v2)
 	{
 		T a1 = v1.x * v2.x;
 		T a2 = v1.y * v2.y;

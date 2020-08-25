@@ -22,17 +22,24 @@ public:
 	void addObjectToList(ObjectBase * object,int & tag);
 	void removeObjectAtIndex(int idx);
 
+	void addCameraToList(Camera* obj);
+	void removeCameraAtIndex(int idx);
+	void createMainCamera();
+
 	void createSence(SenceType type);
 	void setWinSize(Size size) { m_WindowSize = size; }
 	Size getWinSize() { return m_WindowSize; }
+
+	void setMainCamera(Camera* c);
 private:
 	RenderPiplineManager();
 	~RenderPiplineManager();
 private:
 	static RenderPiplineManager* m_pInstance;
-	static int m_nListCount;
+	static int m_nRenderListCount;
+	static int m_nCameraListCount;
 
-	Camera * m_pDefaultCamera;
+	Camera * m_pMainCamera;
 	CameraList m_CameraList;
 
 	RenderingList m_RenderingList;

@@ -171,6 +171,26 @@ void GLProgram::setUniform4MatrixFV(string valName, glm::mat4 matrix)
 	}
 }
 
+void GLProgram::setUniform4MatrixFV(string valName, glmath::mat4 matrix)
+{
+	if (m_nShaderProgram)
+	{
+		uint localUniform = glGetUniformLocation(m_nShaderProgram, valName.c_str());
+		if (m_bIsShaderProgramUsed)
+		{
+			glUniformMatrix4fv(localUniform, 1/*矩阵数量*/, GL_FALSE/*是否行列相反*/, &(matrix[0].x));
+		}
+		else
+		{
+			std::cout << "error shaderProgram is NULL" << endl;
+		}
+	}
+	else
+	{
+		std::cout << "error shaderProgram is NULL" << endl;
+	}
+}
+
 string GLProgram::readFile(std::string path)
 {
 	using std::fstream;

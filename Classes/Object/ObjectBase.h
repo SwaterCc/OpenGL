@@ -93,9 +93,11 @@ protected:
 	GLProgram * m_ShaderProgram;
 	GLuint m_uProgramTarget;
 	Point m_AnchorPoint;
-private:
+
 	glmath::mat4 m_pObjModelMatrix;
 	glmath::mat4 m_ObjMVPMatrix;
+private:
+	
 	float m_fScale;
 	float m_fRadio;
 	glmath::vec3 m_objRotateAxle;

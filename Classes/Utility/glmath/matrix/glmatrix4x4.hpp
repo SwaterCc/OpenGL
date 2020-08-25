@@ -11,7 +11,7 @@ namespace glmath {
 		// -- 构造函数 --
 		constexpr glmatrix();
 		constexpr glmatrix(T scaler);
-		constexpr glmatrix(glvec<4, T>& a, glvec<4, T>& b, glvec<4, T>& c, glvec<4, T>& d);
+		constexpr glmatrix(glvec<4, T> a, glvec<4, T> b, glvec<4, T> c, glvec<4, T> d);
 		constexpr glmatrix(T* arr, size_t t = 16);
 		constexpr glmatrix
 		(
@@ -39,9 +39,11 @@ namespace glmath {
 	    glmatrix<4, 4, T>& operator++();
 	    glmatrix<4, 4, T> operator++(int);
 		// -- 索引运算符 --
-		glmatrix<4, 4, T>& operator[](int i);
+		glvec<4, T>& operator[](int i);
+		const glvec<4, T> & operator[](int i) const;
 		// -- 成员函数 --
-		glvec<4, T>& getRowByIndex(int i);
+		glvec<4, T> getRowByIndex(int i);
+		const glvec<4, T> getRowByIndex(int i)const;
 	public:
 		col_type value[4];
 	};

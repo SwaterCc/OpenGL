@@ -16,6 +16,9 @@ Camera::Camera()
 
 	m_objProjectionMat = glmath::mat4(1.0f);
 	m_objLookAt = glmath::mat4(1.0f);
+
+	m_bIsActive = false;
+	m_nTag = -1;
 }
 
 Camera::Camera(glmath::vec3 cameraPos, glmath::point3 target, Projection_Type type)
@@ -29,6 +32,9 @@ Camera::Camera(glmath::vec3 cameraPos, glmath::point3 target, Projection_Type ty
 
 	m_objProjectionMat = glmath::mat4(1.0f);
 	m_objLookAt = glmath::mat4(1.0f);
+
+	m_bIsActive = false;
+	m_nTag = -1;
 }
 
 

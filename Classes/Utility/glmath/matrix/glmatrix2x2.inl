@@ -10,7 +10,7 @@ namespace glmath
 	{
 	}
 	template<typename T>
-	inline constexpr glmatrix<2, 2, T>::glmatrix(glvec<2, T>& a, glvec<2, T>& b) :
+	inline constexpr glmatrix<2, 2, T>::glmatrix(glvec<2, T> a, glvec<2, T> b) :
 		value{a,b}
 	{
 	}

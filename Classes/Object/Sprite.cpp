@@ -18,8 +18,15 @@ Sprite* Sprite::create(const char* TextureFile)
 	return p;
 }
 
+void Sprite::updateUniformOfShader()
+{
+	m_ShaderProgram->setUniform4MatrixFV(MVP_MAT, m_ObjMVPMatrix);
+}
+
 void Sprite::draw()
 {
+	updateUniformOfShader();
+
 	m_ShaderProgram->useShaderProgream();
 
 	glBindVertexArray(m_uVAO);
@@ -29,12 +36,12 @@ void Sprite::draw()
 
 Sprite::Sprite():ObjectBase()
 {
-	
+	m_pTex = nullptr;
 }
 
 Sprite::Sprite(const char* TextureFile):ObjectBase(),m_sTextureFile(TextureFile)
 {
-	
+	m_pTex = nullptr;
 }
 
 Sprite::~Sprite()
@@ -53,8 +60,8 @@ void Sprite::init()
 
 	//×ø±ê±ä»»
 	Size winSize = RenderPiplineManager::getInstance()->getWinSize();
-	float _width = (float)m_pTex->getTexWidth() / (float)winSize.width * 2;
-	float _height = (float)m_pTex->getTexHeight() / (float)winSize.height * 2;
+	float _width = (float)m_pTex->getTexWidth();
+	float _height = (float)m_pTex->getTexHeight();
 	//float _width = (float)m_nTexture_width / (float)m_nTexture_width;
 	//float _height = (float)m_nTexture_height / (float)m_nTexture_width;
 
