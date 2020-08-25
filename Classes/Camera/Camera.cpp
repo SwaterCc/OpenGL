@@ -21,8 +21,8 @@ Camera::Camera()
 	m_nTag = -1;
 }
 
-Camera::Camera(glmath::vec3 cameraPos, glmath::point3 target, Projection_Type type)
-	:m_objPos(cameraPos),m_objTarget(target),m_type(type)
+Camera::Camera(glmath::vec3 cameraPos, glmath::point3 target, glmath::vec3 upAxis, Projection_Type type)
+	:m_objPos(cameraPos),m_objTarget(target),m_objUp(upAxis),m_type(type)
 {
 	m_fViewWidth = 0;
 	m_fViewHeight = 0;
@@ -56,10 +56,10 @@ Camera* Camera::create()
 /************************************************************************/
 Camera* Camera::create(glmath::vec3 cameraPos, glmath::point3 target, glmath::vec3 upAxis, Projection_Type type)
 {
-	Camera* p = new Camera(cameraPos,target,type);
+	Camera* p = new Camera(cameraPos,target,upAxis,type);
 	if (p)
 	{
-		p->init();
+		//p->init();
 	}
 	return p;
 }
@@ -129,16 +129,16 @@ void Camera::createOrthogonalMat()
 	//在空间中任意一个立方体，转换为[-1,1]范围的正方体
 	//1.将立方体的中点平移至坐标空间的原点处，默认原点为（0，0，0）
 	glmath::mat4 trans = {
-		0.0f,0.0f,0.0f,-(0+m_fViewWidth ) / 2,
-		0.0f,0.0f,0.0f,-(0+m_fViewHeight) / 2,
-		0.0f,0.0f,0.0f,-(m_fNearPlane + m_fFarPlane) / 2,
+		1.0f,0.0f,0.0f,-(0+m_fViewWidth ) / 2,
+		0.0f,1.0f,0.0f,-(0+m_fViewHeight) / 2,
+		0.0f,0.0f,1.0f,-(m_fNearPlane + m_fFarPlane) / 2,
 		0.0f,0.0f,0.0f,1.0f
 	};
 	//2.将立方体的长宽高缩放成[-1,1]的范围内
 	glmath::mat4 scale = {
-		2 / (m_fViewWidth - 0), 0.0f, 0.0f, 0.0f,
-		0.0f, 2 / (m_fViewHeight-0), 0.0f, 0.0f, 
-		0.0f, 0.0f, 2 / (m_fNearPlane-m_fFarPlane),0.0f,
+		2 / (0 - m_fViewWidth), 0.0f, 0.0f, 0.0f,
+		0.0f, 2 / (0 - m_fViewHeight), 0.0f, 0.0f, 
+		0.0f, 0.0f, 2 / (m_fNearPlane - m_fFarPlane),0.0f,
 		0.0f,0.0f,0.0f,1.0f
 	};
 	//相乘

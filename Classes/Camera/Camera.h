@@ -95,10 +95,11 @@ public:
 
 	void setActive(bool isActive) { m_bIsActive = isActive; }
 	bool getActive() { return m_bIsActive; }
+	void init();
 protected:
 	Camera();
-	Camera(glmath::vec3 cameraPos, glmath::point3 target, Projection_Type type);
-	void init();
+	Camera(glmath::vec3 cameraPos, glmath::point3 target, glmath::vec3 upAxis, Projection_Type type);
+
 
 	virtual void createLookAt();
 	virtual void createPerspectiveMat();

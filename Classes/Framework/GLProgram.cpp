@@ -178,7 +178,7 @@ void GLProgram::setUniform4MatrixFV(string valName, glmath::mat4 matrix)
 		uint localUniform = glGetUniformLocation(m_nShaderProgram, valName.c_str());
 		if (m_bIsShaderProgramUsed)
 		{
-			glUniformMatrix4fv(localUniform, 1/*矩阵数量*/, GL_FALSE/*是否行列相反*/, &(matrix[0].x));
+			glUniformMatrix4fv(localUniform, 1/*矩阵数量*/, GL_TRUE/*是否行列相反*/, &(matrix[0].x));
 		}
 		else
 		{

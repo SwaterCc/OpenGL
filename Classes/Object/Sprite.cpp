@@ -25,11 +25,11 @@ void Sprite::updateUniformOfShader()
 
 void Sprite::draw()
 {
-	updateUniformOfShader();
-
 	m_ShaderProgram->useShaderProgream();
-
 	glBindVertexArray(m_uVAO);
+
+
+	updateUniformOfShader();
 
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }
