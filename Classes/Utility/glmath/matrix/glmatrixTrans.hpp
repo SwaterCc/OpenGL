@@ -38,7 +38,7 @@ namespace glmath {
 			{0,									0,									 0,										1 }
 		};
 
-		glmatrix<4,4,T> res = temp * mat;
+		glmatrix<4,4,T> res = mat * temp;
 		return res;
 	}
 

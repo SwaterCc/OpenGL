@@ -47,6 +47,7 @@ glmath::mat4 ObjectBase::updateModelTranslate()
 	glmath::mat4 modelOfUpdate(1.0f);
 	
 	modelOfUpdate = glmath::scaling(modelOfUpdate, m_fScale);
+	glm::rotate()
 	modelOfUpdate = glmath::rotation(modelOfUpdate, m_fRadio, m_objRotateAxle);
 	modelOfUpdate = glmath::translation(modelOfUpdate, { m_objPosition,0 });
 
