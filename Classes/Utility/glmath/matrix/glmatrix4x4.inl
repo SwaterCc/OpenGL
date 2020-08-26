@@ -83,7 +83,7 @@ namespace glmath
 	template<typename T>
 	inline glmatrix<4, 4, T>& glmatrix<4, 4, T>::operator*=(const glmatrix<4, 4, T>& m)
 	{
-		(*this).value = (*this).value * m;
+		*this = (*this) * m;
 		return *this;
 	}
 

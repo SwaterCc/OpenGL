@@ -85,6 +85,7 @@ protected:
 	virtual glmath::mat4 getModel() { return m_pObjModelMatrix; }
 	virtual void setMVPMatrix(glmath::mat4 mvp) { m_ObjMVPMatrix = mvp; }
 	virtual void updateUniformOfShader();
+	virtual glmath::mat4 updateModelTranslate();
 protected:
 	int _nRenderTag;
 

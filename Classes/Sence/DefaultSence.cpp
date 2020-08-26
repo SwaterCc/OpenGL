@@ -30,7 +30,9 @@ void DefaultSence::init()
 
 	auto* sprite = Sprite::create("1.jpg");
 	this->addToRenderingList(sprite);
-	sprite->setPosition({ 331,221,1 });
+	sprite->setScale(0.5f);
+	sprite->setPosition({ 540,360,0 });
+	
 	auto* cube = Cube::create();
 	//this->addToRenderingList(cube);
 }

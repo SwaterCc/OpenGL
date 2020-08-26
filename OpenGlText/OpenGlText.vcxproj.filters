@@ -379,7 +379,6 @@
       <Filter>ThirdPartylib\glm</Filter>
     </Text>
     <Text Include="log.txt" />
-    <Text Include="需求功能记录.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\opengl\glm\detail\func_common.inl">

@@ -40,6 +40,8 @@ void Sprite::draw()
 	glmath::vec4 temp3 = t_mvp * v3;
 	glmath::vec4 temp4 = t_mvp * v4;
 
+
+	
 	updateUniformOfShader();
 
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);

@@ -6,7 +6,10 @@ namespace glmath {
 	glmatrix<4, 4, T> translation(glmatrix<4, 4, T>& mat, glvec<4, T> v)
 	{
 		glmatrix<4, 4, T> res(1.0);
-		res[3] += v;
+		for (int i=0;i<4;i++)
+		{
+			res[i][3] += v[i];
+		}
 		res *= mat;
 		return res;
 	}
@@ -14,7 +17,10 @@ namespace glmath {
 	glmatrix<4, 4, T> scaling(glmatrix<4, 4, T>& mat, float scale)
 	{
 		glmatrix<4, 4, T> res(1.0);
-		res *= scale;
+		for (int i = 0; i < 3; i++)
+		{
+			res[i] *= scale;
+		}
 		res *= mat;
 		return res;
 	}

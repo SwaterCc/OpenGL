@@ -94,8 +94,8 @@ void Camera::init()
 void Camera::createLookAt()
 {
 	//1.获取摄像机指向方向的单位向量
-	vec3 D = glmath::normalize(m_objPos - m_objTarget);
-	D = -1.0f * D;//方向向量，也就是相机坐标系z在世界坐标系中的表示
+	vec3 D = glmath::normalize(m_objTarget - m_objPos);
+	//D = -1.0f * D;//方向向量，也就是相机坐标系z在世界坐标系中的表示
 				  //2.获取右向量
 	vec3 U = m_objUp;//上向量
 	vec3 R = glmath::normalize(glmath::cross(U, D));//向量叉乘不满足交换律，交换后会得到右向量的负方向
