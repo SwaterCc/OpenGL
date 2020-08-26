@@ -207,6 +207,6 @@ namespace glmath
 	template<typename T>
 	glvec<4, T> operator*(const glmatrix<4, 4, T>& m, const glvec<4, T>& n)
 	{
-		return glvec<2, T>(m[0] * n, m[1] * n, m[2] * n, m[3] * n);
+		return glvec<4, T>(m[0] * n, m[1] * n, m[2] * n, m[3] * n);
 	}
 }

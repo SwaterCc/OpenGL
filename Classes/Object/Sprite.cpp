@@ -28,6 +28,17 @@ void Sprite::draw()
 	m_ShaderProgram->useShaderProgream();
 	glBindVertexArray(m_uVAO);
 
+	glmath::vec4 v1 = { m_VertexData.rt.vertex.X,m_VertexData.rt.vertex.Y,m_VertexData.rt.vertex.Z,0 };
+	glmath::vec4 v2 = { m_VertexData.rb.vertex.X,m_VertexData.rb.vertex.Y,m_VertexData.rb.vertex.Z,0 };
+	glmath::vec4 v3 = { m_VertexData.lt.vertex.X,m_VertexData.lt.vertex.Y,m_VertexData.lt.vertex.Z,0 };
+	glmath::vec4 v4 = { m_VertexData.lb.vertex.X,m_VertexData.lb.vertex.Y,m_VertexData.lb.vertex.Z,0 };
+
+	glmath::mat4 t_mvp = glmath::transpose(m_ObjMVPMatrix);
+
+	glmath::vec4 temp1 = t_mvp * v1;
+	glmath::vec4 temp2 = t_mvp * v2;
+	glmath::vec4 temp3 = t_mvp * v3;
+	glmath::vec4 temp4 = t_mvp * v4;
 
 	updateUniformOfShader();
 
@@ -69,6 +80,7 @@ void Sprite::init()
 	m_VertexData.rb.vertex = Vec3(_width * m_AnchorPoint.X, -_height * m_AnchorPoint.Y, 0);
 	m_VertexData.lt.vertex = Vec3(-_width * m_AnchorPoint.X, _height * m_AnchorPoint.Y, 0);
 	m_VertexData.lb.vertex = Vec3(-_width * m_AnchorPoint.X, -_height * m_AnchorPoint.Y, 0);
+
 
 	m_VertexConfig->setVBO(&m_VertexData, 1);
 	//VEO

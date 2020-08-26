@@ -1,11 +1,13 @@
 #include"vec/glvec2.hpp"
 #include"vec/glvec3.hpp"
 #include"vec/glvec4.hpp"
+
 #include"matrix/glmatrix2x2.hpp"
 #include"matrix/glmatrix3x3.hpp"
 #include"matrix/glmatrix4x4.hpp"
-#include"vec/glvecMathEx.hpp"
 
+#include"vec/glvecMathEx.hpp"
+#include"matrix/glmatrixTrans.hpp"
 namespace glmath
 {
 	typedef		glvec<2, int8_t>		i8vec2;

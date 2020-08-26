@@ -3,7 +3,7 @@
 #include"glmatrix4x4.hpp"
 namespace glmath {
 	template<typename T>  
-	glmatrix<4, 4, T>& translation(glmatrix<4, 4, T>& mat, glvec<4, T> v)
+	glmatrix<4, 4, T> translation(glmatrix<4, 4, T>& mat, glvec<4, T> v)
 	{
 		glmatrix<4, 4, T> res(1.0);
 		res[3] += v;
@@ -11,7 +11,7 @@ namespace glmath {
 		return res;
 	}
 	template<typename T>  
-	glmatrix<4, 4, T>& scaling(glmatrix<4, 4, T>& mat, float scale)
+	glmatrix<4, 4, T> scaling(glmatrix<4, 4, T>& mat, float scale)
 	{
 		glmatrix<4, 4, T> res(1.0);
 		res *= scale;
@@ -19,7 +19,7 @@ namespace glmath {
 		return res;
 	}
 	template<typename T>  
-	glmatrix<4, 4, T>& rotation(glmatrix<4, 4, T>& mat, float radios, glvec<3, T> r)//radios 弧度制
+	glmatrix<4, 4, T> rotation(glmatrix<4, 4, T>& mat, float radios, glvec<3, T> r)//radios 弧度制
 	{
 		float cosRad = cos(radios);
 		float mCosRad = 1 - cosRad;
@@ -33,6 +33,20 @@ namespace glmath {
 		};
 
 		glmatrix<4,4,T> res = temp * mat;
+		return res;
+	}
+
+	template<typename T,length_t len>
+	glmatrix<len, len, T> transpose(glmatrix<len, len, T>& mat)
+	{
+		glmatrix<len, len, T> res;
+		for (int line = 0;line < len;line++)
+		{
+			for (int row = 0;row<len;row++)
+			{
+				res[row][line] = mat[line][row];
+			}
+		}
 		return res;
 	}
 }

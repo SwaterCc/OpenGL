@@ -136,9 +136,9 @@ void Camera::createOrthogonalMat()
 	};
 	//2.将立方体的长宽高缩放成[-1,1]的范围内
 	glmath::mat4 scale = {
-		2 / (0 - m_fViewWidth), 0.0f, 0.0f, 0.0f,
-		0.0f, 2 / (0 - m_fViewHeight), 0.0f, 0.0f, 
-		0.0f, 0.0f, 2 / (m_fNearPlane - m_fFarPlane),0.0f,
+		2 / (m_fViewWidth), 0.0f, 0.0f, 0.0f,
+		0.0f, 2 / (m_fViewHeight), 0.0f, 0.0f, 
+		0.0f, 0.0f, 2 / (- m_fNearPlane + m_fFarPlane),0.0f,
 		0.0f,0.0f,0.0f,1.0f
 	};
 	//相乘

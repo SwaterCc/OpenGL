@@ -60,7 +60,7 @@ namespace glmath {
 	template<typename T> glmatrix<4, 4, T> operator-(const glmatrix<4, 4, T>& m, const glmatrix<4, 4, T>& n);
 	template<typename T> glmatrix<4, 4, T> operator*(const glmatrix<4, 4, T>& m, const glmatrix<4, 4, T>& n);
 	// -- 与向量运算 --
-	template<typename T> glmatrix<4, 4, T> operator*(const glmatrix<4, 4, T>& m, const glvec<4, T>& n);
+	template<typename T> glvec<4, T> operator*(const glmatrix<4, 4, T>& m, const glvec<4, T>& n);
 }
 #include"glmatrix4x4.inl"
 
