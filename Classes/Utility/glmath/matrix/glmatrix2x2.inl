@@ -63,7 +63,7 @@ namespace glmath
 	template<typename T>
 	inline glmatrix<2, 2, T>& glmatrix<2, 2, T>::operator*=(const glmatrix<2, 2, T>& m)
 	{
-		(*this).value = (*this).value * m;
+		(*this) = (*this) * m;
 		return *this;
 	}
 
@@ -101,10 +101,23 @@ namespace glmath
 	}
 
 	template<typename T>
-	inline glmatrix<2, 2, T>& glmatrix<2, 2, T>::operator[](int i)
+	inline glvec<2, T>& glmatrix<2, 2, T>::operator[](int i)
 	{
 		return value[i];
 	}
+
+	template<typename T>
+	inline const glvec<2, T>& glmatrix<2, 2, T>::operator[](int i)const
+	{
+		return value[i];
+	}
+
+	template<typename T>
+	inline const glvec<2, T>& glmatrix<2, 2, T>::getRowByIndex(int i)const
+	{
+		return glvec<2, T>(value[0][i], value[1][i]);
+	}
+
 	template<typename T>
 	inline glvec<2, T>& glmatrix<2, 2, T>::getRowByIndex(int i)
 	{

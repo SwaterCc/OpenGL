@@ -15,6 +15,8 @@ void Cube::draw()
 	m_ShaderProgram->useShaderProgream();
 	glBindVertexArray(m_uVAO);
 
+	updateUniformOfShader();
+
 	glDrawArrays(GL_TRIANGLES, 0, 36);
 }
 

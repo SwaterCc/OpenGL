@@ -29,10 +29,11 @@ void DefaultSence::init()
 	//triangle_down->addToRenderingList();
 
 	auto* sprite = Sprite::create("1.jpg");
-	this->addToRenderingList(sprite);
+	//this->addToRenderingList(sprite);
 	sprite->setScale(0.5f);
 	sprite->setPosition({ 540,360,0 });
-	sprite->setRotate(0.3 * 3.14, { 0,0,0 });
+	//sprite->setRotate(-0.5, { 0,0,1 });
 	auto* cube = Cube::create();
-	//this->addToRenderingList(cube);
+	this->addToRenderingList(cube);
+	cube->setPosition({ 540,360,0 });
 }

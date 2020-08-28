@@ -35,9 +35,11 @@ namespace glmath {
 		glmatrix<3, 3, T>& operator++();
 		glmatrix<3, 3, T> operator++(int);
 		// -- 索引运算符 --
-		glmatrix<3, 3, T>& operator[](int i);
+		glvec<3, T>& operator[](int i);
+		const glvec<3, T>& operator[](int i)const;
 		// -- 成员函数 --
 		glvec<3, T>& getRowByIndex(int i);
+		const glvec<3, T>& getRowByIndex(int i)const;
 	public:
 		col_type value[3];
 	};
@@ -54,7 +56,7 @@ namespace glmath {
 	template<typename T> glmatrix<3, 3, T> operator-(const glmatrix<3, 3, T>& m, const glmatrix<3, 3, T>& n);
 	template<typename T> glmatrix<3, 3, T> operator*(const glmatrix<3, 3, T>& m, const glmatrix<3, 3, T>& n);
 	// -- 与向量运算 --
-	template<typename T> glmatrix<3, 3, T> operator*(const glmatrix<3, 3, T>& m, const glvec<3, T>& n);
+	template<typename T> glvec<3, T> operator*(const glmatrix<3, 3, T>& m, const glvec<3, T>& n);
 }
 #include"glmatrix3x3.inl"
 

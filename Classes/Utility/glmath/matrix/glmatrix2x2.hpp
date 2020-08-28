@@ -36,9 +36,11 @@ namespace glmath {
 		glmatrix<2, 2, T>& operator++();
 		glmatrix<2, 2, T> operator++(int);
 		// -- 索引运算符 --
-		glmatrix<2, 2, T>& operator[](int i); //--默认取行
+		glvec<2, T>& operator[](int i); //--默认取行
+		const glvec<2, T>& operator[](int i)const; //--默认取行
 		// -- 成员方法 --
-		row_type& getRowByIndex(int i); //--取列
+		glvec<2, T>& getRowByIndex(int i); //--取列
+		const glvec<2, T>& getRowByIndex(int i)const; //--取列
 	public:
 		col_type value[2];
 	};

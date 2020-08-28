@@ -34,7 +34,7 @@ namespace glmath {
 		glmatrix<4, 4, T> temp = {
 			{cosRad + r.x * r.x * mCosRad,			r.x * r.y * mCosRad - r.z*sinRad,	r.x * r.z * mCosRad + r.y * sinRad,	0 },
 			{r.y * r.x * mCosRad + r.z * sinRad,	cosRad + r.y * r.y * mCosRad,		r.y * r.z * mCosRad - r.x * sinRad,	0 },
-			{r.z * r.x * mCosRad - r.y * sinRad,	r.z * r.y * mCosRad + r.x + sinRad,	cosRad + r.z * r.z * mCosRad,		0 },
+			{r.z * r.x * mCosRad - r.y * sinRad,	r.z * r.y * mCosRad + r.x * sinRad,	cosRad + r.z * r.z * mCosRad,		0 },
 			{0,									0,									 0,										1 }
 		};
 
