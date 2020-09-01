@@ -1,6 +1,7 @@
 #include "Camera.h"
 using glmath::vec3;
 
+
 Camera::Camera()
 {
 	m_objTarget = { 0,0,0 };
@@ -28,7 +29,7 @@ Camera::Camera(glmath::vec3 cameraPos, glmath::point3 target, glmath::vec3 upAxi
 	m_fViewHeight = 0;
 	m_fNearPlane = 0;
 	m_fFarPlane = 0;
-	m_fFov = 0;
+	m_fFov = 45.0f;
 
 	m_objProjectionMat = glmath::mat4(1.0f);
 	m_objLookAt = glmath::mat4(1.0f);
@@ -119,7 +120,22 @@ void Camera::createLookAt()
 
 void Camera::createPerspectiveMat()
 {
-
+	//临时
+	//透视投影
+	//基本公式为M_ortho矩阵 * M_persp->M_ortho矩阵
+	//推导有点复杂这里直接使用结果矩阵
+	float aspect = m_fViewWidth / m_fViewHeight;
+	float radio = m_fFov/2 / 180 * PI;
+	float tanFovhalf = tanf(radio);
+	float A = (-(m_fNearPlane + m_fFarPlane) / (-m_fFarPlane + m_fNearPlane));
+	float B = (2 * m_fNearPlane * m_fFarPlane) / (-m_fFarPlane + m_fNearPlane);
+	glmath::mat4 res = {
+		1/(tanFovhalf * aspect),		0.0f,				0.0f,				0.0f,
+		0.0f,						1/tanFovhalf,		0.0f,				0.0f,
+		0.0f,						0.0f,				A,					B,
+		0.0f,						0.0f,				1.0f,				0.0f
+	};
+	m_objProjectionMat = res;
 }
 
 void Camera::createOrthogonalMat()
