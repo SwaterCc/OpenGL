@@ -3,6 +3,12 @@
 
 #include"../Include/Include.h"
 #include"../Utility/glmath/glmathlib.h"
+enum Projection_Type
+{
+	Projection_ortho = 10,
+	Projection_Perspective = 12,
+};
+
 class ObjectBase;
 
 class CameraTransfomationInterface

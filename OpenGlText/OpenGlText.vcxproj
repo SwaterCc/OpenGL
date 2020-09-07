@@ -157,7 +157,6 @@
     <ClCompile Include="..\opengl\src\gl3w.c" />
     <ClCompile Include="..\opengl\src\glad.c" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="main_old.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\Camera\Camera.h" />
@@ -177,7 +176,6 @@
     <ClInclude Include="..\Classes\Object\Texture.h" />
     <ClInclude Include="..\Classes\Object\Triangle.h" />
     <ClInclude Include="..\Classes\Object\VertexConfig.h" />
-    <ClInclude Include="..\Classes\Object\Vertexs_Data.h" />
     <ClInclude Include="..\Classes\Sence\DefaultSence.h" />
     <ClInclude Include="..\Classes\Sence\ISence.h" />
     <ClInclude Include="..\Classes\Sence\SenceInclude.h" />

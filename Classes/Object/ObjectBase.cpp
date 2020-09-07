@@ -17,7 +17,7 @@ ObjectBase::ObjectBase():m_pObjModelMatrix(glmath::mat4(1.0f)), m_ObjMVPMatrix(0
 	m_uProgramTarget = 0;
 
 	m_uVAO = m_VertexConfig->getVAO();
-	m_AnchorPoint = PointCenter;
+	m_AnchorPoint = AnchorPoint_Center;
 	m_fScale = 1;
 }
 

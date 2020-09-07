@@ -6,6 +6,12 @@
 #include "../Camera/Camera.h"
 #include <map>
 
+typedef enum SenceType
+{
+	SenceType_Default = 0,
+
+}SenceType;
+
 
 class ObjectBase;
 class Sence;

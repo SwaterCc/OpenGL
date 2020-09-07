@@ -9,6 +9,12 @@
 #include "../Utility/glmath/glmathlib.h"
 #include "../Camera/Camera.h"
 
+
+#define AnchorPoint_Center Point(0.5f,0.5f)
+
+
+
+
 class ObjectBase : public CameraTransfomationInterface
 {
 public:

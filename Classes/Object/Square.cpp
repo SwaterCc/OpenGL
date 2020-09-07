@@ -33,10 +33,10 @@ Square::Square() :ObjectBase()
 {
 	m_uVEO = 0;
 
-	m_pSquareVertexData.rt = {Vec3(0.5,0.5,0),c3(0.5,1,1)};
-	m_pSquareVertexData.lt = { Vec3(0.5,-0.5,0),c3(1,0.5,1) };
-	m_pSquareVertexData.lb = { Vec3(-0.5,-0.5,0),c3(1,1,0.5) };
-	m_pSquareVertexData.rb = { Vec3(-0.5,0.5,0),c3(1,1,1) };
+	m_pSquareVertexData.rt = { v3(0.5,0.5,0),c3(0.5,1,1)};
+	m_pSquareVertexData.lt = { v3(0.5,-0.5,0),c3(1,0.5,1) };
+	m_pSquareVertexData.lb = { v3(-0.5,-0.5,0),c3(1,1,0.5) };
+	m_pSquareVertexData.rb = { v3(-0.5,0.5,0),c3(1,1,1) };
 
 	m_pSquareVertexElement[0] = { uVec3(0, 1, 3) };
 	m_pSquareVertexElement[1] = { uVec3(1, 2, 3) };
