@@ -130,7 +130,7 @@ void Camera::createPerspectiveMat()
 	float A = (-(m_fNearPlane + m_fFarPlane) / (-m_fFarPlane + m_fNearPlane));
 	float B = (2 * m_fNearPlane * m_fFarPlane) / (-m_fFarPlane + m_fNearPlane);
 	glmath::mat4 res = {
-		1/(tanFovhalf * aspect),		0.0f,				0.0f,				0.0f,
+		1/(tanFovhalf * aspect),	0.0f,				0.0f,				0.0f,
 		0.0f,						1/tanFovhalf,		0.0f,				0.0f,
 		0.0f,						0.0f,				A,					B,
 		0.0f,						0.0f,				1.0f,				0.0f

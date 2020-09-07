@@ -82,28 +82,28 @@ Cube::Cube()
 	m_CubeVexData[11].p3.vertex = { -0.5f,  0.5f, -0.5f };
 
 
-	m_CubeVexData[0].p1.color = { 1,0,0 };
-	m_CubeVexData[0].p2.color = { 1,0,0 };
-	m_CubeVexData[0].p3.color = { 1,0,0 };
-	m_CubeVexData[1].p1.color = { 1,0,0 };
-	m_CubeVexData[1].p2.color = { 1,0,0 };
-	m_CubeVexData[1].p3.color = { 1,0,0 };
-	m_CubeVexData[2].p1.color = { 1,0,0 };
-	m_CubeVexData[2].p2.color = { 1,0,0 };
-	m_CubeVexData[2].p3.color = { 1,0,0 };
-	m_CubeVexData[3].p1.color = { 1,0,0 };
-	m_CubeVexData[3].p2.color = { 1,0,0 };
-	m_CubeVexData[3].p3.color = { 1,0,0 };
+	m_CubeVexData[0].p1.color = c3(1, 0, 0);
+	m_CubeVexData[0].p2.color = c3(1, 0, 0);
+	m_CubeVexData[0].p3.color = c3(1, 0, 0);
+	m_CubeVexData[1].p1.color = c3(1, 0, 0);
+	m_CubeVexData[1].p2.color = c3(1, 0, 0);
+	m_CubeVexData[1].p3.color = c3(1, 0, 0);
+	m_CubeVexData[2].p1.color = c3(1, 0, 0);
+	m_CubeVexData[2].p2.color = c3(1, 0, 0);
+	m_CubeVexData[2].p3.color = c3(1, 0, 0);
+	m_CubeVexData[3].p1.color = c3(1, 0, 0);
+	m_CubeVexData[3].p2.color = c3(1, 0, 0);
+	m_CubeVexData[3].p3.color = c3(1, 0, 0);
 
-	m_CubeVexData[4].p1.color = { 0,1,0 };
-	m_CubeVexData[5].p2.color = { 0,1,0 };
-	m_CubeVexData[6].p3.color = { 0,1,0 };
-	m_CubeVexData[7].p3.color = { 0,1,0 };
+	m_CubeVexData[4].p1.color = c3(0, 1, 0);
+	m_CubeVexData[5].p2.color = c3(0, 1, 0);
+	m_CubeVexData[6].p3.color = c3(0, 1, 0);
+	m_CubeVexData[7].p3.color = c3(0, 1, 0);
 
-	m_CubeVexData[8].p1.color = { 0,0,1 };
-	m_CubeVexData[9].p2.color = { 0,0,1 };
-	m_CubeVexData[10].p3.color = { 0,0,1 };
-	m_CubeVexData[11].p3.color = { 0,0,1 };
+	m_CubeVexData[8].p1.color = c3(0, 0, 1);
+	m_CubeVexData[9].p2.color = c3(0, 0, 1);
+	m_CubeVexData[10].p3.color = c3(0, 0, 1);
+	m_CubeVexData[11].p3.color = c3(0, 0, 1);
 
 	m_TextureCatch.clear();
 }

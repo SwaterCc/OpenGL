@@ -18,10 +18,18 @@ namespace glmath
 		//  -- 构造函数 --
 		constexpr glvec(T a, T b);
 		constexpr explicit glvec(T scalar);
-
+		// -- 传入类型转换 --
+		template<typename U> 
+		constexpr explicit glvec(U scalar);
+		template<typename A, typename B>
+		constexpr glvec(A a, B b);
 		// --高纬转低维拷贝构造函数--
-		constexpr glvec<2, T>(const glvec<3, T>& obj);
-		constexpr glvec<2, T>(const glvec<4, T>& obj);
+		constexpr explicit glvec<2, T>(const glvec<3, T>& obj);
+		constexpr explicit glvec<2, T>(const glvec<4, T>& obj);
+		template<typename U>
+		constexpr explicit glvec<2, T>(const glvec<3, U>& obj);
+		template<typename U>
+		constexpr explicit glvec<2, T>(const glvec<4, U>& obj);
 		//  -- 拷贝构造函数 --
 		constexpr glvec(const glvec& obj) = default;
 		//  -- 重载运算符 --

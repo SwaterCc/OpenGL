@@ -12,18 +12,63 @@ namespace glmath {
 	}
 
 	template<typename T>
-	inline constexpr glvec<4, T>::glvec(const glvec<2, T>& v, T c, T d) :x(v.x), y(v.y), z(c), w(d)
+	inline constexpr glvec<4, T>::glvec(T scalar) :x(scalar), y(scalar), z(scalar),w(scalar)
 	{
+	}
+
+	template<typename T>
+	template<typename U>
+	inline constexpr glvec<4, T>::glvec(U scalar) : x(static_cast<T>(scalar)), y(static_cast<T>(scalar)), z(static_cast<T>(scalar)), w(static_cast<T>(scalar))
+	{
+	}
+
+	template<typename T>
+	template<typename A, typename B, typename C, typename D>
+	inline constexpr glvec<4, T>::glvec(A a, B b, C c, D d) : x(static_cast<T>(a)), y(static_cast<T>(b)), z(static_cast<T>(c)), w(static_cast<T>(d))
+	{
+	}
+
+	template<typename T>
+	inline constexpr glvec<4, T>::glvec(const glvec<2, T>& v, T c, T d) : x(v.x), y(v.y), z(c), w(d)
+	{
+	}
+	template<typename T>
+	inline constexpr glvec<4, T>::glvec(T a, T b, const glvec<2, T>& v) : x(a), y(b), z(v.x), w(v.y)
+	{
+	}
+	template<typename T>
+	template<typename A, typename B, typename C>
+	inline constexpr glvec<4, T>::glvec(const glvec<2, A>& v, B b, C c) : x(static_cast<T>(v.x)), y(static_cast<T>(v.y)), z(static_cast<T>(b)), w(static_cast<T>(d))
+	{
+	}
+
+	template<typename T>
+	template<typename A, typename B, typename C>
+	inline constexpr glvec<4, T>::glvec(A a, B b, const glvec<2, C>& v) : x(static_cast<T>(a)), y(static_cast<T>(b)), z(static_cast<T>(v.x)), w(static_cast<T>(v.y))
+	{
+
 	}
 
 	template<typename T>
 	inline constexpr glvec<4, T>::glvec(const glvec<3, T>& v, T d) : x(v.x), y(v.y), z(v.z), w(d)
 	{
 	}
+	template<typename T>
+	inline constexpr glvec<4, T>::glvec(T a, const glvec<3, T>& v) : x(a), y(v.x), z(v.y), w(v.z)
+	{
+	}
 
 	template<typename T>
-	inline constexpr glvec<4, T>::glvec(T scalar) :x(scalar), y(scalar), z(scalar),w(scalar)
+	template<typename A, typename B>
+	inline constexpr glvec<4, T>::glvec(const glvec<3, A>& v, B b) : x(static_cast<T>(v.x)), y(static_cast<T>(v.y)), z(static_cast<T>(v.z)), w(static_cast<T>(b))
 	{
+	}
+
+	template<typename T>
+	template<typename A, typename B>
+	inline constexpr glvec<4, T>::glvec(A a, const glvec<3, B>& v) : x(static_cast<T>(a)), y(static_cast<T>(v.x)), z(static_cast<T>(v.y)), w(static_cast<T>(v.z))
+	{
+
 	}
 
 	template<typename T>

@@ -28,6 +28,42 @@ namespace glmath {
 	}
 	
 	template<typename T>
+	template<typename U>
+	inline constexpr glvec<3, T>::glvec(U scalar) : x(static_cast<T>(scalar)), y(static_cast<T>(scalar)), z(static_cast<T>(scalar))
+	{
+	}
+
+	template<typename T>
+	template<typename A, typename B, typename C>
+	inline constexpr glvec<3, T>::glvec(A a, B b, C c) : x(static_cast<T>(a)), y(static_cast<T>(b)), z(static_cast<T>(c))
+	{
+	}
+
+	template<typename T>
+	template<typename A, typename B>
+	inline constexpr glvec<3, T>::glvec(const glvec<2, A>& v, B c) : x(static_cast<T>(v.x)), y(static_cast<T>(v.y)), z(static_cast<T>(c))
+	{
+	}
+
+	template<typename T>
+	template<typename A, typename B>
+	inline constexpr glvec<3, T>::glvec(A c, const glvec<2, B>& v) : x(static_cast<T>(c)), y(static_cast<T>(v.x)), z(static_cast<T>(v.y))
+	{
+
+	}
+
+	template<typename T>
+	inline constexpr glvec<3, T>::glvec(const glvec<4, T>& obj) : x(obj.x), y(obj.y), z(obj.z)
+	{
+	}
+
+	template<typename T>
+	template<typename U>
+	inline constexpr glvec<3, T>::glvec(const glvec<4, U>& obj) : x(static_cast<T>(obj.x)), y(static_cast<T>(obj.y)), z(static_cast<T>(obj.z))
+	{
+	}
+
+	template<typename T>
 	inline T & glvec<3, T>::operator[](size_t i) 
 	{
 		assert(i < 3);

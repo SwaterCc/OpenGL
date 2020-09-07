@@ -29,6 +29,7 @@ constexpr glmath::vec3 v3(float x, float y, float z) { return glmath::vec3(x, y,
 constexpr glmath::vec4 v4(float x, float y, float z, float w) { return glmath::vec4(x, y, z, w); }
 constexpr glmath::vec4 c3(float r, float g, float b) { return glmath::vec4(r, g, b, 0.0f); }
 constexpr glmath::vec4 c4(float r, float g, float b, float a) { return glmath::vec4(r, g, b, a); }
+constexpr glmath::uvec3 uv3(uint x, uint y, uint z) { return glmath::uvec3(x, y, z); }
 
 typedef struct VertexColorTexture_DataStruct{
 	glmath::vec3 vertex;

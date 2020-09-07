@@ -65,9 +65,6 @@
     <ClCompile Include="..\opengl\src\glad.c">
       <Filter>ThirdPartylib</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Framework\GLProgram.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
@@ -116,6 +113,7 @@
     <ClCompile Include="..\Classes\Camera\Camera.cpp">
       <Filter>Camera</Filter>
     </ClCompile>
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\opengl\include\GLFW\glfw3native.h">
