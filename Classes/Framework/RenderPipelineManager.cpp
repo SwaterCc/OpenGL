@@ -81,10 +81,10 @@ void RenderPiplineManager::removeCameraAtIndex(int idx)
 
 void RenderPiplineManager::createMainCamera()
 {
-	m_pMainCamera = Camera::create({ 0,0,-10.0f });
+	m_pMainCamera = Camera::create({ 0,0,-0.1f });
 	m_pMainCamera->setProjection(Projection_Perspective);
 	m_pMainCamera->setView(m_WindowSize.width, m_WindowSize.height);
-	m_pMainCamera->setNearPlane(10.0f);
+	m_pMainCamera->setNearPlane(0.1f);
 	m_pMainCamera->setFarPlane(1500.0f);
 	m_pMainCamera->setViewAngle(45);
 	m_pMainCamera->init();
@@ -94,26 +94,35 @@ void RenderPiplineManager::createMainCamera()
 
 void RenderPiplineManager::createSence(SenceType type)
 {
-	ISence* p = nullptr;
-
+	if (m_pRunningSence)
+	{
+		delete m_pRunningSence;
+		m_pRunningSence = nullptr;
+	}
+	
 	switch (type)
 	{
 	case SenceType_Default:
-		p = DefaultSence::create();
+		m_pRunningSence = DefaultSence::create();
 		break;
 	case SenceType_LightTest:
-		p = LightTestSence::create();
+		m_pRunningSence = LightTestSence::create();
 		break;
 	default:
 		break;
 	}
 
-	p->init();
+	m_pRunningSence->init();
 
 	if (m_CameraList.size() < 1)
 	{
 		createMainCamera();
 	}
+}
+
+glmath::vec4 RenderPiplineManager::getSenceBgColor()
+{
+	return m_pRunningSence->getSenceBackgroundColor();
 }
 
 void RenderPiplineManager::setMainCamera(Camera* c)
@@ -133,7 +142,7 @@ RenderPiplineManager::RenderPiplineManager()
 	m_pMainCamera = nullptr;
 	m_pProgramCatchInstance = GLShaderProgreamCatch::getInstance();
 	m_WindowSize = { 0,0 };
-
+	m_pRunningSence = nullptr;
 }
 
 RenderPiplineManager::~RenderPiplineManager()

@@ -1,6 +1,7 @@
 #include "GlMainWindow.h"
 #include "RenderPipelineManager.h"
 #include "GLShaderProgreamCatch.h"
+
 GLMainWindow* GLMainWindow::m_pInstance = nullptr;
 using std::cerr;
 using std::endl;
@@ -27,6 +28,7 @@ void GLMainWindow::start()
 	//场景初始化
 	RenderPiplineManager::getInstance()->setWinSize(SizeMake(_VIEW_WIDTH_, _VIEW_HEIGHT_));
 	RenderPiplineManager::getInstance()->createSence(SenceType_LightTest);//光照//默认
+	//RenderPiplineManager::getInstance()->createSence(SenceType_Default);//光照//默认
 	//模式设置
 	glEnable(GL_DEPTH_TEST);
 	
@@ -38,7 +40,8 @@ void GLMainWindow::start()
 		//鼠标处理模式函数
 		
 		//清理缓存
-		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+		glmath::vec4 senceColor = RenderPiplineManager::getInstance()->getSenceBgColor();
+		glClearColor(senceColor.r, senceColor.g, senceColor.b, senceColor.a);
 		glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 
 		//绘制循环

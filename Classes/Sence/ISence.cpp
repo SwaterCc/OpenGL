@@ -3,6 +3,11 @@
 #include"../Framework/RenderPipelineManager.h"
 #include"../Camera/Camera.h"
 
+ISence::ISence()
+{
+	m_objSenceColor = { 0,0,0,1 };
+}
+
 void ISence::addToRenderingList(ObjectBase* object)
 {
 	RenderPiplineManager::getInstance()->addObjectToList(object, (object->getRenderTag()));

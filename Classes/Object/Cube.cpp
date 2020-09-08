@@ -12,12 +12,12 @@ Cube* Cube::create()
 
 void Cube::update()
 {
+	ObjectBase::update();
 	if (m_bIsFirstUpDate)
 	{
 		InputVertexData();
 		m_bIsFirstUpDate = false;
 	}
-	updateColorUniform();
 }
 
 void Cube::draw()
@@ -26,7 +26,7 @@ void Cube::draw()
 	glBindVertexArray(m_uVAO);
 
 	updateUniformOfShader();
-
+	updateColorUniform();
 	glDrawArrays(GL_TRIANGLES, 0, 36);
 }
 
@@ -80,7 +80,7 @@ void Cube::init()
 	m_CubeVexData[11].p3.vertex = { -0.5f,  0.5f, -0.5f };
 
 
-	for (int i = 0; i < 11; i++)
+	for (int i = 0; i < 12; i++)
 	{
 		m_CubeVexData[i].p1.color = c3(1, 1, 1);
 		m_CubeVexData[i].p2.color = c3(1, 1, 1);

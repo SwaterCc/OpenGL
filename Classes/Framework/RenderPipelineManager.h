@@ -14,7 +14,7 @@ typedef enum SenceType
 
 
 class ObjectBase;
-class Sence;
+class ISence;
 class GLShaderProgreamCatch;
 //typedef std::map<SenceType, Sence*> SenceList;
 typedef std::map<int,ObjectBase*> RenderingList;
@@ -33,6 +33,9 @@ public:
 	void createMainCamera();
 
 	void createSence(SenceType type);
+	ISence * getRunningSence() { return m_pRunningSence; }
+	glmath::vec4 getSenceBgColor();
+
 	void setWinSize(Size size) { m_WindowSize = size; }
 	Size getWinSize() { return m_WindowSize; }
 
@@ -52,6 +55,7 @@ private:
 	GLShaderProgreamCatch* m_pProgramCatchInstance;
 	//SenceList m_SenceList;
 	Size m_WindowSize;
+	ISence * m_pRunningSence;
 };
 
 

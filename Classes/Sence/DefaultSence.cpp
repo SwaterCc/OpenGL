@@ -34,7 +34,7 @@ void DefaultSence::init()
 	sprite->setPosition({ 0,0,1350 });
 	//sprite->setRotate(-0.5, { 0,0,1 });
 	auto* cube = Cube::create();
-	//this->addToRenderingList(cube);
+	this->addToRenderingList(cube);
 	cube->setPosition({ 0,0,101 });
 	cube->setRotate(-0.5, { 0,1,1 });
 }
