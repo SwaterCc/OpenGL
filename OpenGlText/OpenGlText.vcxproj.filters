@@ -114,6 +114,9 @@
       <Filter>Camera</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\Classes\Sence\LightTestSence.cpp">
+      <Filter>Sence</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\opengl\include\GLFW\glfw3native.h">
@@ -364,6 +367,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Camera\Camera.h">
       <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Sence\LightTestSence.h">
+      <Filter>Sence</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

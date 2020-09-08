@@ -4,7 +4,7 @@
 
 #include "ISence.h"
 #include "DefaultSence.h"
-
+#include "LightTestSence.h"
 
 #endif // !_SenceInclude_H_
 

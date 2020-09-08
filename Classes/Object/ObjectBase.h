@@ -81,6 +81,10 @@ public:
 	{
 		return m_objPosition.z;
 	}
+
+	//节点大小
+	virtual void setContentSize(Size size) { m_ContentSize = size; }
+	virtual Size getContentSize() { return m_ContentSize; }
 protected:
 	virtual void init() {}
 	virtual void setProgram(GLProgram * GLProgram) { 
@@ -95,6 +99,7 @@ protected:
 protected:
 	int _nRenderTag;
 
+	Size m_ContentSize;
 	GLuint m_uVAO;
 	VertexConfig * m_VertexConfig;
 	GLProgram * m_ShaderProgram;

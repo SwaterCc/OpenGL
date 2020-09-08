@@ -38,7 +38,7 @@ namespace glmath {
 	}
 	template<typename T>
 	template<typename A, typename B, typename C>
-	inline constexpr glvec<4, T>::glvec(const glvec<2, A>& v, B b, C c) : x(static_cast<T>(v.x)), y(static_cast<T>(v.y)), z(static_cast<T>(b)), w(static_cast<T>(d))
+	inline constexpr glvec<4, T>::glvec(const glvec<2, A>& v, B b, C c) : x(static_cast<T>(v.x)), y(static_cast<T>(v.y)), z(static_cast<T>(b)), w(static_cast<T>(c))
 	{
 	}
 

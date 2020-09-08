@@ -6,7 +6,7 @@
 enum GLShaderProgramType{
 	ShaderProgramType_Default,
 	ShaderProgramType_PositionColorTexture,
-
+	ShaderProgramType_Cube,
 
 	ShaderProgramType_MaxNum,
 };

@@ -9,7 +9,7 @@
 typedef enum SenceType
 {
 	SenceType_Default = 0,
-
+	SenceType_LightTest,
 }SenceType;
 
 

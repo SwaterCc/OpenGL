@@ -84,9 +84,9 @@ void RenderPiplineManager::createMainCamera()
 	m_pMainCamera = Camera::create({ 0,0,-10.0f });
 	m_pMainCamera->setProjection(Projection_Perspective);
 	m_pMainCamera->setView(m_WindowSize.width, m_WindowSize.height);
-	m_pMainCamera->setNearPlane(100.0f);
+	m_pMainCamera->setNearPlane(10.0f);
 	m_pMainCamera->setFarPlane(1500.0f);
-	m_pMainCamera->setViewAngle(90);
+	m_pMainCamera->setViewAngle(45);
 	m_pMainCamera->init();
 	m_CameraList[DEFAULT_CAMERA] = m_pMainCamera;
 	m_pMainCamera->setActive(true);
@@ -100,6 +100,9 @@ void RenderPiplineManager::createSence(SenceType type)
 	{
 	case SenceType_Default:
 		p = DefaultSence::create();
+		break;
+	case SenceType_LightTest:
+		p = LightTestSence::create();
 		break;
 	default:
 		break;
