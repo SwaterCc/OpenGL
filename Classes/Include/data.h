@@ -2,7 +2,7 @@
 #define _DATA_H_
 
 #include "../Utility/glmath/glmathlib.h"
-
+#include "../Utility/structs/graphics.hpp"
 
 const int SIZE_FLOAT = sizeof(float);
 
@@ -31,24 +31,28 @@ constexpr glmath::vec4 c3(float r, float g, float b) { return glmath::vec4(r, g,
 constexpr glmath::vec4 c4(float r, float g, float b, float a) { return glmath::vec4(r, g, b, a); }
 constexpr glmath::uvec3 uv3(uint x, uint y, uint z) { return glmath::uvec3(x, y, z); }
 
-typedef struct VertexColorTexture_DataStruct{
-	glmath::vec3 vertex;
-	glmath::vec4 color;
-	glmath::vec2 texture;
-}VCT_Data;
+//typedef struct VertexColorTexture_DataStruct{
+//	glmath::vec3 vertex;
+//	glmath::vec4 color;
+//	glmath::vec2 texture;
+//	glmath::vec3 nomarl;
+//}vertexUnit;
 
 struct Quad_Vertex{
-	VCT_Data rt;
-	VCT_Data lt;
-	VCT_Data lb;
-	VCT_Data rb;
+	vertexUnit rt;
+	vertexUnit lt;
+	vertexUnit lb;
+	vertexUnit rb;
 };
 
-struct Triangle_Vertex{
-	VCT_Data p1;
-	VCT_Data p2;
-	VCT_Data p3;
-};
+//struct Triangle_Vertex{
+//	vertexUnit p1;
+//	vertexUnit p2;
+//	vertexUnit p3;
+//};
+
+class graphics_triangle;
+typedef graphics_triangle Triangle_Vertex;
 
 struct Size{
 	float width;
@@ -61,11 +65,12 @@ struct Size{
 
 #define SizeMake(w,h) Size(w,h)
 #define PointZero Point(0,0)
-#define SIZE_VERTEX_UNIT sizeof(VCT_Data)
-#define QUAD_UNIT_NUM (sizeof(glmath::vec3)+sizeof(glmath::vec4)+sizeof(glmath::vec2))
+#define SIZE_VERTEX_UNIT sizeof(vertexUnit)
+#define QUAD_UNIT_NUM (sizeof(glmath::vec3)+sizeof(glmath::vec4)+sizeof(glmath::vec2)+sizeof(glmath::vec3))
 #define OFFSET_POSITION (void*)(0)
 #define OFFSET_COLOR (void*)(sizeof(glmath::vec3))
 #define OFFSET_TEXTURE (void*)(sizeof(glmath::vec3)+sizeof(glmath::vec4))
+#define OFFSET_NORMAL (void*)(sizeof(glmath::vec3)+sizeof(glmath::vec4)+sizeof(glmath::vec2))
 
 #define PI 3.1415926535
 #define MVP_MAT "mvp_mat"

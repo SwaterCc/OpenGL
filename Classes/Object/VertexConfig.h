@@ -9,6 +9,7 @@
 #define VERTEX_ATTRIB_POSITION  1
 #define VERTEX_ATTRIB_COLOR  2
 #define VERTEX_ATTRIB_TEXTURE  4
+#define VERTEX_ATTRIB_NORMAL  8
 
 using namespace std;
 
@@ -16,6 +17,7 @@ enum {
 	VertexAttrib_Position = 0,
 	VertexAttrib_Color = 1,
 	VertexAttrib_Texture = 2,
+	VertexAttrib_Normal = 3,
 	VertexAttrib_MaxNum,
 };
 

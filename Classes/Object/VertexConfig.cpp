@@ -49,6 +49,7 @@ void VertexConfig::setup(uint target)
 	glVertexAttribPointer(VertexAttrib_Position	, 3, GL_FLOAT, GL_FALSE, SIZE_VERTEX_UNIT, OFFSET_POSITION);
 	glVertexAttribPointer(VertexAttrib_Color	, 4, GL_FLOAT, GL_FALSE, SIZE_VERTEX_UNIT, OFFSET_COLOR);
 	glVertexAttribPointer(VertexAttrib_Texture	, 2, GL_FLOAT, GL_FALSE, SIZE_VERTEX_UNIT, OFFSET_TEXTURE);
+	glVertexAttribPointer(VertexAttrib_Normal   , 3, GL_FLOAT, GL_FALSE, SIZE_VERTEX_UNIT, OFFSET_NORMAL);
 
 	if (target & VERTEX_ATTRIB_POSITION)
 	{
@@ -65,6 +66,10 @@ void VertexConfig::setup(uint target)
 		glEnableVertexAttribArray(VertexAttrib_Texture);
 	}
 
+	if (target & VERTEX_ATTRIB_NORMAL)
+	{
+		glEnableVertexAttribArray(VertexAttrib_Normal);
+	}
 	//glBindVertexArray(0);
 }
 

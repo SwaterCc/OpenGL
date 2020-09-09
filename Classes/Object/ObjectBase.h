@@ -85,6 +85,12 @@ public:
 	//节点大小
 	virtual void setContentSize(Size size) { m_ContentSize = size; }
 	virtual Size getContentSize() { return m_ContentSize; }
+
+	virtual void ChangeProgram(GLProgram * GLProgram) {
+		m_ShaderProgram = GLProgram;
+		m_uProgramTarget = m_ShaderProgram->getShaderProgram();
+	}
+
 protected:
 	virtual void init() {}
 	virtual void setProgram(GLProgram * GLProgram) { 

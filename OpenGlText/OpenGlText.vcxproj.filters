@@ -60,6 +60,9 @@
     <Filter Include="Camera">
       <UniqueIdentifier>{c3623f07-b12f-49e0-9e9e-bf7c00009b5c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utility\structs">
+      <UniqueIdentifier>{59271b16-84e3-49f8-8b4b-1737b4397521}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\opengl\src\glad.c">
@@ -370,6 +373,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Sence\LightTestSence.h">
       <Filter>Sence</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\structs\graphics.hpp">
+      <Filter>Utility\structs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

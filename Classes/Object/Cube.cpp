@@ -87,6 +87,14 @@ void Cube::init()
 		m_CubeVexData[i].p3.color = c3(1, 1, 1);
 	}
 
+	for (int i = 0; i < 12; i++)
+	{
+
+		m_CubeVexData[i].p1.normal = m_CubeVexData[i].getnormal(1);
+		m_CubeVexData[i].p2.normal = m_CubeVexData[i].getnormal(2);
+		m_CubeVexData[i].p3.normal = m_CubeVexData[i].getnormal(3);
+	}
+
 	//着色器
 	GLProgram* program = GLShaderProgreamCatch::getInstance()->getGLProgream(ShaderProgramType_Cube);
 	setProgram(program);
@@ -96,10 +104,10 @@ void Cube::InputVertexData()
 {
 	glBindVertexArray(m_uVAO);
 	//VBO
-	int len = sizeof(m_CubeVexData) / sizeof(Quad_Vertex);
+	int len = sizeof(m_CubeVexData) / sizeof(Triangle_Vertex);
 	m_VertexConfig->setVBO(m_CubeVexData, len);
 	//顶点属性
-	m_VertexConfig->setup(VERTEX_ATTRIB_POSITION | VERTEX_ATTRIB_COLOR | VERTEX_ATTRIB_TEXTURE);
+	m_VertexConfig->setup(VERTEX_ATTRIB_POSITION | VERTEX_ATTRIB_COLOR | VERTEX_ATTRIB_TEXTURE | VERTEX_ATTRIB_NORMAL);
 
 }
 
