@@ -94,6 +94,7 @@ void Cube::init()
 
 void Cube::InputVertexData()
 {
+	glBindVertexArray(m_uVAO);
 	//VBO
 	int len = sizeof(m_CubeVexData) / sizeof(Quad_Vertex);
 	m_VertexConfig->setVBO(m_CubeVexData, len);

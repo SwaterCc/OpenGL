@@ -65,7 +65,7 @@ void VertexConfig::setup(uint target)
 		glEnableVertexAttribArray(VertexAttrib_Texture);
 	}
 
-	glBindVertexArray(0);
+	//glBindVertexArray(0);
 }
 
 
