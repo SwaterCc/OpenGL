@@ -81,10 +81,10 @@ void RenderPiplineManager::removeCameraAtIndex(int idx)
 
 void RenderPiplineManager::createMainCamera()
 {
-	m_pMainCamera = Camera::create({ 0,0,-0.1f });
+	m_pMainCamera = Camera::create({ 0,0,-10.0f });
 	m_pMainCamera->setProjection(Projection_Perspective);
 	m_pMainCamera->setView(m_WindowSize.width, m_WindowSize.height);
-	m_pMainCamera->setNearPlane(0.1f);
+	m_pMainCamera->setNearPlane(1.0f);
 	m_pMainCamera->setFarPlane(1500.0f);
 	m_pMainCamera->setViewAngle(45);
 	m_pMainCamera->init();

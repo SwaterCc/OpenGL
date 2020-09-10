@@ -14,15 +14,15 @@ void Cube::update()
 {
 	ObjectBase::update();
 	if (m_bIsFirstUpDate)
-	{
+	{ 
 		InputVertexData();
 		m_bIsFirstUpDate = false;
 	}
+	this->setRotate((float)glfwGetTime(), { 0,1,0 });
 }
 
 void Cube::draw()
 {
-	m_ShaderProgram->useShaderProgream();
 	glBindVertexArray(m_uVAO);
 
 	updateUniformOfShader();
@@ -45,19 +45,19 @@ void Cube::init()
 	m_CubeVexData[1].p2.vertex = { -0.5f,  0.5f, -0.5f };
 	m_CubeVexData[1].p3.vertex = { -0.5f, -0.5f, -0.5f };
 
-	m_CubeVexData[2].p1.vertex = { -0.5f, -0.5f,  0.5f };
+	m_CubeVexData[2].p3.vertex = { -0.5f, -0.5f,  0.5f };
 	m_CubeVexData[2].p2.vertex = {	0.5f, -0.5f,  0.5f };
-	m_CubeVexData[2].p3.vertex = {	0.5f,  0.5f,  0.5f };
-	m_CubeVexData[3].p1.vertex = {	0.5f,  0.5f,  0.5f };
+	m_CubeVexData[2].p1.vertex = {	0.5f,  0.5f,  0.5f };
+	m_CubeVexData[3].p3.vertex = {	0.5f,  0.5f,  0.5f };
 	m_CubeVexData[3].p2.vertex = { -0.5f,  0.5f,  0.5f };
-	m_CubeVexData[3].p3.vertex = { -0.5f, -0.5f,  0.5f };
+	m_CubeVexData[3].p1.vertex = { -0.5f, -0.5f,  0.5f };
 
-	m_CubeVexData[4].p1.vertex = { -0.5f,  0.5f,  0.5f };
+	m_CubeVexData[4].p3.vertex = { -0.5f,  0.5f,  0.5f };
 	m_CubeVexData[4].p2.vertex = { -0.5f,  0.5f, -0.5f };
-	m_CubeVexData[4].p3.vertex = { -0.5f, -0.5f, -0.5f };
-	m_CubeVexData[5].p1.vertex = { -0.5f, -0.5f, -0.5f };
+	m_CubeVexData[4].p1.vertex = { -0.5f, -0.5f, -0.5f };
+	m_CubeVexData[5].p3.vertex = { -0.5f, -0.5f, -0.5f };
 	m_CubeVexData[5].p2.vertex = { -0.5f, -0.5f,  0.5f };
-	m_CubeVexData[5].p3.vertex = { -0.5f,  0.5f,  0.5f };
+	m_CubeVexData[5].p1.vertex = { -0.5f,  0.5f,  0.5f };
 
 	m_CubeVexData[6].p1.vertex = { 0.5f,  0.5f,  0.5f };
 	m_CubeVexData[6].p2.vertex = { 0.5f,  0.5f, -0.5f };
@@ -66,12 +66,12 @@ void Cube::init()
 	m_CubeVexData[7].p2.vertex = { 0.5f, -0.5f,  0.5f };
 	m_CubeVexData[7].p3.vertex = { 0.5f,  0.5f,  0.5f };
 
-	m_CubeVexData[8].p1.vertex = { -0.5f, -0.5f, -0.5f };
+	m_CubeVexData[8].p3.vertex = { -0.5f, -0.5f, -0.5f };
 	m_CubeVexData[8].p2.vertex = {	0.5f, -0.5f, -0.5f };
-	m_CubeVexData[8].p3.vertex = {	0.5f, -0.5f,  0.5f };
-	m_CubeVexData[9].p1.vertex = {	0.5f, -0.5f,  0.5f };
+	m_CubeVexData[8].p1.vertex = {	0.5f, -0.5f,  0.5f };
+	m_CubeVexData[9].p3.vertex = {	0.5f, -0.5f,  0.5f };
 	m_CubeVexData[9].p2.vertex = { -0.5f, -0.5f,  0.5f };
-	m_CubeVexData[9].p3.vertex = { -0.5f, -0.5f, -0.5f };
+	m_CubeVexData[9].p1.vertex = { -0.5f, -0.5f, -0.5f };
 
 	m_CubeVexData[10].p1.vertex = { -0.5f,  0.5f, -0.5f };
 	m_CubeVexData[10].p2.vertex = {	 0.5f,  0.5f, -0.5f };
@@ -99,6 +99,7 @@ void Cube::init()
 	//×ÅÉ«Æ÷
 	GLProgram* program = GLShaderProgreamCatch::getInstance()->getGLProgream(ShaderProgramType_Cube);
 	setProgram(program);
+	m_ShaderProgram->useShaderProgream();
 }
 
 void Cube::InputVertexData()
@@ -119,8 +120,8 @@ void Cube::updateColorUniform()
 
 void Cube::updateLightUniform()
 {
-	m_ShaderProgram->setUniform4MatrixFV("model", m_ObjMVPMatrix);
-	m_ShaderProgram->setUniform4F("lightPos", { 1,2,-20,0 });
+	m_ShaderProgram->setUniform4MatrixFV("model", m_pObjModelMatrix);
+	m_ShaderProgram->setUniform4F("lightPos", { 3,4,4,1 });
 	m_ShaderProgram->setUniform4F("lightColor", { 1,1,1,1 });
 }
 

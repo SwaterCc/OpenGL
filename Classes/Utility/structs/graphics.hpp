@@ -20,25 +20,30 @@ public:
 	glmath::vec3 getnormal(int i) {
 		
 		glmath::vec3 res;
-		glmath::vec3 t1;
-		glmath::vec3 t2;
-		switch (i)
-		{
-		case 1://p1的法向量
-			t1 = p2.vertex - p1.vertex;
-			t2 = p3.vertex - p1.vertex;
-			res = glmath::cross(glmath::normalize(t1), glmath::normalize(t2));
-		case 2:
-			t1 = p1.vertex - p2.vertex;
-			t2 = p3.vertex - p2.vertex;
-			res = glmath::cross(glmath::normalize(t1), glmath::normalize(t2));
-		case 3:
-			t1 = p1.vertex - p3.vertex;
-			t2 = p2.vertex - p3.vertex;
-			res = glmath::cross(glmath::normalize(t1), glmath::normalize(t2));
-		default:
-			break;
-		}
+		glmath::vec3 t1 = p1.vertex - p2.vertex;
+		glmath::vec3 t2 = p2.vertex - p3.vertex;
+
+		res = glmath::normalize(glmath::cross(glmath::normalize(t2), glmath::normalize(t1)));
+		//switch (i)
+		//{
+		//case 1://p1的法向量
+		//	t1 = p2.vertex - p1.vertex;
+		//	t2 = p3.vertex - p1.vertex;
+		//	res = glmath::cross(glmath::normalize(t1), glmath::normalize(t2));
+		//	break;
+		//case 2:
+		//	t1 = p1.vertex - p2.vertex;
+		//	t2 = p3.vertex - p2.vertex;
+		//	res = glmath::cross(glmath::normalize(t1), glmath::normalize(t2));
+		//	break;
+		//case 3:
+		//	t1 = p1.vertex - p3.vertex;
+		//	t2 = p2.vertex - p3.vertex;
+		//	res = glmath::cross(glmath::normalize(t1), glmath::normalize(t2));
+		//	break;
+		//default:
+		//	break;
+		//}
 		return res;
 	}
 };

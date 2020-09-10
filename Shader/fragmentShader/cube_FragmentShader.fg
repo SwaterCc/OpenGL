@@ -20,8 +20,8 @@ void main()
 
 	//漫反射
 	vec3 norm = normalize(uNormal);
-	vec4 lightDir = normalize(lightPos - fragPos);
-	float diff = max(dot(norm,lightDir.xyz),0.0);
+	vec3 lightDir = normalize(lightPos.xyz - fragPos.xyz);
+	float diff = max(dot(norm,lightDir),0.0);
 	vec4 diffuse = diff * vec4(1.0,1.0,1.0,1.0);
 
 	vec4 result=(ambient + diffuse) * uColor;
