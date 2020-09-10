@@ -192,6 +192,7 @@
     <ClInclude Include="..\Classes\Utility\glmath\vec\glvec3.hpp" />
     <ClInclude Include="..\Classes\Utility\glmath\vec\glvecMathEx.hpp" />
     <ClInclude Include="..\Classes\Utility\glmath\vec\glvec4.hpp" />
+    <ClInclude Include="..\Classes\Utility\structs\graphics.hpp" />
     <ClInclude Include="..\opengl\glm\common.hpp" />
     <ClInclude Include="..\opengl\glm\detail\compute_common.hpp" />
     <ClInclude Include="..\opengl\glm\detail\compute_vector_relational.hpp" />

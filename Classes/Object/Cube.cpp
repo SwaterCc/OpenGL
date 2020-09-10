@@ -27,6 +27,7 @@ void Cube::draw()
 
 	updateUniformOfShader();
 	updateColorUniform();
+	updateLightUniform();
 	glDrawArrays(GL_TRIANGLES, 0, 36);
 }
 
@@ -114,6 +115,13 @@ void Cube::InputVertexData()
 void Cube::updateColorUniform()
 {
 	m_ShaderProgram->setUniform4F("_uniformColor", { m_objColor.r,m_objColor.g, m_objColor.b, m_objColor.a });
+}
+
+void Cube::updateLightUniform()
+{
+	m_ShaderProgram->setUniform4MatrixFV("model", m_ObjMVPMatrix);
+	m_ShaderProgram->setUniform4F("lightPos", { 1,2,-20,0 });
+	m_ShaderProgram->setUniform4F("lightColor", { 1,1,1,1 });
 }
 
 Cube::Cube()

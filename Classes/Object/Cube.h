@@ -22,6 +22,7 @@ protected:
 	virtual void init();
 	virtual void InputVertexData();
 	virtual void updateColorUniform();
+	virtual void updateLightUniform();
 	Cube();
 	~Cube();
 private:

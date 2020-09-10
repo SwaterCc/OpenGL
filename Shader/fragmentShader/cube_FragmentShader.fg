@@ -2,11 +2,28 @@
 in vec4 uColor;
 in vec2 TexCoord;
 in vec3 uNormal;
+in vec4 fragPos;
 
 out vec4 gl_Color;
+
+uniform vec4 lightPos; 
+//uniform vec4 lightColor;
 uniform sampler2D Texture1;
+
 
 void main()
 {
-	gl_Color =  uColor;
+	//gl_Color =  uColor;
+	//环境光
+	float ambientStrength = 0.1;
+	vec4 ambient = ambientStrength * uColor;
+
+	//漫反射
+	vec3 norm = normalize(uNormal);
+	vec4 lightDir = normalize(lightPos - fragPos);
+	float diff = max(dot(norm,lightDir.xyz),0.0);
+	vec4 diffuse = diff * vec4(1.0,1.0,1.0,1.0);
+
+	vec4 result=(ambient + diffuse) * uColor;
+	gl_Color = vec4(result.rgb,1.0);
 }
