@@ -1,8 +1,7 @@
 #include "RenderPipelineManager.h"
-#include "../Object/ObjectBase.h"
-#include "../Sence/SenceInclude.h"
 #include "GLShaderProgreamCatch.h"
-
+#include "../Sence/SenceInclude.h"
+#include "../Object/Node/ObjectBase.h"
 constexpr int DEFAULT_CAMERA = 0;
 
 RenderPiplineManager* RenderPiplineManager::m_pInstance = nullptr;

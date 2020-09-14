@@ -19,5 +19,5 @@ void main()
 	uColor = aColor * _uniformColor;
 	TexCoord = aTexCoord;
 	fragPos = model * vec4(aPos.x,aPos.y,aPos.z,1.0);
-	uNormal = aNormal;
+	uNormal = mat3(transpose(inverse(model))) * aNormal;
 }

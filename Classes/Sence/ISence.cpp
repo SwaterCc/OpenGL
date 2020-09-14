@@ -1,5 +1,5 @@
 #include "ISence.h"
-#include "../Object/ObjectBase.h"
+#include "../Object/Node/ObjectBase.h"
 #include"../Framework/RenderPipelineManager.h"
 #include"../Camera/Camera.h"
 

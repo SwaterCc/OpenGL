@@ -18,6 +18,10 @@ Texture2D::Texture2D(std::string texture, GLuint textureUnit):m_pTexFile(texture
 	m_TextureUnit = textureUnit;
 }
 
+void Texture2D::update()
+{
+}
+
 bool Texture2D::initWithTexture()
 {
 	stbi_set_flip_vertically_on_load(true);

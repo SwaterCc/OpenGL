@@ -6,3 +6,5 @@
 #|Cube类重写，利用Sprite来构建6个面																	|					|
 #|object里的其他类需要增加setContentSize来设置大小，完善锚点，通过锚点和大小来确定顶点				|					|
 #|加入按键操控																						|					|
+#|Transfrom属性单独提取																				|					|
+#|Mesh属性单独提取																					|					|

@@ -1,13 +1,15 @@
 #ifndef _ObjectBase_h_
 #define _ObjectBase_h_
 #include<iostream>
-#include "../Framework/RenderPipelineManager.h"
-#include "../Framework/GLProgram.h"
-#include "../Include/makeFileInclude.h"
-#include "../Framework/GLShaderProgreamCatch.h"
-#include "VertexConfig.h"
-#include "../Utility/glmath/glmathlib.h"
-#include "../Camera/Camera.h"
+#include<set>
+#include "../Attribute/VertexConfig.h"
+#include "../Attribute/AttributeModule.h"
+#include "../../Framework/RenderPipelineManager.h"
+#include "../../Framework/GLProgram.h"
+#include "../../Include/makeFileInclude.h"
+#include "../../Framework/GLShaderProgreamCatch.h"
+#include "../../Utility/glmath/glmathlib.h"
+#include "../../Camera/Camera.h"
 
 
 #define AnchorPoint_Center Point(0.5f,0.5f)
@@ -114,6 +116,8 @@ protected:
 
 	glmath::mat4 m_pObjModelMatrix;
 	glmath::mat4 m_ObjMVPMatrix;
+
+	std::set<AttributeModule*> m_pObjAttriGroup;
 private:
 	
 	float m_fScale;

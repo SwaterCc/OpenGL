@@ -21,27 +21,6 @@
     <Filter Include="Object">
       <UniqueIdentifier>{834c467b-4368-43e5-b14a-69bdf0528929}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Object\Base">
-      <UniqueIdentifier>{310e7dfe-c6c1-4427-b1ad-85924be5b09a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Object\Cube">
-      <UniqueIdentifier>{6ea0df90-55fd-42ed-bce3-3eaaa798f335}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Object\Square">
-      <UniqueIdentifier>{4415fec4-ff49-4069-9ed4-d6cc262be793}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Object\Triangle">
-      <UniqueIdentifier>{80a366b0-dd3a-42cf-8c49-9e85c171ae78}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Object\Sprite">
-      <UniqueIdentifier>{f61d1b39-0442-426c-b41b-4553494bdd2f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Object\Vertex">
-      <UniqueIdentifier>{88748b06-3c0b-44b9-8101-c2bbc6a0f5fc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Object\Texture">
-      <UniqueIdentifier>{151767d7-53d1-4308-9b4f-7d8ad3ce0834}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ThirdPartylib\glm">
       <UniqueIdentifier>{61b0a414-da8f-4ac5-bac5-e65bc30efd86}</UniqueIdentifier>
     </Filter>
@@ -63,6 +42,42 @@
     <Filter Include="Utility\structs">
       <UniqueIdentifier>{59271b16-84e3-49f8-8b4b-1737b4397521}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\Attribute">
+      <UniqueIdentifier>{e7e6f3db-6ef6-4633-914e-f4f1a9964df1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Attribute\Texture">
+      <UniqueIdentifier>{151767d7-53d1-4308-9b4f-7d8ad3ce0834}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Attribute\Vertex">
+      <UniqueIdentifier>{e1546f3f-a3fe-47c4-99c3-3f44598f54b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Node">
+      <UniqueIdentifier>{a5f2e6a9-e56b-4aa9-90af-db79390f97ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Node\Sprite">
+      <UniqueIdentifier>{f61d1b39-0442-426c-b41b-4553494bdd2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Node\Square">
+      <UniqueIdentifier>{4415fec4-ff49-4069-9ed4-d6cc262be793}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Node\Triangle">
+      <UniqueIdentifier>{80a366b0-dd3a-42cf-8c49-9e85c171ae78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Node\Cube">
+      <UniqueIdentifier>{6ea0df90-55fd-42ed-bce3-3eaaa798f335}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Node\Base">
+      <UniqueIdentifier>{310e7dfe-c6c1-4427-b1ad-85924be5b09a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Attribute\Mesh">
+      <UniqueIdentifier>{faa379b4-ebeb-411f-a6f4-e493f0d64045}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Attribute\Transform">
+      <UniqueIdentifier>{8640c02e-c004-47af-a0e3-f226db9ba57f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Node\Light">
+      <UniqueIdentifier>{0cd56cf5-ea21-4063-9669-d7c882f12371}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\opengl\src\glad.c">
@@ -77,35 +92,14 @@
     <ClCompile Include="..\Classes\Framework\RenderPipelineManager.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Object\ObjectBase.cpp">
-      <Filter>Object\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Object\Square.cpp">
-      <Filter>Object\Square</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Sence\DefaultSence.cpp">
       <Filter>Sence</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Framework\GlMainWindow.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Object\Triangle.cpp">
-      <Filter>Object\Triangle</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Sence\ISence.cpp">
       <Filter>Sence</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Object\Sprite.cpp">
-      <Filter>Object\Sprite</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Object\Cube.cpp">
-      <Filter>Object\Cube</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Object\VertexConfig.cpp">
-      <Filter>Object\Vertex</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Object\Texture.cpp">
-      <Filter>Object\Texture</Filter>
     </ClCompile>
     <ClCompile Include="..\opengl\src\gl3w.c">
       <Filter>ThirdPartylib</Filter>
@@ -119,6 +113,33 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="..\Classes\Sence\LightTestSence.cpp">
       <Filter>Sence</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Object\Node\ObjectBase.cpp">
+      <Filter>Object\Node\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Object\Node\Cube.cpp">
+      <Filter>Object\Node\Cube</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Object\Node\Sprite.cpp">
+      <Filter>Object\Node\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Object\Node\Square.cpp">
+      <Filter>Object\Node\Square</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Object\Attribute\Texture.cpp">
+      <Filter>Object\Attribute\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Object\Attribute\VertexConfig.cpp">
+      <Filter>Object\Attribute\Vertex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Object\Node\Triangle.cpp">
+      <Filter>Object\Node\Triangle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Object\Attribute\Transform.cpp">
+      <Filter>Object\Attribute\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Object\Attribute\Mesh.cpp">
+      <Filter>Object\Attribute\Mesh</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -152,12 +173,6 @@
     <ClInclude Include="..\Classes\Include\makeFileInclude.h">
       <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Object\ObjectBase.h">
-      <Filter>Object\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Object\Square.h">
-      <Filter>Object\Square</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Sence\DefaultSence.h">
       <Filter>Sence</Filter>
     </ClInclude>
@@ -172,21 +187,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Framework\GlMainWindow.h">
       <Filter>Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Object\Triangle.h">
-      <Filter>Object\Triangle</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Object\Sprite.h">
-      <Filter>Object\Sprite</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Object\Cube.h">
-      <Filter>Object\Cube</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Object\VertexConfig.h">
-      <Filter>Object\Vertex</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Object\Texture.h">
-      <Filter>Object\Texture</Filter>
     </ClInclude>
     <ClInclude Include="..\opengl\glm\common.hpp">
       <Filter>ThirdPartylib\glm</Filter>
@@ -376,6 +376,39 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Utility\structs\graphics.hpp">
       <Filter>Utility\structs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Object\Attribute\AttributeModule.h">
+      <Filter>Object\Attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Object\Node\ObjectBase.h">
+      <Filter>Object\Node\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Object\Node\Cube.h">
+      <Filter>Object\Node\Cube</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Object\Node\Sprite.h">
+      <Filter>Object\Node\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Object\Node\Square.h">
+      <Filter>Object\Node\Square</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Object\Attribute\Texture.h">
+      <Filter>Object\Attribute\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Object\Attribute\VertexConfig.h">
+      <Filter>Object\Attribute\Vertex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Object\Node\Triangle.h">
+      <Filter>Object\Node\Triangle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Object\Attribute\Mesh.h">
+      <Filter>Object\Attribute\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Object\Attribute\Transform.h">
+      <Filter>Object\Attribute\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Object\Node\Light.h">
+      <Filter>Object\Node\Light</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

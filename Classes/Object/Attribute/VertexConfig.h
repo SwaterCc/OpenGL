@@ -3,9 +3,9 @@
 
 #include<iostream>
 
-#include"../Include/makeFileInclude.h"
-#include"../Include/Include.h"
-
+#include"../../Include/makeFileInclude.h"
+#include"../../Include/Include.h"
+		 
 #define VERTEX_ATTRIB_POSITION  1
 #define VERTEX_ATTRIB_COLOR  2
 #define VERTEX_ATTRIB_TEXTURE  4
