@@ -143,7 +143,10 @@
     <ClCompile Include="..\Classes\Framework\GlMainWindow.cpp" />
     <ClCompile Include="..\Classes\Framework\GLProgram.cpp" />
     <ClCompile Include="..\Classes\Framework\GLShaderProgreamCatch.cpp" />
+    <ClCompile Include="..\Classes\Framework\LightManager.cpp" />
     <ClCompile Include="..\Classes\Framework\RenderPipelineManager.cpp" />
+    <ClCompile Include="..\Classes\HandleManager\LightHandleManager.cpp" />
+    <ClCompile Include="..\Classes\Handle\LightHandle.cpp" />
     <ClCompile Include="..\Classes\Object\Attribute\Mesh.cpp" />
     <ClCompile Include="..\Classes\Object\Attribute\Texture.cpp" />
     <ClCompile Include="..\Classes\Object\Attribute\Transform.cpp" />
@@ -166,8 +169,13 @@
     <ClInclude Include="..\Classes\Framework\GlMainWindow.h" />
     <ClInclude Include="..\Classes\Framework\GLProgram.h" />
     <ClInclude Include="..\Classes\Framework\GLShaderProgreamCatch.h" />
+    <ClInclude Include="..\Classes\Framework\LightManager.h" />
     <ClInclude Include="..\Classes\Framework\RenderPipelineManager.h" />
     <ClInclude Include="..\Classes\Framework\ShaderDefaultValue.h" />
+    <ClInclude Include="..\Classes\HandleManager\IHandleManager.h" />
+    <ClInclude Include="..\Classes\HandleManager\LightHandleManager.h" />
+    <ClInclude Include="..\Classes\Handle\Handle.h" />
+    <ClInclude Include="..\Classes\Handle\LightHandle.h" />
     <ClInclude Include="..\Classes\Include\data.h" />
     <ClInclude Include="..\Classes\Include\GLObject.h" />
     <ClInclude Include="..\Classes\Include\Include.h" />
