@@ -67,9 +67,9 @@ Camera* Camera::create(glmath::vec3 cameraPos, glmath::point3 target, glmath::ve
 
 void Camera::makeObjectTransfomation(CameraTransfomationInterface * obj)
 {
-	glmath::mat4 model = obj->getModel();
-	glmath::mat4 mvp = (m_objProjectionMat * (m_objLookAt * model));//×¢ÒâË³Ðò
-	obj->setMVPMatrix(mvp);
+	//glmath::mat4 model = obj->getModel();
+	//glmath::mat4 mvp = (m_objProjectionMat * (m_objLookAt * model));//×¢ÒâË³Ðò
+	//obj->setMVPMatrix(mvp);
 }
 
 

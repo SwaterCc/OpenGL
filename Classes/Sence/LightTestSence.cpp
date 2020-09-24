@@ -19,9 +19,9 @@ void LightTestSence::init()
 
 	auto* cube = Cube::create();
 	this->addToRenderingList(cube);
-	cube->setPosition({0,0,8.0f });
+	cube->getTransform().position = {0,0,8.0f };
 	//cube->setRotate(0.6, { 0,1,0 });
-	cube->setScale(4);
+	cube->getTransform().scale = glmath::vec3(4);
 	cube->setColor({ 0.4,0.5,0.6,1 });
 	/*auto* sprite = Sprite::create("1.jpg");
 	this->addToRenderingList(sprite);

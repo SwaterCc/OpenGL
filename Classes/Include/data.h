@@ -4,6 +4,9 @@
 #include "../Utility/glmath/glmathlib.h"
 #include "../Utility/structs/graphics.hpp"
 
+#define PI 3.1415926535
+#define MVP_MAT "mvp_mat"
+
 const int SIZE_FLOAT = sizeof(float);
 
 typedef unsigned int uint;
@@ -30,26 +33,13 @@ constexpr glmath::vec4 v4(float x, float y, float z, float w) { return glmath::v
 constexpr glmath::vec4 c3(float r, float g, float b) { return glmath::vec4(r, g, b, 1.0f); }
 constexpr glmath::vec4 c4(float r, float g, float b, float a) { return glmath::vec4(r, g, b, a); }
 constexpr glmath::uvec3 uv3(uint x, uint y, uint z) { return glmath::uvec3(x, y, z); }
-
-//typedef struct VertexColorTexture_DataStruct{
-//	glmath::vec3 vertex;
-//	glmath::vec4 color;
-//	glmath::vec2 texture;
-//	glmath::vec3 nomarl;
-//}vertexUnit;
-
+constexpr double radios(float v) { return PI / 180 * v; }
 struct Quad_Vertex{
 	vertexUnit rt;
 	vertexUnit lt;
 	vertexUnit lb;
 	vertexUnit rb;
 };
-
-//struct Triangle_Vertex{
-//	vertexUnit p1;
-//	vertexUnit p2;
-//	vertexUnit p3;
-//};
 
 class graphics_triangle;
 typedef graphics_triangle Triangle_Vertex;
@@ -72,7 +62,5 @@ struct Size{
 #define OFFSET_TEXTURE (void*)(sizeof(glmath::vec3)+sizeof(glmath::vec4))
 #define OFFSET_NORMAL (void*)(sizeof(glmath::vec3)+sizeof(glmath::vec4)+sizeof(glmath::vec2))
 
-#define PI 3.1415926535
-#define MVP_MAT "mvp_mat"
 
 #endif // !_DATA_H_

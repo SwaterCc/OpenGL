@@ -31,10 +31,10 @@ void DefaultSence::init()
 	auto* sprite = Sprite::create("1.jpg");
 	this->addToRenderingList(sprite);
 	//sprite->setScale(0.5f);
-	sprite->setPosition({ 0,0,1350 });
+	sprite->getTransform().position = { 0,0,1350 };
 	//sprite->setRotate(-0.5, { 0,0,1 });
 	auto* cube = Cube::create();
 	this->addToRenderingList(cube);
-	cube->setPosition({ 0,0,101 });
-	cube->setRotate(-0.5, { 0,1,1 });
+	cube->getTransform().position = { 0,0,1350 };
+	//cube->setRotate(-0.5, { 0,1,1 });
 }

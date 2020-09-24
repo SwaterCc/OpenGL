@@ -1,7 +1,7 @@
 #ifndef _LightManager_h_
 #define _LightManager_h_
 
-class Light;
+#include "../Object/Node/Light.h"
 
 class LightManager
 {

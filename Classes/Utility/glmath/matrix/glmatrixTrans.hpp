@@ -24,6 +24,17 @@ namespace glmath {
 		res *= mat;
 		return res;
 	}
+	template<typename T>
+	glmatrix<4, 4, T> scaling(glmatrix<4, 4, T>& mat, glvec<3, T> scale)
+	{
+		glmatrix<4, 4, T> res(1.0);
+		for (int i = 0; i < 3; i++)
+		{
+			res[i] *= scale[i];
+		}
+		res *= mat;
+		return res;
+	}
 	template<typename T>  
 	glmatrix<4, 4, T> rotation(glmatrix<4, 4, T>& mat, float radios, glvec<3, T> r)//radios ª°∂»÷∆
 	{
@@ -55,6 +66,7 @@ namespace glmath {
 		}
 		return res;
 	}
+
 }
 
 #endif // !_glmatrixTrans_

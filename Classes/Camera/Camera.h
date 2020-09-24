@@ -14,7 +14,6 @@ class ObjectBase;
 class CameraTransfomationInterface
 {
 public:
-	virtual glmath::mat4 getModel() = 0;
 	virtual void setMVPMatrix(glmath::mat4 mvp) = 0;
 };
 
