@@ -3,18 +3,12 @@
 
 #include"../Include/Include.h"
 #include"../Utility/glmath/glmathlib.h"
+#include"../Object/Attribute/Transform.h"
+
 enum Projection_Type
 {
 	Projection_ortho = 10,
 	Projection_Perspective = 12,
-};
-
-class ObjectBase;
-
-class CameraTransfomationInterface
-{
-public:
-	virtual void setMVPMatrix(glmath::mat4 mvp) = 0;
 };
 
 class Camera
@@ -25,7 +19,7 @@ public:
 	// -- 视口投影变换 --
 
 	//MVP矩阵创建
-	void makeObjectTransfomation(CameraTransfomationInterface* obj);
+	void ViewProjectionTransform(Transform * tran);
 	
 	void setPosition(glmath::vec3 pos) { m_objPos = pos; }
 	glmath::vec3 getPosition() { return m_objPos; }

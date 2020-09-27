@@ -28,7 +28,7 @@ void RenderPiplineManager::mainLoop()
 		//vp±ä»»
 		if (m_pMainCamera && m_pMainCamera->getActive())
 		{
-			m_pMainCamera->makeObjectTransfomation(it->second);
+			m_pMainCamera->ViewProjectionTransform(&(it->second->getTransform()));
 		}
 		else
 		{

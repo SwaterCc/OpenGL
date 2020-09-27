@@ -2,24 +2,31 @@
 
 void Transform::update()
 {
-	auto modelOfUpdate = glmath::mat4(1);
-	modelOfUpdate = glmath::scaling(modelOfUpdate, scale);
+	model = glmath::mat4(1);
+	model = glmath::scaling(model, scale);
 	for (int i = 0; i < 3; i++)
 	{
 		glmath::vec3 rotateAxle;
 		rotateAxle[i] = 1;
-		modelOfUpdate = glmath::rotation(modelOfUpdate, radios(rotate[i]), rotateAxle);
+		model = glmath::rotation(model, radios(rotate[i]), rotateAxle);
 	}
-	modelOfUpdate = glmath::translation(modelOfUpdate, { position,0 });
-	model = modelOfUpdate;
+	model = glmath::translation(model, { position,0 });
+	
+	mvp_mat = model;
 }
 
-glmath::mat4 Transform::getModelMatrix()
+glmath::mat4 & Transform::getMVPMatrix()
+{
+	return mvp_mat;
+}
+
+glmath::mat4 & Transform::getUpdateModelMatrix()
 {
 	return model;
 }
 
 Transform::Transform():
-	position(0),rotate(0),scale(1),model(1)
+	position(0),rotate(0),scale(1), mvp_mat(1),model(1)
 {
+
 }

@@ -12,7 +12,7 @@
 #include "../../Camera/Camera.h"
 #define AnchorPoint_Center Point(0.5f,0.5f)
 
-class ObjectBase : public CameraTransfomationInterface
+class ObjectBase
 {
 public:
 	static ObjectBase* create();
@@ -21,49 +21,31 @@ public:
 
 	virtual void setVertexConfig(VertexConfig* config);
 
-	virtual void addToRenderingList()
-	{
-		RenderPiplineManager::getInstance()->addObjectToList(this, _nRenderTag);
-	}
-	
-
-	virtual void removeToRenderingList()
-	{
-		RenderPiplineManager::getInstance()->removeObjectAtIndex(getRenderTag());
-	}
+	virtual void addToRenderingList();
+	virtual void removeToRenderingList();
 
 	virtual void draw();
 	virtual void update();
-	int& getRenderTag() { return _nRenderTag; }
+	int& getRenderTag();
 
-	//model±ä»»
-	virtual Transform & getTransform() 
-	{
-		return transform; 
-	}
-
-	virtual void setProgram(GLProgram* GLProgram) {
-		m_ShaderProgram = GLProgram;
-		m_uProgramTarget = m_ShaderProgram->getShaderProgram();
-	}
+	virtual Transform & getTransform();
+	virtual void setProgram(GLProgram* GLProgram);
 
 protected:
-	virtual void init() {}
-	virtual void setMVPMatrix(glmath::mat4 mvp) { m_ObjMVPMatrix = mvp; }
+	virtual void init();
 	virtual void updateUniformOfShader();
 protected:
-	int _nRenderTag;
-
 	GLuint m_uVAO;
+	Point m_AnchorPoint;
+	GLuint m_uProgramTarget;
 	VertexConfig * m_VertexConfig;
 	GLProgram * m_ShaderProgram;
-	GLuint m_uProgramTarget;
-	Point m_AnchorPoint;
-
-	glmath::mat4 m_ObjMVPMatrix;
+	
 	Transform transform;
 private:
+	
 	bool isDrity;
+	int _nRenderTag;
 };
 
 

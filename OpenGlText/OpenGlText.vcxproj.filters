@@ -156,6 +156,9 @@
     <ClCompile Include="..\Classes\Handle\LightHandle.cpp">
       <Filter>Handle</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Utility\TransformAdapter.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\opengl\include\GLFW\glfw3native.h">
@@ -439,6 +442,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Handle\LightHandle.h">
       <Filter>Handle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Utility\TransformAdapter.h">
+      <Filter>Utility</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

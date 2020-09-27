@@ -1,7 +1,8 @@
 #ifndef _ISence_h_
 #define _ISence_h_
-#include"../Utility/glmath/glmathlib.h"
-class ObjectBase;
+
+#include "../Utility/TransformAdapter.h"
+
 class Camera;
 
 class ISence

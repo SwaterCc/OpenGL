@@ -18,29 +18,12 @@ Sprite* Sprite::create(const char* TextureFile)
 	return p;
 }
 
-void Sprite::updateUniformOfShader()
-{
-	m_ShaderProgram->setUniform4MatrixFV(MVP_MAT, m_ObjMVPMatrix);
-}
 
 void Sprite::draw()
 {
-	m_ShaderProgram->useShaderProgream();
 	glBindVertexArray(m_uVAO);
-	
-	glmath::mat4 t_mvp = glmath::transpose(m_ObjMVPMatrix);
 
-	//glmath::vec4 v1 = { m_VertexData.rt.vertex.x,m_VertexData.rt.vertex.y,m_VertexData.rt.vertex.z,0 };
-	//glmath::vec4 v2 = { m_VertexData.rb.vertex.x,m_VertexData.rb.vertex.y,m_VertexData.rb.vertex.z,0 };
-	//glmath::vec4 v3 = { m_VertexData.lt.vertex.x,m_VertexData.lt.vertex.y,m_VertexData.lt.vertex.z,0 };
-	//glmath::vec4 v4 = { m_VertexData.lb.vertex.x,m_VertexData.lb.vertex.y,m_VertexData.lb.vertex.z,0 };
-
-	//glmath::vec4 temp1 = t_mvp * v1;
-	//glmath::vec4 temp2 = t_mvp * v2;
-	//glmath::vec4 temp3 = t_mvp * v3;
-	//glmath::vec4 temp4 = t_mvp * v4;
-
-	updateUniformOfShader();
+	ObjectBase::updateUniformOfShader();
 
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }
@@ -93,6 +76,7 @@ void Sprite::init()
 	//×ÅÉ«Æ÷
 	GLProgram* program = GLShaderProgreamCatch::getInstance()->getGLProgream(ShaderProgramType_PositionColorTexture);
 	setProgram(program);
+	m_ShaderProgram->useShaderProgream();
 }
 void Sprite::initTexture()
 {

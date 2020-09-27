@@ -12,12 +12,12 @@ Cube* Cube::create()
 
 void Cube::update()
 {
-	ObjectBase::update();
 	if (m_bIsFirstUpDate)
 	{ 
 		InputVertexData();
 		m_bIsFirstUpDate = false;
 	}
+	ObjectBase::update();
 	//this->setRotate((float)glfwGetTime(), { 0,1,0 });
 	transform.rotate = { 0, (float)glfwGetTime() / PI * 180, 0 };
 }
@@ -25,8 +25,8 @@ void Cube::update()
 void Cube::draw()
 {
 	glBindVertexArray(m_uVAO);
+	ObjectBase::draw();
 
-	updateUniformOfShader();
 	updateColorUniform();
 	updateLightUniform();
 	glDrawArrays(GL_TRIANGLES, 0, 36);
@@ -121,10 +121,10 @@ void Cube::updateColorUniform()
 
 void Cube::updateLightUniform()
 {
-	/*m_ShaderProgram->setUniform4MatrixFV("model", m_pObjModelMatrix);
+	m_ShaderProgram->setUniform4MatrixFV("model", transform.getUpdateModelMatrix());
 	m_ShaderProgram->setUniform4F("lightPos", { 0,0,4,1 });
 	m_ShaderProgram->setUniform4F("lightColor", { 1,1,1,1 });
-	m_ShaderProgram->setUniform4F("viewPos", { 0,0,-10.0f,1 });*/
+	m_ShaderProgram->setUniform4F("viewPos", { 0,0,-10.0f,1 });
 }
 
 Cube::Cube()

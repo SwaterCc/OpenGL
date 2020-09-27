@@ -8,7 +8,8 @@ class Transform : public AttributeModule
 public: 
 	virtual void update() override;
 
-	glmath::mat4 getModelMatrix();
+	glmath::mat4 & getMVPMatrix();
+	glmath::mat4 & getUpdateModelMatrix();
 public:
 	Transform();
 public:
@@ -17,6 +18,7 @@ public:
 	glmath::vec3 rotate;
 private:
 	glmath::mat4 model;
+	glmath::mat4 mvp_mat;
 };
 
 

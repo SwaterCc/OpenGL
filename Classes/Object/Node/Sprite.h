@@ -11,7 +11,6 @@ public:
 	static Sprite* create();
 	static Sprite* create(const char* TextureFile);
 
-	virtual void updateUniformOfShader();
 	virtual void draw() ;
 protected:
 	Sprite();
