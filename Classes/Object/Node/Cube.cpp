@@ -19,7 +19,7 @@ void Cube::update()
 	}
 	ObjectBase::update();
 	//this->setRotate((float)glfwGetTime(), { 0,1,0 });
-	transform.rotate = { 0, (float)glfwGetTime() / PI * 180, 0 };
+	transform.rotate = { (float)glfwGetTime() / PI * 180, (float)glfwGetTime() / PI * 180, (float)glfwGetTime() / PI * 180 };
 }
 
 void Cube::draw()
@@ -111,7 +111,6 @@ void Cube::InputVertexData()
 	m_VertexConfig->setVBO(m_CubeVexData, len);
 	//¶¥µãÊôÐÔ
 	m_VertexConfig->setup(VERTEX_ATTRIB_POSITION | VERTEX_ATTRIB_COLOR | VERTEX_ATTRIB_TEXTURE | VERTEX_ATTRIB_NORMAL);
-
 }
 
 void Cube::updateColorUniform()

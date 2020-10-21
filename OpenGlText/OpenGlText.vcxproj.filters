@@ -84,6 +84,9 @@
     <Filter Include="HandleManager">
       <UniqueIdentifier>{86ddbfd2-d34e-4457-b210-6535bb896c48}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\Attribute\Material">
+      <UniqueIdentifier>{6ae1721e-1bec-4ba3-b9f7-876bd1d4e67d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\opengl\src\glad.c">
@@ -155,6 +158,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Handle\LightHandle.cpp">
       <Filter>Handle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Object\Attribute\Material.cpp">
+      <Filter>Object\Attribute\Material</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Utility\TransformAdapter.cpp">
       <Filter>Utility</Filter>
@@ -442,6 +448,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Handle\LightHandle.h">
       <Filter>Handle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Object\Attribute\Material.h">
+      <Filter>Object\Attribute\Material</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Utility\TransformAdapter.h">
       <Filter>Utility</Filter>
