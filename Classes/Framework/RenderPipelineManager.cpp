@@ -34,6 +34,7 @@ void RenderPiplineManager::mainLoop()
 		{
 			std::cerr << "Wanning MainCamera Not Active or is NULL" << std::endl;
 		}
+		(it->second)->UpdateUniform();
 
 		(it->second)->draw();
 		glBindVertexArray(0);

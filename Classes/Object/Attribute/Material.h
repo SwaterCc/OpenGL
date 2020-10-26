@@ -10,8 +10,8 @@ public:
 	Material();
 	virtual void update() override;
 public:
-	//物体颜色
-	glmath::vec4 color;
+	////物体颜色
+	//glmath::vec4 color;
 	//环境光强度系数
 	float ambientStrenght;
 	//漫反射强度系数

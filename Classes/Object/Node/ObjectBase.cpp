@@ -8,6 +8,7 @@ ObjectBase::ObjectBase()
 
 	m_uVAO = m_VertexConfig->getVAO();
 	m_AnchorPoint = AnchorPoint_Center;
+	m_bIsPhotosensitive = false;
 }
 
 ObjectBase* ObjectBase::create()
@@ -42,12 +43,17 @@ void ObjectBase::removeToRenderingList()
 
 void ObjectBase::draw()
 {
-	updateUniformOfShader();
+	
 }
 
 void ObjectBase::update()
 {
 	transform.update();
+}
+
+void ObjectBase::UpdateUniform()
+{
+	updateUniformOfShader();
 }
 
 int & ObjectBase::getRenderTag()
@@ -57,13 +63,23 @@ int & ObjectBase::getRenderTag()
 
 Transform & ObjectBase::getTransform()
 {
-		return transform;
+	return transform;
 }
 
 void ObjectBase::setProgram(GLProgram * GLProgram)
 {
 	m_ShaderProgram = GLProgram;
 	m_uProgramTarget = m_ShaderProgram->getShaderProgram();
+}
+
+void ObjectBase::setIsPhotosensitive(int isPs)
+{
+	m_bIsPhotosensitive = isPs;
+}
+
+int ObjectBase::getIsPhotosensitive()
+{
+	return m_bIsPhotosensitive;
 }
 
 void ObjectBase::init()

@@ -10,6 +10,7 @@ public:
 	static Cube* create();
 
 	virtual void update() override;
+	virtual void UpdateUniform() override;
 	virtual void draw();
 
 	virtual void addTexture();

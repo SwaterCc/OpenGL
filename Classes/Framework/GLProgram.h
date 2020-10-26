@@ -34,6 +34,7 @@ public:
 	void setUniformOneInt(string valName,int value);
 	void setUniformOneUInt(string valName, uint value);
 	void setUniformOneFloat(string valName, float value);
+
 	void setUniform4F(string valName, uniform_fv fv);
 	void setUniform4MatrixFV(string valName, glm::mat4 matrix);
 	void setUniform4MatrixFV(string valName, glmath::mat4 matrix);

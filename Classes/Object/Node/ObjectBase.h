@@ -26,11 +26,14 @@ public:
 
 	virtual void draw();
 	virtual void update();
+	virtual void UpdateUniform();
 	int& getRenderTag();
 
 	virtual Transform & getTransform();
 	virtual void setProgram(GLProgram* GLProgram);
 
+	virtual void setIsPhotosensitive(int isPs);
+	virtual int getIsPhotosensitive();
 protected:
 	virtual void init();
 	virtual void updateUniformOfShader();
@@ -41,6 +44,8 @@ protected:
 	VertexConfig * m_VertexConfig;
 	GLProgram * m_ShaderProgram;
 	
+	int m_bIsPhotosensitive;//ÊÇ·ñ¸Ð¹â
+
 	Transform transform;
 private:
 	

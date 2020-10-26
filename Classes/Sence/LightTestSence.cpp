@@ -22,7 +22,7 @@ void LightTestSence::init()
 	_SOP(cube, v3(0, 0, 8.0));
 	_SOS(cube, 4);
 	//cube->setRotate(0.6, { 0,1,0 });
-	cube->setColor({ 0.4,0.5,0.6,1 });
+	//cube->setColor({ 0.4,0.5,0.6,1 });
 	/*auto* sprite = Sprite::create("1.jpg");
 	this->addToRenderingList(sprite);
 	sprite->setPosition({ 0,0,1350 });*/

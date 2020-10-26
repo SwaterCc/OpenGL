@@ -18,17 +18,21 @@ void Cube::update()
 		m_bIsFirstUpDate = false;
 	}
 	ObjectBase::update();
-	//this->setRotate((float)glfwGetTime(), { 0,1,0 });
+
 	transform.rotate = { (float)glfwGetTime() / PI * 180, (float)glfwGetTime() / PI * 180, (float)glfwGetTime() / PI * 180 };
+}
+
+void Cube::UpdateUniform()
+{
+	ObjectBase::UpdateUniform();
+	updateColorUniform();
+	updateLightUniform();
 }
 
 void Cube::draw()
 {
 	glBindVertexArray(m_uVAO);
-	ObjectBase::draw();
-
-	updateColorUniform();
-	updateLightUniform();
+	
 	glDrawArrays(GL_TRIANGLES, 0, 36);
 }
 
