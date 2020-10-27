@@ -45,12 +45,6 @@
     <Filter Include="Object\Attribute">
       <UniqueIdentifier>{e7e6f3db-6ef6-4633-914e-f4f1a9964df1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Object\Attribute\Texture">
-      <UniqueIdentifier>{151767d7-53d1-4308-9b4f-7d8ad3ce0834}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Object\Attribute\Vertex">
-      <UniqueIdentifier>{e1546f3f-a3fe-47c4-99c3-3f44598f54b3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Object\Node">
       <UniqueIdentifier>{a5f2e6a9-e56b-4aa9-90af-db79390f97ca}</UniqueIdentifier>
     </Filter>
@@ -69,12 +63,6 @@
     <Filter Include="Object\Node\Base">
       <UniqueIdentifier>{310e7dfe-c6c1-4427-b1ad-85924be5b09a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Object\Attribute\Mesh">
-      <UniqueIdentifier>{faa379b4-ebeb-411f-a6f4-e493f0d64045}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Object\Attribute\Transform">
-      <UniqueIdentifier>{8640c02e-c004-47af-a0e3-f226db9ba57f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Object\Node\Light">
       <UniqueIdentifier>{0cd56cf5-ea21-4063-9669-d7c882f12371}</UniqueIdentifier>
     </Filter>
@@ -84,8 +72,26 @@
     <Filter Include="HandleManager">
       <UniqueIdentifier>{86ddbfd2-d34e-4457-b210-6535bb896c48}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Object\Attribute\Material">
+    <Filter Include="Object\Attribute\objectAttribute">
+      <UniqueIdentifier>{98edadd2-f788-41b1-92fc-af217389aeac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Attribute\extratAttribute">
+      <UniqueIdentifier>{14701e4f-9a31-4e5b-8072-26f0f89ad053}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Attribute\extratAttribute\Texture">
+      <UniqueIdentifier>{151767d7-53d1-4308-9b4f-7d8ad3ce0834}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Attribute\extratAttribute\Material">
       <UniqueIdentifier>{6ae1721e-1bec-4ba3-b9f7-876bd1d4e67d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Attribute\objectAttribute\Transform">
+      <UniqueIdentifier>{8640c02e-c004-47af-a0e3-f226db9ba57f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Attribute\objectAttribute\Vertex">
+      <UniqueIdentifier>{e1546f3f-a3fe-47c4-99c3-3f44598f54b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Node\Decorator">
+      <UniqueIdentifier>{7766f4ee-c80c-44ea-b7b2-ec7843e2d2cd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -136,19 +142,16 @@
       <Filter>Object\Node\Square</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Object\Attribute\Texture.cpp">
-      <Filter>Object\Attribute\Texture</Filter>
+      <Filter>Object\Attribute\extratAttribute\Texture</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Object\Attribute\VertexConfig.cpp">
-      <Filter>Object\Attribute\Vertex</Filter>
+      <Filter>Object\Attribute\objectAttribute\Vertex</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Object\Node\Triangle.cpp">
       <Filter>Object\Node\Triangle</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Object\Attribute\Transform.cpp">
-      <Filter>Object\Attribute\Transform</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Object\Attribute\Mesh.cpp">
-      <Filter>Object\Attribute\Mesh</Filter>
+      <Filter>Object\Attribute\objectAttribute\Transform</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Framework\LightManager.cpp">
       <Filter>Framework</Filter>
@@ -160,10 +163,16 @@
       <Filter>Handle</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Object\Attribute\Material.cpp">
-      <Filter>Object\Attribute\Material</Filter>
+      <Filter>Object\Attribute\extratAttribute\Material</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Utility\TransformAdapter.cpp">
       <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Object\Node\ObjectDecorator.cpp">
+      <Filter>Object\Node\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Object\Node\MaterialDecorator.cpp">
+      <Filter>Object\Node\Decorator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -417,19 +426,16 @@
       <Filter>Object\Node\Square</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Object\Attribute\Texture.h">
-      <Filter>Object\Attribute\Texture</Filter>
+      <Filter>Object\Attribute\extratAttribute\Texture</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Object\Attribute\VertexConfig.h">
-      <Filter>Object\Attribute\Vertex</Filter>
+      <Filter>Object\Attribute\objectAttribute\Vertex</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Object\Node\Triangle.h">
       <Filter>Object\Node\Triangle</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Object\Attribute\Mesh.h">
-      <Filter>Object\Attribute\Mesh</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Object\Attribute\Transform.h">
-      <Filter>Object\Attribute\Transform</Filter>
+      <Filter>Object\Attribute\objectAttribute\Transform</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Object\Node\Light.h">
       <Filter>Object\Node\Light</Filter>
@@ -450,10 +456,19 @@
       <Filter>Handle</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Object\Attribute\Material.h">
-      <Filter>Object\Attribute\Material</Filter>
+      <Filter>Object\Attribute\extratAttribute\Material</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Utility\TransformAdapter.h">
       <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Object\Node\ObjectDecorator.h">
+      <Filter>Object\Node\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Object\Node\TextureDecorator.h">
+      <Filter>Object\Node\Decorator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Object\Node\MaterialDecorator.h">
+      <Filter>Object\Node\Decorator</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

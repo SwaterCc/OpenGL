@@ -40,24 +40,31 @@ GLShaderProgreamCatch::~GLShaderProgreamCatch()
 void GLShaderProgreamCatch::init()
 {
 	auto* p1 = new GLProgram;
-	loadShaderFile(p1, "default_VertexShader.vt", "default_FragmentShader.fg");
+	loadShaderFile(p1, "default_VertexShader", "default_FragmentShader");
 	p1->createProgram();
 	m_ProgramList.insert(std::make_pair(ShaderProgramType_Default, p1));
 
 	auto* p2 = new GLProgram;
-	loadShaderFile(p2, "positionColorTexture_VertexShader.vt", "positionColorTexture_FragmentShader.fg");
+	loadShaderFile(p2, "positionColorTexture_VertexShader", "positionColorTexture_FragmentShader");
 	p2->createProgram();
 	m_ProgramList.insert(std::make_pair(ShaderProgramType_PositionColorTexture, p2));
 
 	auto* p3 = new GLProgram;
-	loadShaderFile(p3, "cube_VertexShader.vt", "cube_FragmentShader.fg");
+	loadShaderFile(p3, "cube_VertexShader", "cube_FragmentShader");
 	p3->createProgram();
 	m_ProgramList.insert(std::make_pair(ShaderProgramType_Cube, p3));
+
+	auto* p4 = new GLProgram;
+	loadShaderFile(p4, "default_extra_vertexShader", "default_extra_fragmentShader");
+	p4->createProgram();
+	m_ProgramList.insert(std::make_pair(ShaderProgramType_DefaultExtra, p4));
 }
 
 void GLShaderProgreamCatch::loadShaderFile(GLProgram* p, std::string vertexShaderFile, std::string fragmentShaderFile)
 {
 	assert(vertexShaderFile != "" && fragmentShaderFile != "");
+	vertexShaderFile.append(".vert");
+	fragmentShaderFile.append(".frag");
 	p->createShader(vertexShaderFile, GL_VERTEX_SHADER);
 	p->createShader(fragmentShaderFile, GL_FRAGMENT_SHADER);
 }
