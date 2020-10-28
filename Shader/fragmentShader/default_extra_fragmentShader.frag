@@ -4,27 +4,27 @@ struct Material{
 	float diffuseStrenght;
 	float specularStrength;
 	float shininess;
-}
+};
 
 struct Light{
 	vec4 lightPos; 
 	vec4 lightColor;
 	vec4 viewPos;
-}
+};
 
 in vec4 Color;
 in vec2 Texcoord;
 in vec3 Normal;
 in vec4 FragPos;
 
-uniform int useLight;
-uniform Material material; 
+uniform int useLight = 1;
 uniform Light light;
+uniform Material material; 
 
-uniform int useTexture;
+uniform int useTexture = 0;
 uniform sampler2D image;
 
-out vec4 gl_fragColor;
+out vec4 fragColor;
 
 vec4 ambientCalc();
 vec4 diffuseCalc();
@@ -34,15 +34,15 @@ vec4 CalculationTexture();
 
 void main(){
 	vec4 CalcValue = vec4(1.0);
-	if(useTexture)
+	if(useTexture == 1)
 	{
 		CalcValue *= CalculationTexture();
 	}
-	if(useLight)
+	if(useLight == 1)
 	{
 		CalcValue *= CalculationLight();
 	}
-	color = CalcValue * Color;
+	fragColor = CalcValue * Color;
 }
 
 vec4 ambientCalc()
@@ -66,7 +66,7 @@ vec4 specularCalc()
 	vec3 fragToViewDir = vec3(normalize(light.viewPos - FragPos));
 	vec4 lightToFragDir = normalize(FragPos - light.lightPos);
 	vec3 reflectDir = reflect(lightToFragDir.xyz,normal);
-	float spec = pow(max(dot(light.fragToViewDir,reflectDir),0.0f),32);
+	float spec = pow(max(dot(fragToViewDir,reflectDir),0.0f),material.shininess);
 	vec4 specualar = material.specularStrength * spec * light.lightColor;
 	return specualar;
 }

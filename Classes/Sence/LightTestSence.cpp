@@ -18,9 +18,10 @@ void LightTestSence::init()
 	light->setColor({ 1,1,1,1 });*/
 
 	auto* cube = Cube::create();
-	this->addToRenderingList(cube);
-	_SOP(cube, v3(0, 0, 8.0));
-	_SOS(cube, 4);
+	auto* mateDecorator = MaterialDecorator::create(cube);
+	this->addToRenderingList(mateDecorator);
+	_SOP(mateDecorator, v3(0, 0, 8.0));
+	_SOS(mateDecorator, 4);
 	//cube->setRotate(0.6, { 0,1,0 });
 	//cube->setColor({ 0.4,0.5,0.6,1 });
 	/*auto* sprite = Sprite::create("1.jpg");

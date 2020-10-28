@@ -72,6 +72,11 @@ void ObjectBase::setProgram(GLProgram * GLProgram)
 	m_uProgramTarget = m_ShaderProgram->getShaderProgram();
 }
 
+GLProgram* ObjectBase::getProgram()
+{
+	return m_ShaderProgram;
+}
+
 void ObjectBase::setIsPhotosensitive(int isPs)
 {
 	m_bIsPhotosensitive = isPs;

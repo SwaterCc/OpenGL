@@ -1,14 +1,14 @@
-#ifndef _TextureDecorator_h_
-#define _TextureDecorator_h_
+#ifndef _LightDecorator_h_
+#define _LightDecorator_h_
 
 #include"ObjectDecorator.h"
 #include"../Attribute/Texture.h"
 
-class TextureDecorator : public ObjectDecorator
+class LightDecorator : public ObjectDecorator
 {
 public:
-	static TextureDecorator* create(ObjectBase* obj);
-	TextureDecorator(ObjectBase* obj);
+	static LightDecorator* create(ObjectBase* obj);
+	LightDecorator(ObjectBase* obj);
 
 	virtual void update() override;
 	virtual void draw() override;

@@ -102,7 +102,7 @@ void Cube::init()
 	}
 
 	//×ÅÉ«Æ÷
-	GLProgram* program = GLShaderProgreamCatch::getInstance()->getGLProgream(ShaderProgramType_Cube);
+	GLProgram* program = GLShaderProgreamCatch::getInstance()->getGLProgream(ShaderProgramType_DefaultExtra);
 	setProgram(program);
 	m_ShaderProgram->useShaderProgream();
 }
@@ -125,9 +125,9 @@ void Cube::updateColorUniform()
 void Cube::updateLightUniform()
 {
 	m_ShaderProgram->setUniform4MatrixFV("model", transform.getUpdateModelMatrix());
-	m_ShaderProgram->setUniform4F("lightPos", { 0,0,4,1 });
-	m_ShaderProgram->setUniform4F("lightColor", { 1,1,1,1 });
-	m_ShaderProgram->setUniform4F("viewPos", { 0,0,-10.0f,1 });
+	m_ShaderProgram->setUniform4F("light.lightPos", { 0,0,4,1 });
+	m_ShaderProgram->setUniform4F("light.lightColor", { 1,1,1,1 });
+	m_ShaderProgram->setUniform4F("light.viewPos", { 0,0,-10.0f,1 });
 }
 
 Cube::Cube()

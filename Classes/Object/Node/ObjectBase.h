@@ -31,7 +31,7 @@ public:
 
 	virtual Transform & getTransform();
 	virtual void setProgram(GLProgram* GLProgram);
-
+	virtual GLProgram* getProgram();
 	virtual void setIsPhotosensitive(int isPs);
 	virtual int getIsPhotosensitive();
 protected:
