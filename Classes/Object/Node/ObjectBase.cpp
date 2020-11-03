@@ -31,15 +31,15 @@ ObjectBase::~ObjectBase()
 
 }
 
-void ObjectBase::addToRenderingList()
-{
-	RenderPiplineManager::getInstance()->addObjectToList(this, _nRenderTag);
-}
-
-void ObjectBase::removeToRenderingList()
-{
-	RenderPiplineManager::getInstance()->removeObjectAtIndex(getRenderTag());
-}
+//void ObjectBase::addToRenderingList()
+//{
+//	RenderPiplineManager::getInstance()->addObjectToList(this, _nRenderTag);
+//}
+//
+//void ObjectBase::removeToRenderingList()
+//{
+//	RenderPiplineManager::getInstance()->removeObjectAtIndex(getRenderTag());
+//}
 
 void ObjectBase::draw()
 {
@@ -48,6 +48,7 @@ void ObjectBase::draw()
 
 void ObjectBase::update()
 {
+	m_ShaderProgram->setUniform4MatrixFV("model", transform.getUpdateModelMatrix());
 	transform.update();
 }
 

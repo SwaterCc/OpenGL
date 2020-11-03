@@ -14,9 +14,13 @@ public:
 	virtual void addToRenderingList(ObjectBase* object);
 	virtual void removeObjectOfTarget(int tag);
 
+	virtual void addToRenderingList(Light * object);
+
+	
 	virtual void registerCamera(Camera* object);
 	virtual void registerMainCamera(Camera* object);
 	virtual void unregisterCamera(Camera* object);
+
 	virtual void setSenceBackgroundColor(glmath::vec4 color) { m_objSenceColor = color; }
 	virtual glmath::vec4 getSenceBackgroundColor() { return m_objSenceColor; }
 protected:

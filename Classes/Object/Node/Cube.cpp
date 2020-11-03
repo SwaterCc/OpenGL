@@ -124,7 +124,6 @@ void Cube::updateColorUniform()
 
 void Cube::updateLightUniform()
 {
-	m_ShaderProgram->setUniform4MatrixFV("model", transform.getUpdateModelMatrix());
 	m_ShaderProgram->setUniform4F("light.lightPos", { 0,0,4,1 });
 	m_ShaderProgram->setUniform4F("light.lightColor", { 1,1,1,1 });
 	m_ShaderProgram->setUniform4F("light.viewPos", { 0,0,-10.0f,1 });

@@ -2,8 +2,7 @@
 #define _LightDecorator_h_
 
 #include"ObjectDecorator.h"
-#include"../Attribute/Texture.h"
-
+#include"../../Framework/LightManager.h"
 class LightDecorator : public ObjectDecorator
 {
 public:
@@ -12,10 +11,6 @@ public:
 
 	virtual void update() override;
 	virtual void draw() override;
-public:
-
-private:
-	Texture2D* texture;
 };
 
 

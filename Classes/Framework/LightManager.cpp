@@ -13,6 +13,7 @@ LightManager* LightManager::getInstance()
 
 void LightManager::registerLight(Light* obj)
 {
+
 }
 
 LightManager::LightManager()

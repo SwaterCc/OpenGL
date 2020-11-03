@@ -18,6 +18,11 @@ void ISence::removeObjectOfTarget(int tag)
 	RenderPiplineManager::getInstance()->removeObjectAtIndex(tag);
 }
 
+void ISence::addToRenderingList(Light* object)
+{
+
+}
+
 void ISence::registerCamera(Camera* object)
 {
 	RenderPiplineManager::getInstance()->addCameraToList(object);

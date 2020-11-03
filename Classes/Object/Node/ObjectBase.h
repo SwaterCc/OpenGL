@@ -21,8 +21,8 @@ public:
 
 	virtual void setVertexConfig(VertexConfig* config);
 
-	virtual void addToRenderingList();
-	virtual void removeToRenderingList();
+	//virtual void addToRenderingList();
+	//virtual void removeToRenderingList();
 
 	virtual void draw();
 	virtual void update();
