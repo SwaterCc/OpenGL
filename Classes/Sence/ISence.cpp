@@ -20,7 +20,12 @@ void ISence::removeObjectOfTarget(int tag)
 
 void ISence::addToRenderingList(Light* object)
 {
+	object->add();
+}
 
+void ISence::removeObjectOfTarget(Light* object)
+{
+	object->remove();
 }
 
 void ISence::registerCamera(Camera* object)

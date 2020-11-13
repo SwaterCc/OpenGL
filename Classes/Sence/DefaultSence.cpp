@@ -9,8 +9,8 @@ DefaultSence* DefaultSence::create()
 void DefaultSence::init()
 {
 	Square* square_1 = Square::create();
-	square_1->addToRenderingList();
-	this->removeObjectOfTarget(square_1->getRenderTag());
+	//square_1->addToRenderingList();
+	//this->removeObjectOfTarget(square_1->getRenderTag());
 	
 	Triangle_Vertex vex_1;
 	vex_1.p1 = { v3(0.5f,0.5f,0),c4(1,0,0,0.5) };

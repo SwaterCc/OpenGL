@@ -2,6 +2,7 @@
 #define _ISence_h_
 
 #include "../Utility/TransformAdapter.h"
+#include "../Framework/LightManager.h"
 
 class Camera;
 
@@ -15,7 +16,7 @@ public:
 	virtual void removeObjectOfTarget(int tag);
 
 	virtual void addToRenderingList(Light * object);
-
+	virtual void removeObjectOfTarget(Light* object);
 	
 	virtual void registerCamera(Camera* object);
 	virtual void registerMainCamera(Camera* object);

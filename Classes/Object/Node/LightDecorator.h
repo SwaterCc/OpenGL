@@ -3,6 +3,7 @@
 
 #include"ObjectDecorator.h"
 #include"../../Framework/LightManager.h"
+
 class LightDecorator : public ObjectDecorator
 {
 public:

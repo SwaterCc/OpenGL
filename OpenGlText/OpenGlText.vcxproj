@@ -149,8 +149,12 @@
     <ClCompile Include="..\Classes\Object\Attribute\Texture.cpp" />
     <ClCompile Include="..\Classes\Object\Attribute\Transform.cpp" />
     <ClCompile Include="..\Classes\Object\Attribute\VertexConfig.cpp" />
+    <ClCompile Include="..\Classes\Object\Light\Light.cpp" />
+    <ClCompile Include="..\Classes\Object\Light\ParallelLight.cpp" />
+    <ClCompile Include="..\Classes\Object\Light\PointLight.cpp" />
+    <ClCompile Include="..\Classes\Object\Light\Spotlight.cpp" />
     <ClCompile Include="..\Classes\Object\Node\Cube.cpp" />
-    <ClCompile Include="..\Classes\Object\Node\Light.cpp" />
+    <ClCompile Include="..\Classes\Object\Node\LightDecorator.cpp" />
     <ClCompile Include="..\Classes\Object\Node\MaterialDecorator.cpp" />
     <ClCompile Include="..\Classes\Object\Node\ObjectBase.cpp" />
     <ClCompile Include="..\Classes\Object\Node\ObjectDecorator.cpp" />
@@ -184,8 +188,11 @@
     <ClInclude Include="..\Classes\Object\Attribute\Texture.h" />
     <ClInclude Include="..\Classes\Object\Attribute\Transform.h" />
     <ClInclude Include="..\Classes\Object\Attribute\VertexConfig.h" />
+    <ClInclude Include="..\Classes\Object\Light\Light.h" />
+    <ClInclude Include="..\Classes\Object\Light\ParallelLight.h" />
+    <ClInclude Include="..\Classes\Object\Light\PointLight.h" />
+    <ClInclude Include="..\Classes\Object\Light\Spotlight.h" />
     <ClInclude Include="..\Classes\Object\Node\Cube.h" />
-    <ClInclude Include="..\Classes\Object\Node\Light.h" />
     <ClInclude Include="..\Classes\Object\Node\LightDecorator.h" />
     <ClInclude Include="..\Classes\Object\Node\MaterialDecorator.h" />
     <ClInclude Include="..\Classes\Object\Node\ObjectBase.h" />
