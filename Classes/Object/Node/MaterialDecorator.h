@@ -4,6 +4,9 @@
 #include"ObjectDecorator.h"
 #include"../Attribute/Material.h"
 
+#define MATERIAL_TEXTURE_DIFFUSE "Material.diffuseTex"
+#define MATERIAL_TEXTURE_SPECULAR "Material.specularTex"
+
 class MaterialDecorator : public ObjectDecorator
 {
 public:
@@ -18,7 +21,8 @@ public:
 	void setDiffuseStrenght(float d);
 	void setSpecularStrength(float s);
 	void setShininess(float s);
-
+	void setDiffuseTex(Texture2D * tex);
+	void setSpecularTex(Texture2D * tex);
 	Material * getMaterial();
 private:
 	void updateMaterialUniform();

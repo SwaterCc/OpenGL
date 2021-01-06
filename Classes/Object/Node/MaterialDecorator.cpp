@@ -23,10 +23,6 @@ MaterialDecorator* MaterialDecorator::create(ObjectBase* obj, Material* material
 MaterialDecorator::MaterialDecorator(ObjectBase* obj):ObjectDecorator(obj)
 {
 	material = new Material;
-	material->ambientStrenght = 0.1;
-	material->diffuseStrenght = 1.0;
-	material->specularStrength = 0.5;
-	material->shininess = 32;
 }
 
 MaterialDecorator::MaterialDecorator(ObjectBase* obj, Material* material):ObjectDecorator(obj)
@@ -65,6 +61,16 @@ void MaterialDecorator::setShininess(float s)
 	this->material->shininess = s;
 }
 
+void MaterialDecorator::setDiffuseTex(Texture2D* tex)
+{
+	this->material->diffuseTex = tex;
+}
+
+void MaterialDecorator::setSpecularTex(Texture2D* tex)
+{
+	this->material->specularTex = tex;
+}
+
 Material* MaterialDecorator::getMaterial()
 {
 	return material;
@@ -76,4 +82,10 @@ void MaterialDecorator::updateMaterialUniform()
 	m_pDecorated->getProgram()->setUniformOneFloat("material.diffuseStrenght", material->diffuseStrenght);
 	m_pDecorated->getProgram()->setUniformOneFloat("material.specularStrength", material->specularStrength);
 	m_pDecorated->getProgram()->setUniformOneFloat("material.shininess", material->shininess);
+	if (material->diffuseTex)
+		this->material->diffuseTex->update();
+		m_pDecorated->getProgram()->setUniformOneInt("material.diffuseTex", 0);
+	if (material->specularTex)
+		this->material->specularTex->update();
+		m_pDecorated->getProgram()->setUniformOneInt("material.specularTex", 1);
 }

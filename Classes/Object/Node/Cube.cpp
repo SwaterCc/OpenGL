@@ -100,6 +100,49 @@ void Cube::init()
 		m_CubeVexData[i].p2.normal = m_CubeVexData[i].getnormal(2);
 		m_CubeVexData[i].p3.normal = m_CubeVexData[i].getnormal(3);
 	}
+	//纹理坐标
+	m_CubeVexData[0].p1.texture = { 0.0f,  0.0f };
+	m_CubeVexData[0].p2.texture = { 1.0f,  0.0f };
+	m_CubeVexData[0].p3.texture = { 1.0f,  1.0f };
+	m_CubeVexData[1].p1.texture = { 1.0f,  1.0f };
+	m_CubeVexData[1].p2.texture = { 0.0f,  1.0f };
+	m_CubeVexData[1].p3.texture = { 0.0f,  0.0f };
+						
+	m_CubeVexData[2].p3.texture = { 0.0f,  0.0f };
+	m_CubeVexData[2].p2.texture = { 1.0f,  0.0f };
+	m_CubeVexData[2].p1.texture = { 1.0f,  1.0f };
+	m_CubeVexData[3].p3.texture = { 1.0f,  1.0f };
+	m_CubeVexData[3].p2.texture = { 0.0f,  1.0f };
+	m_CubeVexData[3].p1.texture = { 0.0f,  0.0f };
+						
+	m_CubeVexData[4].p3.texture = { 1.0f,  0.0f };
+	m_CubeVexData[4].p2.texture = { 1.0f,  1.0f };
+	m_CubeVexData[4].p1.texture = { 0.0f,  1.0f };
+	m_CubeVexData[5].p3.texture = { 0.0f,  1.0f };
+	m_CubeVexData[5].p2.texture = { 0.0f,  0.0f };
+	m_CubeVexData[5].p1.texture = { 1.0f,  0.0f };
+						
+	m_CubeVexData[6].p1.texture = { 1.0f,  0.0f };
+	m_CubeVexData[6].p2.texture = { 1.0f,  1.0f };
+	m_CubeVexData[6].p3.texture = { 0.0f,  1.0f };
+	m_CubeVexData[7].p1.texture = { 0.0f,  1.0f };
+	m_CubeVexData[7].p2.texture = { 0.0f,  0.0f };
+	m_CubeVexData[7].p3.texture = { 1.0f,  0.0f };
+						
+	m_CubeVexData[8].p3.texture = { 0.0f,  1.0f };
+	m_CubeVexData[8].p2.texture = { 1.0f,  1.0f };
+	m_CubeVexData[8].p1.texture = { 1.0f,  0.0f };
+	m_CubeVexData[9].p3.texture = { 1.0f,  0.0f };
+	m_CubeVexData[9].p2.texture = { 0.0f,  0.0f };
+	m_CubeVexData[9].p1.texture = { 0.0f,  1.0f };
+
+	m_CubeVexData[10].p1.texture = { 0.0f,  1.0f };
+	m_CubeVexData[10].p2.texture = { 1.0f,  1.0f };
+	m_CubeVexData[10].p3.texture = { 1.0f,  0.0f };
+	m_CubeVexData[11].p1.texture = { 1.0f,  0.0f };
+	m_CubeVexData[11].p2.texture = { 0.0f,  0.0f };
+	m_CubeVexData[11].p3.texture = { 0.0f,  1.0f };
+
 
 	//着色器
 	GLProgram* program = GLShaderProgreamCatch::getInstance()->getGLProgream(ShaderProgramType_DefaultExtra);

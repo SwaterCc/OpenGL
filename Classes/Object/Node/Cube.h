@@ -2,7 +2,7 @@
 #define _Cube_h_
 
 #include"ObjectBase.h"
-#include"../Attribute/Texture.h"
+#include"../Texture/Texture2D.h"
 OBJECT_BEGIN
 class Cube : public ObjectBase
 {

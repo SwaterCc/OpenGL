@@ -1,4 +1,4 @@
-#include "Texture.h"
+#include "Texture2D.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
@@ -18,8 +18,14 @@ Texture2D::Texture2D(std::string texture, GLuint textureUnit):m_pTexFile(texture
 	m_TextureUnit = textureUnit;
 }
 
+
 void Texture2D::update()
 {
+	if (m_Texture)
+	{
+		glActiveTexture(m_TextureUnit);
+		glBindTexture(GL_TEXTURE_2D, m_Texture);
+	}
 }
 
 bool Texture2D::initWithTexture()
@@ -34,7 +40,17 @@ bool Texture2D::initWithTexture()
 	{
 		glGenTextures(1, &m_Texture);
 		glBindTexture(GL_TEXTURE_2D,m_Texture);
-		glActiveTexture(m_TextureUnit);
+		
+		GLenum format = GL_BLUE;
+		if (m_nNRChanners == 1)
+			format = GL_RED;
+		else if (m_nNRChanners == 3)
+			format = GL_RGB;
+		else if (m_nNRChanners == 4)
+			format = GL_RGBA;
+
+		glTexImage2D(GL_TEXTURE_2D, 0, format, m_nWidth, m_nHeight, 0, format, GL_UNSIGNED_BYTE, data);
+		glGenerateMipmap(GL_TEXTURE_2D);
 
 		//设置纹理环绕方式
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
@@ -43,8 +59,6 @@ bool Texture2D::initWithTexture()
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, m_nWidth, m_nHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-		glGenerateMipmap(GL_TEXTURE_2D);
 		stbi_image_free(data);
 	}
 	else 

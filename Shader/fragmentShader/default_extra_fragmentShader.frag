@@ -4,6 +4,8 @@ struct Material{
 	float diffuseStrenght;
 	float specularStrength;
 	float shininess;
+	sampler2D diffuseTex;
+	sampler2D specularTex;
 };
 
 struct Light{
@@ -21,9 +23,6 @@ uniform int useLight = 1;
 uniform Light light;
 uniform Material material; 
 
-uniform int useTexture = 0;
-uniform sampler2D image;
-
 out vec4 fragColor;
 
 vec4 ambientCalc();
@@ -34,10 +33,7 @@ vec4 CalculationTexture();
 
 void main(){
 	vec4 CalcValue = vec4(1.0);
-	if(useTexture == 1)
-	{
-		CalcValue *= CalculationTexture();
-	}
+
 	if(useLight == 1)
 	{
 		CalcValue *= CalculationLight();
@@ -48,6 +44,7 @@ void main(){
 vec4 ambientCalc()
 {
 	vec4 ambient = light.lightColor * material.ambientStrenght;
+	ambient *= vec4(texture(material.diffuseTex,Texcoord).rgb,1);
 	return ambient;
 }
 
@@ -57,6 +54,7 @@ vec4 diffuseCalc()
 	vec4 fragToLightDir = normalize(light.lightPos - FragPos);
 	float diff = max(dot(vec4(normal,1.0),fragToLightDir),0.0f);
 	vec4 diffuse = (diff * material.diffuseStrenght) * light.lightColor;
+	diffuse *= vec4(texture(material.diffuseTex,Texcoord).rgb,1);
 	return diffuse;
 }
 
@@ -68,17 +66,12 @@ vec4 specularCalc()
 	vec3 reflectDir = reflect(lightToFragDir.xyz,normal);
 	float spec = pow(max(dot(fragToViewDir,reflectDir),0.0f),material.shininess);
 	vec4 specualar = material.specularStrength * spec * light.lightColor;
+	specualar *= vec4(texture(material.specularTex,Texcoord).rgb,1);
 	return specualar;
 }
 
 vec4 CalculationLight()
 {
 	vec4 res = ambientCalc() + diffuseCalc() + specularCalc();
-	return res;
-}
-
-vec4 CalculationTexture()
-{
-	vec4 res = texture(image,Texcoord);
 	return res;
 }

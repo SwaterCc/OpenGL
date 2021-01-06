@@ -2,7 +2,9 @@
 #define _TextureDecorator_h_
 
 #include"ObjectDecorator.h"
-#include"../Attribute/Texture.h"
+#include"../Texture/Texture2D.h"
+
+#include<map>
 
 class TextureDecorator : public ObjectDecorator
 {
@@ -12,10 +14,6 @@ public:
 
 	virtual void update() override;
 	virtual void draw() override;
-public:
-
-private:
-	Texture2D* texture;
 };
 
 

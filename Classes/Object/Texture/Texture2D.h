@@ -1,12 +1,11 @@
 #ifndef _Texture_h_
 #define _Texture_h_
 
-#include"AttributeModule.h"
 #include"../../Include/Include.h"
 
 using std::endl;
 
-class Texture2D :public AttributeModule
+class Texture2D
 {
 public:
 	static Texture2D* create(std::string textureFile,GLuint textureUnit = GL_TEXTURE0);
@@ -17,7 +16,7 @@ public:
 	int getTexChanners() { return m_nNRChanners; }
 	GLuint getTex() { return m_Texture; }
 public:
-	virtual void update() override;
+	virtual void update();
 protected:
 	virtual bool initWithTexture();
 

@@ -146,7 +146,6 @@
     <ClCompile Include="..\Classes\Framework\LightManager.cpp" />
     <ClCompile Include="..\Classes\Framework\RenderPipelineManager.cpp" />
     <ClCompile Include="..\Classes\Object\Attribute\Material.cpp" />
-    <ClCompile Include="..\Classes\Object\Attribute\Texture.cpp" />
     <ClCompile Include="..\Classes\Object\Attribute\Transform.cpp" />
     <ClCompile Include="..\Classes\Object\Attribute\VertexConfig.cpp" />
     <ClCompile Include="..\Classes\Object\Light\Light.cpp" />
@@ -160,8 +159,8 @@
     <ClCompile Include="..\Classes\Object\Node\ObjectDecorator.cpp" />
     <ClCompile Include="..\Classes\Object\Node\Sprite.cpp" />
     <ClCompile Include="..\Classes\Object\Node\Square.cpp" />
-    <ClCompile Include="..\Classes\Object\Node\TextureDecorator.cpp" />
     <ClCompile Include="..\Classes\Object\Node\Triangle.cpp" />
+    <ClCompile Include="..\Classes\Object\Texture\Texture2D.cpp" />
     <ClCompile Include="..\Classes\Sence\DefaultSence.cpp" />
     <ClCompile Include="..\Classes\Sence\ISence.cpp" />
     <ClCompile Include="..\Classes\Sence\LightTestSence.cpp" />
@@ -184,8 +183,8 @@
     <ClInclude Include="..\Classes\Include\Include.h" />
     <ClInclude Include="..\Classes\Include\makeFileInclude.h" />
     <ClInclude Include="..\Classes\Object\Attribute\AttributeModule.h" />
+    <ClInclude Include="..\Classes\Object\Attribute\color_define.h" />
     <ClInclude Include="..\Classes\Object\Attribute\Material.h" />
-    <ClInclude Include="..\Classes\Object\Attribute\Texture.h" />
     <ClInclude Include="..\Classes\Object\Attribute\Transform.h" />
     <ClInclude Include="..\Classes\Object\Attribute\VertexConfig.h" />
     <ClInclude Include="..\Classes\Object\Light\Light.h" />
@@ -199,8 +198,8 @@
     <ClInclude Include="..\Classes\Object\Node\ObjectDecorator.h" />
     <ClInclude Include="..\Classes\Object\Node\Sprite.h" />
     <ClInclude Include="..\Classes\Object\Node\Square.h" />
-    <ClInclude Include="..\Classes\Object\Node\TextureDecorator.h" />
     <ClInclude Include="..\Classes\Object\Node\Triangle.h" />
+    <ClInclude Include="..\Classes\Object\Texture\Texture2D.h" />
     <ClInclude Include="..\Classes\Sence\DefaultSence.h" />
     <ClInclude Include="..\Classes\Sence\ISence.h" />
     <ClInclude Include="..\Classes\Sence\LightTestSence.h" />
