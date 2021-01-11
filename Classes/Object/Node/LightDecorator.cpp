@@ -17,21 +17,6 @@ LightDecorator::LightDecorator(ObjectBase* obj):ObjectDecorator(obj)
 
 void LightDecorator::update()
 {
-	//先传入灯光的感光是否开启
-	m_pDecorated->getProgram()->setUniformOneInt("useLight", m_pDecorated->getIsPhotosensitive());
-	//传入所有灯光的坐标和颜色
-	LightManager::getInstance()->getParallelLight()->update();
-
-	auto& pointLightList = LightManager::getInstance()->getPointLightList();
-	for (auto light : pointLightList)
-	{
-		light.second->update();
-	}
-	auto& spotlightList = LightManager::getInstance()->getSpotlightList();
-	for (auto light : spotlightList)
-	{
-		light.second->update();
-	}
 	/*for_each(spotlightList.begin(), spotlightList.end(), [](std::map<unsigned int, Spotlight*>::reference it) {
 		it.second->update();
 	});
@@ -40,6 +25,28 @@ void LightDecorator::update()
 	});*/
 
 	ObjectDecorator::update();
+	
+	//传入所有灯光的坐标和颜色
+
+	/*auto& pointLightList = LightManager::getInstance()->getPointLightList();
+	for (auto light : pointLightList)
+	{
+		light.second->update();
+	}
+	auto& spotlightList = LightManager::getInstance()->getSpotlightList();
+	for (auto light : spotlightList)
+	{
+		light.second->update();
+	}*/
+}
+
+void LightDecorator::updateUniform()
+{
+	ObjectDecorator::updateUniform();
+	//先传入灯光的感光是否开启
+	m_pDecorated->getProgram()->setUniformOneInt("useLight", m_pDecorated->getIsPhotosensitive());
+	m_pDecorated->getProgram()->setUniform4F("parallelLight.lightDir", glmath::vec4(LightManager::getInstance()->getParallelLight()->direction,1));
+	m_pDecorated->getProgram()->setUniform4F("parallelLight.lightColor", glmath::vec4(LightManager::getInstance()->getParallelLight()->color,1));
 }
 
 void LightDecorator::draw()

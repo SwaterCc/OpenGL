@@ -20,7 +20,8 @@ public:
 
 	//MVP矩阵创建
 	void ViewProjectionTransform(Transform * tran);
-	
+	//传入摄像机坐标
+
 	void setPosition(glmath::vec3 pos) { m_objPos = pos; }
 	glmath::vec3 getPosition() { return m_objPos; }
 	

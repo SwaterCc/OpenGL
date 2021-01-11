@@ -71,7 +71,6 @@ void Camera::ViewProjectionTransform(Transform * tran)
 	mvp = (m_objProjectionMat * (m_objLookAt * mvp));
 }
 
-
 void Camera::init()
 {
 	//¥¥Ω®LookAtæÿ’Û

@@ -19,14 +19,19 @@ void ObjectDecorator::update()
 	m_pDecorated->update();
 }
 
-void ObjectDecorator::UpdateUniform()
+void ObjectDecorator::updateUniform()
 {
-	m_pDecorated->UpdateUniform();
+	m_pDecorated->updateUniform();
 }
 
 void ObjectDecorator::draw()
 {
 	m_pDecorated->draw();
+}
+
+GLProgram* ObjectDecorator::getProgram()
+{
+	return m_pDecorated->getProgram();
 }
 
 Transform& ObjectDecorator::getTransform()

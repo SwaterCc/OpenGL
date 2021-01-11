@@ -40,6 +40,7 @@ public:
 	Size getWinSize() { return m_WindowSize; }
 
 	void setMainCamera(Camera* c);
+	glmath::vec3 getMainCameraPos();
 private:
 	RenderPiplineManager();
 	~RenderPiplineManager();

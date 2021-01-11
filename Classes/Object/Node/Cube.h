@@ -10,7 +10,7 @@ public:
 	static Cube* create();
 
 	virtual void update() override;
-	virtual void UpdateUniform() override;
+	virtual void updateUniform() override;
 	virtual void draw();
 
 	virtual void addTexture();
@@ -23,7 +23,7 @@ protected:
 	virtual void init();
 	virtual void InputVertexData();
 	virtual void updateColorUniform();
-	virtual void updateLightUniform();
+	virtual void updateCamera();
 	Cube();
 	~Cube();
 private:

@@ -52,7 +52,7 @@ void ObjectBase::update()
 	transform.update();
 }
 
-void ObjectBase::UpdateUniform()
+void ObjectBase::updateUniform()
 {
 	updateUniformOfShader();
 }

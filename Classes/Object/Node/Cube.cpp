@@ -1,4 +1,5 @@
 #include "Cube.h"
+#include "../../Framework/RenderPipelineManager.h"
 OBJECT_BEGIN
 Cube* Cube::create()
 {
@@ -22,11 +23,12 @@ void Cube::update()
 	transform.rotate = { (float)glfwGetTime() / PI * 180, (float)glfwGetTime() / PI * 180, (float)glfwGetTime() / PI * 180 };
 }
 
-void Cube::UpdateUniform()
+void Cube::updateUniform()
 {
-	ObjectBase::UpdateUniform();
+	ObjectBase::updateUniform();
+	updateCamera();
 	updateColorUniform();
-	updateLightUniform();
+	//updateLightUniform();
 }
 
 void Cube::draw()
@@ -165,11 +167,9 @@ void Cube::updateColorUniform()
 	m_ShaderProgram->setUniform4F("_uniformColor", { m_objColor.r,m_objColor.g, m_objColor.b, m_objColor.a });
 }
 
-void Cube::updateLightUniform()
+void Cube::updateCamera()
 {
-	m_ShaderProgram->setUniform4F("light.lightPos", { 0,0,4,1 });
-	m_ShaderProgram->setUniform4F("light.lightColor", { 1,1,1,1 });
-	m_ShaderProgram->setUniform4F("light.viewPos", { 0,0,-10.0f,1 });
+	m_ShaderProgram->setUniform3F("cameraPos", RenderPiplineManager::getInstance()->getMainCameraPos());
 }
 
 Cube::Cube()

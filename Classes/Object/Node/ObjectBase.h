@@ -26,7 +26,7 @@ public:
 
 	virtual void draw();
 	virtual void update();
-	virtual void UpdateUniform();
+	virtual void updateUniform();
 	int& getRenderTag();
 
 	virtual Transform & getTransform();

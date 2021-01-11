@@ -5,10 +5,6 @@
 #include "AttributeModule.h"
 #include "../Texture/Texture2D.h"
 
-
-
-
-
 class Material :public AttributeModule
 {
 public:

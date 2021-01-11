@@ -34,7 +34,7 @@ void RenderPiplineManager::mainLoop()
 		{
 			std::cerr << "Wanning MainCamera Not Active or is NULL" << std::endl;
 		}
-		(it->second)->UpdateUniform();
+		(it->second)->updateUniform();
 
 		(it->second)->draw();
 		glBindVertexArray(0);
@@ -133,6 +133,11 @@ void RenderPiplineManager::setMainCamera(Camera* c)
 		m_pMainCamera = m_CameraList[m_nCameraListCount];
 	}
 	
+}
+
+glmath::vec3 RenderPiplineManager::getMainCameraPos()
+{
+	return m_pMainCamera->getPosition();
 }
 
 RenderPiplineManager::RenderPiplineManager()

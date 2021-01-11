@@ -131,14 +131,34 @@ void GLProgram::setUniformOneFloat(string valName, float value)
 	}
 }
 
-void GLProgram::setUniform4F(string valName, uniform_fv fv)
+void GLProgram::setUniform3F(string valName, glmath::vec3 fv)
 {
 	if (m_nShaderProgram)
 	{
 		uint localUniform = glGetUniformLocation(m_nShaderProgram, valName.c_str());
 		if (m_bIsShaderProgramUsed)
 		{
-			glUniform4f(localUniform, fv.v1, fv.v2, fv.v3, fv.v4);
+			glUniform3f(localUniform, fv.x, fv.y, fv.z);
+		}
+		else
+		{
+			std::cout << "error shaderProgram is NULL" << endl;
+		}
+	}
+	else
+	{
+		std::cout << "error shaderProgram is NULL" << endl;
+	}
+}
+
+void GLProgram::setUniform4F(string valName, glmath::vec4 fv)
+{
+	if (m_nShaderProgram)
+	{
+		uint localUniform = glGetUniformLocation(m_nShaderProgram, valName.c_str());
+		if (m_bIsShaderProgramUsed)
+		{
+			glUniform4f(localUniform, fv.x, fv.y, fv.z, fv.w);
 		}
 		else
 		{
