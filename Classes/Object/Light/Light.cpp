@@ -34,7 +34,7 @@ void Light::draw()
 {
 }
 
-void Light::update()
+void Light::update(GLProgram* program)
 {
 
 }

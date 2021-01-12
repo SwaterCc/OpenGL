@@ -12,14 +12,13 @@ public:
 	ParallelLight(glmath::vec3 d, glmath::vec3 lightColor);
 
 	virtual void draw();
-	virtual void update();
+	virtual void update(GLProgram* program) override;
 protected:
 	virtual void init();
 	virtual void add() override;
 	virtual void remove() override;
-public:
+private:
 	glmath::vec3 direction;
-	glmath::vec3 color;
 };
 
 

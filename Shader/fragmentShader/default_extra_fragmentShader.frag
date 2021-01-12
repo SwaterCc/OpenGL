@@ -13,15 +13,24 @@ struct ParallelLight{
 	vec4 lightColor;
 };
 
+struct PointLight{
+	vec3 position;
+	float constant;
+	float linear;
+	float quadratic;
+};
+
 in vec4 Color;
 in vec2 Texcoord;
 in vec3 Normal;
 in vec4 FragPos;
 
 uniform int useLight = 0;
-uniform ParallelLight parallelLight;
 uniform Material material; 
 uniform vec3 cameraPos;
+
+uniform ParallelLight parallelLight;
+uniform PointLight pointLight;
 
 out vec4 fragColor;
 
@@ -51,9 +60,8 @@ vec4 ambientCalc()
 vec4 diffuseCalc()
 {
 	vec3 normal = normalize(Normal);
-	vec4 lightDir = normalize((-parallelLight.lightDir));
-	vec4 fragToLightDir = normalize(lightDir - FragPos);
-	float diff = max(dot(vec4(normal,1.0),fragToLightDir),0.0f);
+	vec4 fragTolightDir = normalize((-parallelLight.lightDir));
+	float diff = max(dot(vec4(normal,1.0),fragTolightDir),0.0f);
 	vec4 diffuse = (diff * material.diffuseStrenght) * parallelLight.lightColor;
 	diffuse *= vec4(texture(material.diffuseTex,Texcoord).rgb,1);
 	return diffuse;
@@ -61,11 +69,10 @@ vec4 diffuseCalc()
 
 vec4 specularCalc()
 {
-	vec4 lightDir = normalize(-parallelLight.lightDir);
+	vec4 lightDir = normalize(parallelLight.lightDir);
 	vec3 normal = normalize(Normal);
 	vec3 fragToViewDir = vec3(normalize(vec4(cameraPos,0) - FragPos));
-	vec4 lightToFragDir = normalize(FragPos - vec4(cameraPos,0));
-	vec3 reflectDir = reflect(lightToFragDir.xyz,normal);
+	vec3 reflectDir = reflect(lightDir.xyz,normal);
 	float spec = pow(max(dot(fragToViewDir,reflectDir),0.0f),material.shininess);
 	vec4 specualar = material.specularStrength * spec * parallelLight.lightColor;
 	specualar *= vec4(texture(material.specularTex,Texcoord).rgb,1);
@@ -74,6 +81,10 @@ vec4 specularCalc()
 
 vec4 CalculationLight()
 {
+	float distance = length(vec4(pointLight.position,1)-FragPos);
+	float attenuation = 1.0 / (pointLight.constant + pointLight.linear * distance + pointLight.quadratic * (distance * distance));	
+
 	vec4 res = ambientCalc() + diffuseCalc() + specularCalc();
+	res *= attenuation;
 	return res;
 }

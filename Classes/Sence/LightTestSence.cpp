@@ -8,9 +8,12 @@ LightTestSence* LightTestSence::create()
 
 void LightTestSence::init()
 {
-	setSenceBackgroundColor({ 0.3,0.5,0.2,1 });
+	setSenceBackgroundColor({ 0.1,0.1,0.1,1 });
+	auto* pLight = ParallelLight::create({ 0,-1,0 }, { 1,1,1 });
+	addToRenderingList(pLight);
 
-	//auto* pLight = ParallelLight::create();
+	auto* pointLight = PointLight::create({ 11,0,11 }, 1, 0.0014, 0.000007, glmath::vec3(1));
+	addToRenderingList(pointLight);
 
 	auto* cube = Cube::create();
 	auto* mateDecorator = MaterialDecorator::create(cube);
@@ -19,7 +22,7 @@ void LightTestSence::init()
 	mateDecorator->setShininess(64);
 	mateDecorator->setDiffuseTex(Texture2D::create("container2.png", GL_TEXTURE0));
 	mateDecorator->setSpecularTex(Texture2D::create("container2_specular.png", GL_TEXTURE1));
-	_SOP(mateDecorator, v3(0, 0, 18.0));
+	_SOP(mateDecorator, v3(-10, 0, 18.0));
 	_SOS(mateDecorator, 4);
 
 	auto* cube1 = Cube::create();
@@ -29,7 +32,7 @@ void LightTestSence::init()
 	mateDecorator1->setShininess(64);
 	mateDecorator1->setDiffuseTex(Texture2D::create("container2.png", GL_TEXTURE0));
 	mateDecorator1->setSpecularTex(Texture2D::create("container2_specular.png", GL_TEXTURE1));
-	_SOP(mateDecorator1, v3(14, 3, 28.0));
+	_SOP(mateDecorator1, v3(5, 3, 28.0));
 	_SOS(mateDecorator1, 4);
 
 
@@ -40,7 +43,7 @@ void LightTestSence::init()
 	mateDecorator2->setShininess(64);
 	mateDecorator2->setDiffuseTex(Texture2D::create("container2.png", GL_TEXTURE0));
 	mateDecorator2->setSpecularTex(Texture2D::create("container2_specular.png", GL_TEXTURE1));
-	_SOP(mateDecorator2, v3(12, -8, 35.0));
+	_SOP(mateDecorator2, v3(-7, -8, 35.0));
 	_SOS(mateDecorator2, 4);
 }
 

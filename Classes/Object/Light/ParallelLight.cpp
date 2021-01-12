@@ -23,23 +23,22 @@ ParallelLight* ParallelLight::create(glmath::vec3 d, glmath::vec3 lightColor)
 
 ParallelLight::ParallelLight()
 {
-	direction = glmath::vec3(-0.2f, -1.0f, -0.3f);
-	color = glmath::vec3(1);
+	direction = glmath::vec3(0);
 }
 
 ParallelLight::ParallelLight(glmath::vec3 d, glmath::vec3 lightColor):Light(lightColor)
 {
-	direction = glmath::vec3(0);
-	color = glmath::vec3(lightColor);
+	direction = d;
 }
 
 void ParallelLight::draw()
 {
 }
 
-void ParallelLight::update()
+void ParallelLight::update(GLProgram * program)
 {
-
+	program->setUniform4F("parallelLight.lightDir", glmath::vec4(direction, 0));
+	program->setUniform4F("parallelLight.lightColor", glmath::vec4(m_lightColor, 1));
 }
 
 void ParallelLight::init()

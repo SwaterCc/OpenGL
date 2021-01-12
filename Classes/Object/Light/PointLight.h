@@ -7,12 +7,17 @@ class PointLight : public Light
 {
 public:
 	static PointLight* create();
-	static PointLight* create(glmath::vec3 lightColor);
+	static PointLight* create(glmath::vec3 pos, float constant, float linear, float quadratic, glmath::vec3 lightColor);
 	PointLight();
-	PointLight(glmath::vec3 lightColor);
+	PointLight(glmath::vec3 pos, float constant, float linear, float quadratic, glmath::vec3 lightColor);
 
 	virtual void draw();
-	virtual void update();
+	virtual void update(GLProgram* program) override;
+	
+	void setPos(glmath::vec3 pos);
+	void setConstant(float c);
+	void setLinear(float l);
+	void setQuadratic(float q); 
 protected:
 	virtual void init();
 	virtual void add() override;

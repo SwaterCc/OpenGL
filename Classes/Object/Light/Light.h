@@ -2,7 +2,7 @@
 #define _Light_h_
 
 #include "../../Utility/glmath/glmathlib.h"
-
+#include "../../Framework/GLProgram.h"
 class Light
 {
 public:
@@ -10,7 +10,7 @@ public:
 	static Light* create(glmath::vec3 lightColor);
 	
 	virtual void draw();
-	virtual void update();
+	virtual void update(GLProgram * program);
 
 	virtual void add() {}
 	virtual void remove() {}
@@ -20,8 +20,9 @@ protected:
 
 	int getTag() { return tag; }
 	void setTag(int t) { this->tag = t; }
-private:
 	glmath::vec3 m_lightColor;
+private:
+	
 	int tag;
 };
 

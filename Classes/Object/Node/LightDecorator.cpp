@@ -45,8 +45,12 @@ void LightDecorator::updateUniform()
 	ObjectDecorator::updateUniform();
 	//先传入灯光的感光是否开启
 	m_pDecorated->getProgram()->setUniformOneInt("useLight", m_pDecorated->getIsPhotosensitive());
-	m_pDecorated->getProgram()->setUniform4F("parallelLight.lightDir", glmath::vec4(LightManager::getInstance()->getParallelLight()->direction,1));
-	m_pDecorated->getProgram()->setUniform4F("parallelLight.lightColor", glmath::vec4(LightManager::getInstance()->getParallelLight()->color,1));
+	LightManager::getInstance()->getParallelLight()->update(m_pDecorated->getProgram());
+	auto& pointLightList = LightManager::getInstance()->getPointLightList();
+	for (auto light : pointLightList)
+	{
+		light.second->update(m_pDecorated->getProgram());
+	}
 }
 
 void LightDecorator::draw()
