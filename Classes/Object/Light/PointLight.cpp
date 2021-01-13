@@ -38,6 +38,7 @@ void PointLight::draw()
 void PointLight::update(GLProgram* program)
 {
 	program->setUniform3F("pointLight.position", position);
+	program->setUniform4F("pointLight.lightColor", glmath::vec4(m_lightColor, 1));
 	program->setUniformOneFloat("pointLight.constant", constant);
 	program->setUniformOneFloat("pointLight.linear", linear);
 	program->setUniformOneFloat("pointLight.quadratic", quadratic);

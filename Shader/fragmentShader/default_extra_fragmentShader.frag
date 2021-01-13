@@ -18,6 +18,7 @@ struct PointLight{
 	float constant;
 	float linear;
 	float quadratic;
+	vec4 lightColor;
 };
 
 in vec4 Color;
@@ -50,41 +51,54 @@ void main(){
 	fragColor = CalcValue * Color;
 }
 
-vec4 ambientCalc()
+vec4 ParallelLightCalc()
 {
+	vec4 paralleLightValue;
+	//环境光
 	vec4 ambient = parallelLight.lightColor * material.ambientStrenght;
 	ambient *= vec4(texture(material.diffuseTex,Texcoord).rgb,1);
-	return ambient;
-}
-
-vec4 diffuseCalc()
-{
+	
+	//漫反射
 	vec3 normal = normalize(Normal);
-	vec4 fragTolightDir = normalize((-parallelLight.lightDir));
-	float diff = max(dot(vec4(normal,1.0),fragTolightDir),0.0f);
+	vec4 fragToLightDir = normalize(-parallelLight.lightDir);
+	float diff = max(dot(vec4(normal,1.0),fragToLightDir),0.0f);
 	vec4 diffuse = (diff * material.diffuseStrenght) * parallelLight.lightColor;
 	diffuse *= vec4(texture(material.diffuseTex,Texcoord).rgb,1);
-	return diffuse;
-}
-
-vec4 specularCalc()
-{
+	//镜面反射
 	vec4 lightDir = normalize(parallelLight.lightDir);
-	vec3 normal = normalize(Normal);
-	vec3 fragToViewDir = vec3(normalize(vec4(cameraPos,0) - FragPos));
+	vec3 fragToViewDir = vec3(normalize(vec4(cameraPos,1) - FragPos));
 	vec3 reflectDir = reflect(lightDir.xyz,normal);
 	float spec = pow(max(dot(fragToViewDir,reflectDir),0.0f),material.shininess);
 	vec4 specualar = material.specularStrength * spec * parallelLight.lightColor;
 	specualar *= vec4(texture(material.specularTex,Texcoord).rgb,1);
-	return specualar;
+	
+	paralleLightValue = ambient + diffuse + specualar;
+	return paralleLightValue;
+}
+
+vec4 PointLightCalc()
+{
+	vec4 lightDir = normalize(FragPos-vec4(pointLight.position,1));
+	vec3 normal = normalize(Normal);
+	float diff = max(dot(-lightDir.xyz,normal),0.0f);
+	vec4 diffuse = diff * pointLight.lightColor * material.diffuseStrenght * vec4(texture(material.diffuseTex,Texcoord).rgb,1);
+	//镜面反射
+	vec3 fragToViewDir = vec3(normalize(vec4(cameraPos,1) - FragPos));
+	vec3 reflectDir = reflect(lightDir.xyz,normal);
+	float spec = pow(max(dot(fragToViewDir,reflectDir),0.0f),material.shininess);
+	vec4 specualar = material.specularStrength * spec * pointLight.lightColor * vec4(texture(material.specularTex,Texcoord).rgb,1);
+	//环境光
+	 vec4 ambient = material.ambientStrenght * pointLight.lightColor * vec4(texture(material.diffuseTex,Texcoord).rgb,1);
+	//衰减	
+	float distance = length(FragPos-vec4(pointLight.position,1));
+	float attenuation = 1.0f / (pointLight.constant + pointLight.linear * distance +pointLight.quadratic * distance * distance);
+
+	return (ambient+diffuse+specualar)*attenuation;
+	//return pointLight.lightColor;
 }
 
 vec4 CalculationLight()
 {
-	float distance = length(vec4(pointLight.position,1)-FragPos);
-	float attenuation = 1.0 / (pointLight.constant + pointLight.linear * distance + pointLight.quadratic * (distance * distance));	
-
-	vec4 res = ambientCalc() + diffuseCalc() + specularCalc();
-	res *= attenuation;
+	vec4 res = PointLightCalc()+ParallelLightCalc();
 	return res;
 }
