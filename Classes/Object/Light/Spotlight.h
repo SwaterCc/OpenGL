@@ -7,10 +7,10 @@ class Spotlight : public Light
 {
 public:
 	static Spotlight* create();
-	static Spotlight* create(glmath::vec3 pos, glmath::vec4 dir, float height, float radius, glmath::vec3 lightColor = glmath::vec3(1));
+	static Spotlight* create(glmath::vec3 pos, glmath::vec3 dir, float height, float radius, glmath::vec3 lightColor = glmath::vec3(1));
 	
 	Spotlight();
-	Spotlight(glmath::vec3 pos, glmath::vec4 dir, float height, float radius, glmath::vec3 lightColor = glmath::vec3(1));
+	Spotlight(glmath::vec3 pos, glmath::vec3 dir, float height, float radius, glmath::vec3 lightColor = glmath::vec3(1));
 
 	virtual void draw();
 	virtual void update(GLProgram* program)override;

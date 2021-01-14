@@ -12,7 +12,7 @@ Spotlight* Spotlight::create()
 	return p;
 }
 
-Spotlight* Spotlight::create(glmath::vec3 pos, glmath::vec4 dir, float height, float radius, glmath::vec3 lightColor)
+Spotlight* Spotlight::create(glmath::vec3 pos, glmath::vec3 dir, float height, float radius, glmath::vec3 lightColor)
 {
 	Spotlight* p = new Spotlight(pos, dir, height, radius, lightColor);
 	if (p)
@@ -26,7 +26,7 @@ Spotlight::Spotlight():direction(0.0f),position(0.0f),cutOff(0)
 {
 }
 
-Spotlight::Spotlight(glmath::vec3 pos, glmath::vec4 dir, float height, float radius, glmath::vec3 lightColor):Light(lightColor),direction(dir), position(pos)
+Spotlight::Spotlight(glmath::vec3 pos, glmath::vec3 dir, float height, float radius, glmath::vec3 lightColor):Light(lightColor),direction(dir), position(pos)
 {
 	cutOff = height / sqrt(height * height + radius * radius);
 }
