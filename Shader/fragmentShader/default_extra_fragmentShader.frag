@@ -21,6 +21,12 @@ struct PointLight{
 	vec4 lightColor;
 };
 
+struct Spotlight{
+	vec3 position;
+	vec3 lightDir;
+	float cutOff;
+};
+
 in vec4 Color;
 in vec2 Texcoord;
 in vec3 Normal;
@@ -32,14 +38,12 @@ uniform vec3 cameraPos;
 
 uniform ParallelLight parallelLight;
 uniform PointLight pointLight;
+uniform Spotlight spotlight;
 
 out vec4 fragColor;
 
-vec4 ambientCalc();
-vec4 diffuseCalc();
-vec4 specularCalc();
 vec4 CalculationLight();
-vec4 CalculationTexture();
+
 
 void main(){
 	vec4 CalcValue = vec4(1.0);
@@ -97,8 +101,30 @@ vec4 PointLightCalc()
 	//return pointLight.lightColor;
 }
 
+vec4 SpotlightCalc()
+{
+	vec4 fragToLightDir = normalize(FragPos-vec4(spotlight.position,1));
+	float theta = dot(-fragToLightDir,spotlight.lightDir);
+	if (theta < spotlight.cutOff )
+	{//Âþ·´Éä
+		vec3 normal = normalize(Normal);
+		float diff = max(dot(fragToLightDir.xyz,normal),0);
+		vec4 diffuse = diff * spotlight.lightColor * material.diffuseStrength * texture(material.diffuseTex,Texcoord);
+	//¾µÃæ·´Éä
+		vec4 fragToViewDir = normalize(FragPos-vec4(cameraPos,1));
+		vec4 reflectDir = reflect(normal,-fragToLightDir.xyz);
+		float spec = max(dot(fragToViewDir,reflectDir),0);
+		vec4 specualar = spec * material.specualarStrength*spotlight.lightColor*texture(material.specularTex,Texcoord);
+		return diffuse + specualar;
+	}	
+	else
+		return vec4(0);
+}
+
+
 vec4 CalculationLight()
 {
-	vec4 res = PointLightCalc()+ParallelLightCalc();
+	//vec4 res = PointLightCalc()+ParallelLightCalc();
+	vec4 res = SpotlightCalc();
 	return res;
 }

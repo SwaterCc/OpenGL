@@ -9,10 +9,10 @@ LightTestSence* LightTestSence::create()
 void LightTestSence::init()
 {
 	setSenceBackgroundColor({ 0.1,0.1,0.1,1 });
-	auto* pLight = ParallelLight::create({ 1,0,0 }, { 1,1,2 });
+	auto* pLight = ParallelLight::create({ 1,0,0 }, { 1,1,1 });
 	addToRenderingList(pLight);
 
-	auto* pointLight = PointLight::create({ -10,0,0 }, 1, 0.0014, 0.000007, glmath::vec3(2,0,0));
+	auto* pointLight = PointLight::create({ -10,0,0 }, 1, 0.0014, 0.000007, glmath::vec3(1,1,1));
 	addToRenderingList(pointLight);
 
 	auto* cube = Cube::create();

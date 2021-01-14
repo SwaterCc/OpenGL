@@ -1,5 +1,6 @@
 #include "Spotlight.h"
 #include "../../Framework/LightManager.h"
+#include <cmath>
 
 Spotlight* Spotlight::create()
 {
@@ -11,9 +12,9 @@ Spotlight* Spotlight::create()
 	return p;
 }
 
-Spotlight* Spotlight::create(glmath::vec3 lightColor)
+Spotlight* Spotlight::create(glmath::vec3 pos, glmath::vec4 dir, float height, float radius, glmath::vec3 lightColor)
 {
-	Spotlight* p = new Spotlight(lightColor);
+	Spotlight* p = new Spotlight(pos, dir, height, radius, lightColor);
 	if (p)
 	{
 		p->init();
@@ -25,16 +26,21 @@ Spotlight::Spotlight():direction(0.0f),position(0.0f),cutOff(0)
 {
 }
 
-Spotlight::Spotlight(glmath::vec3 lightColor):Light(lightColor),direction(0.0f), position(0.0f), cutOff(0)
+Spotlight::Spotlight(glmath::vec3 pos, glmath::vec4 dir, float height, float radius, glmath::vec3 lightColor):Light(lightColor),direction(dir), position(pos)
 {
+	cutOff = height / sqrt(height * height + radius * radius);
 }
 
 void Spotlight::draw()
 {
 }
 
-void Spotlight::update()
+void Spotlight::update(GLProgram* program)
 {
+	program->setUniform3F("spotlight.position", position);
+	program->setUniform4F("spotlight.lightColor", glmath::vec4(m_lightColor, 1));
+	program->setUniform3F("spotlight.lightDir", direction);
+	program->setUniformOneFloat("spotlight.cutOff", cutOff);
 }
 
 void Spotlight::init()
