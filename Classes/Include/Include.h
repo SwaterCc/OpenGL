@@ -15,7 +15,7 @@
 #include<GLFW/glfw3.h>
 #include<assert.h>
 #include <cmath>
-
+#include<assimp/anim.h>
 #include "data.h"
 
 

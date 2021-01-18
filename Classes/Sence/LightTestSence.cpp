@@ -15,7 +15,7 @@ void LightTestSence::init()
 	auto* pointLight = PointLight::create({ -10,0,20 }, 1, 0.022, 0.0019, glmath::vec3(1,0,0));
 	addToRenderingList(pointLight);
 
-	auto* pointLight1 = PointLight::create({10,20,20 }, 1, 0.022, 0.0019, glmath::vec3(1, 1, 0));
+	auto* pointLight1 = PointLight::create({10,20,20 }, 1, 0.022, 0.0019, glmath::vec3(1, 2, 1));
 	addToRenderingList(pointLight1);
 
 	auto* spotlight = Spotlight::create({ 0,0,-10 }, { 0,0,1}, 80.0f, 15.0f, glmath::vec3(0, 0, 1));

@@ -20,7 +20,7 @@ void Cube::update()
 	}
 	ObjectBase::update();
 
-	transform.rotate = { (float)glfwGetTime() / PI * 180, (float)glfwGetTime() / PI * 180, (float)glfwGetTime() / PI * 180 };
+	transform.rotate = { (float)glfwGetTime() / PI_DEF * 180, (float)glfwGetTime() / PI_DEF * 180, (float)glfwGetTime() / PI_DEF * 180 };
 }
 
 void Cube::updateUniform()

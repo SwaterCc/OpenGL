@@ -4,7 +4,7 @@
 #include "../Utility/glmath/glmathlib.h"
 #include "../Utility/structs/graphics.hpp"
 
-#define PI 3.1415926535
+#define PI_DEF 3.1415926535
 #define MVP_MAT "mvp_mat"
 
 const int SIZE_FLOAT = sizeof(float);
@@ -33,7 +33,7 @@ constexpr glmath::vec4 v4(float x, float y, float z, float w) { return glmath::v
 constexpr glmath::vec4 c3(float r, float g, float b) { return glmath::vec4(r, g, b, 1.0f); }
 constexpr glmath::vec4 c4(float r, float g, float b, float a) { return glmath::vec4(r, g, b, a); }
 constexpr glmath::uvec3 uv3(uint x, uint y, uint z) { return glmath::uvec3(x, y, z); }
-constexpr double radios(float v) { return PI / 180 * v; }
+constexpr double radios(float v) { return PI_DEF / 180 * v; }
 struct Quad_Vertex{
 	vertexUnit rt;
 	vertexUnit lt;

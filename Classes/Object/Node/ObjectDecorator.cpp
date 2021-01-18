@@ -7,6 +7,7 @@ ObjectDecorator* ObjectDecorator::create(ObjectBase* obj)
 		ObjectDecorator* p = new ObjectDecorator(obj);
 		return p;
 	}
+	return nullptr;
 }
 
 ObjectDecorator::ObjectDecorator(ObjectBase* obj)

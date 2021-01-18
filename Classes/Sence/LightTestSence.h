@@ -6,6 +6,7 @@
 #include"../Include/Include.h"
 
 #include"../Include/GLObject.h"
+
 USING_GL_OBJECT;
 
 class LightTestSence :public ISence

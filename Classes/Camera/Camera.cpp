@@ -123,7 +123,7 @@ void Camera::createPerspectiveMat()
 	//基本公式为M_ortho矩阵 * M_persp->M_ortho矩阵
 	//推导有点复杂这里直接使用结果矩阵
 	float aspect = m_fViewWidth / m_fViewHeight;
-	float radio = m_fFov/2 / 180 * PI;
+	float radio = m_fFov/2 / 180 * PI_DEF;
 	float tanFovhalf = tanf(radio);
 	float A = (-(m_fNearPlane + m_fFarPlane) / (-m_fFarPlane + m_fNearPlane));
 	float B = (2 * m_fNearPlane * m_fFarPlane) / (-m_fFarPlane + m_fNearPlane);
