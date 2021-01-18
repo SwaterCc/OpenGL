@@ -22,13 +22,13 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{BDA0F69D-DCF9-4426-8CFD-18D9D16E1A8C}</ProjectGuid>
     <RootNamespace>OpenGlText</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>D:\OpenGL\opengl\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\OpenGL\opengl\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>F:\OpenGL\opengl\include;$(IncludePath)</IncludePath>
+    <LibraryPath>F:\OpenGL\opengl\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>E:\OPGL\OpenGlText\opengl\include;$(IncludePath)</IncludePath>
@@ -91,7 +91,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <PreprocessorDefinitions>_MBCS;GL3W_SETUP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_MBCS;GL3W_SETUP;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -159,11 +159,13 @@
     <ClCompile Include="..\Classes\Object\Node\ObjectDecorator.cpp" />
     <ClCompile Include="..\Classes\Object\Node\Sprite.cpp" />
     <ClCompile Include="..\Classes\Object\Node\Square.cpp" />
+    <ClCompile Include="..\Classes\Object\Node\TextureDecorator.cpp" />
     <ClCompile Include="..\Classes\Object\Node\Triangle.cpp" />
     <ClCompile Include="..\Classes\Object\Texture\Texture2D.cpp" />
     <ClCompile Include="..\Classes\Sence\DefaultSence.cpp" />
     <ClCompile Include="..\Classes\Sence\ISence.cpp" />
     <ClCompile Include="..\Classes\Sence\LightTestSence.cpp" />
+    <ClCompile Include="..\Classes\Utility\commonFunc.cpp" />
     <ClCompile Include="..\Classes\Utility\TransformAdapter.cpp" />
     <ClCompile Include="..\opengl\glm\detail\glm.cpp" />
     <ClCompile Include="..\opengl\src\gl3w.c" />
@@ -183,7 +185,6 @@
     <ClInclude Include="..\Classes\Include\Include.h" />
     <ClInclude Include="..\Classes\Include\makeFileInclude.h" />
     <ClInclude Include="..\Classes\Object\Attribute\AttributeModule.h" />
-    <ClInclude Include="..\Classes\Object\Attribute\color_define.h" />
     <ClInclude Include="..\Classes\Object\Attribute\Material.h" />
     <ClInclude Include="..\Classes\Object\Attribute\Transform.h" />
     <ClInclude Include="..\Classes\Object\Attribute\VertexConfig.h" />
@@ -204,7 +205,7 @@
     <ClInclude Include="..\Classes\Sence\ISence.h" />
     <ClInclude Include="..\Classes\Sence\LightTestSence.h" />
     <ClInclude Include="..\Classes\Sence\SenceInclude.h" />
-    <ClInclude Include="..\Classes\Utility\CustomUtilityTool.h" />
+    <ClInclude Include="..\Classes\Utility\commonFunc.h" />
     <ClInclude Include="..\Classes\Utility\glmath\glmathlib.h" />
     <ClInclude Include="..\Classes\Utility\glmath\gl_math_template.h" />
     <ClInclude Include="..\Classes\Utility\glmath\matrix\glmatrix4x4.hpp" />

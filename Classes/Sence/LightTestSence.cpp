@@ -9,14 +9,20 @@ LightTestSence* LightTestSence::create()
 void LightTestSence::init()
 {
 	setSenceBackgroundColor({ 0.1,0.1,0.1,1 });
-	auto* pLight = ParallelLight::create({ 1,0,0 }, { 1,1,1 });
+	auto* pLight = ParallelLight::create({ 0,1,0 }, { 0,0,0 });
 	addToRenderingList(pLight);
 
-	auto* pointLight = PointLight::create({ -10,0,0 }, 1, 0.0014, 0.000007, glmath::vec3(1,1,1));
+	auto* pointLight = PointLight::create({ -10,0,20 }, 1, 0.022, 0.0019, glmath::vec3(1,0,0));
 	addToRenderingList(pointLight);
 
-	auto* spotlight = Spotlight::create({ 0,0,-10 }, { 0,0,1}, 80.0f, 10.0f, glmath::vec3(1, 1, 1));
+	auto* pointLight1 = PointLight::create({10,20,20 }, 1, 0.022, 0.0019, glmath::vec3(1, 1, 0));
+	addToRenderingList(pointLight1);
+
+	auto* spotlight = Spotlight::create({ 0,0,-10 }, { 0,0,1}, 80.0f, 15.0f, glmath::vec3(0, 0, 1));
 	addToRenderingList(spotlight);
+
+	auto* spotlight1 = Spotlight::create({ 0,0,-10 }, { 0,0,1 }, 80.0f, 5.0f, glmath::vec3(1, 0, 0));
+	addToRenderingList(spotlight1);
 
 	auto* cube = Cube::create();
 	auto* mateDecorator = MaterialDecorator::create(cube);
@@ -57,7 +63,7 @@ void LightTestSence::init()
 	mateDecorator3->setShininess(64);
 	mateDecorator3->setDiffuseTex(Texture2D::create("container2.png", GL_TEXTURE0));
 	mateDecorator3->setSpecularTex(Texture2D::create("container2_specular.png", GL_TEXTURE1));
-	_SOP(lightDec3, v3(-7, -8, 15.0));
-	_SOS(lightDec3, 4);
+	_SOP(lightDec3, v3(20, -8, 65.0));
+	_SOS(lightDec3, 8);
 }
 

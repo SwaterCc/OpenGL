@@ -7,7 +7,7 @@
 #include "../Object/Light/Spotlight.h"
 #include <map>
 
-const int LIGHT_MAX = 25;
+const int LIGHT_MAX = 10;
 
 class LightManager
 {

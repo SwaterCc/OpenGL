@@ -1,6 +1,6 @@
 #include "PointLight.h"
 #include "../../Framework/LightManager.h"
-
+#include "../../Utility/commonFunc.h"
 PointLight* PointLight::create()
 {
 	PointLight* p = new PointLight();
@@ -37,11 +37,11 @@ void PointLight::draw()
 
 void PointLight::update(GLProgram* program)
 {
-	program->setUniform3F("pointLight.position", position);
-	program->setUniform4F("pointLight.lightColor", glmath::vec4(m_lightColor, 1));
-	program->setUniformOneFloat("pointLight.constant", constant);
-	program->setUniformOneFloat("pointLight.linear", linear);
-	program->setUniformOneFloat("pointLight.quadratic", quadratic);
+	program->setUniform3F(formatStr("pointLight[%d].position",getTag()), position);
+	program->setUniform4F(formatStr("pointLight[%d].lightColor", getTag()), glmath::vec4(m_lightColor, 1));
+	program->setUniformOneFloat(formatStr("pointLight[%d].constant", getTag()), constant);
+	program->setUniformOneFloat(formatStr("pointLight[%d].linear", getTag()), linear);
+	program->setUniformOneFloat(formatStr("pointLight[%d].quadratic", getTag()), quadratic);
 }
 
 void PointLight::setPos(glmath::vec3 pos)
@@ -76,6 +76,7 @@ void PointLight::add()
 		if (pointLightList.find(i) == pointLightList.end())
 		{
 			pointLightList[i] = this;
+			setTag(i);
 			break;
 		}
 	}

@@ -22,6 +22,7 @@ private:
 	glmath::vec3 position;
 	glmath::vec3 direction;
 	float cutOff;
+	float outCutOff;
 };
 
 #endif // !_Spotlight_h_

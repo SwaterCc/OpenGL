@@ -3,6 +3,7 @@
 
 #include "../../Utility/glmath/glmathlib.h"
 #include "../../Framework/GLProgram.h"
+
 class Light
 {
 public:

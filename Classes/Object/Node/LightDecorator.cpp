@@ -45,10 +45,11 @@ void LightDecorator::updateUniform()
 	}*/
 	auto& pointLightList = LightManager::getInstance()->getPointLightList();
 	auto& spotlightList = LightManager::getInstance()->getSpotlightList();
-	
+	m_pDecorated->getProgram()->setUniformOneInt("pointLightInputCount", pointLightList.size());
 	for_each(pointLightList.begin(), pointLightList.end(), [&](std::map<unsigned int, PointLight*>::reference it) {
 		it.second->update(m_pDecorated->getProgram());
 	});
+	m_pDecorated->getProgram()->setUniformOneInt("spotlightInputCount", spotlightList.size());
 	for_each(spotlightList.begin(), spotlightList.end(), [&](std::map<unsigned int, Spotlight*>::reference it) {
 		it.second->update(m_pDecorated->getProgram());
 	});

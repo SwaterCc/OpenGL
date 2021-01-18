@@ -174,8 +174,14 @@
     <ClCompile Include="..\Classes\Object\Light\Spotlight.cpp">
       <Filter>Object\Light</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Object\Node\TextureDecorator.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
     <ClCompile Include="..\Classes\Object\Texture\Texture2D.cpp">
       <Filter>Object\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Utility\commonFunc.cpp">
+      <Filter>Utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -217,9 +223,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Sence\SenceInclude.h">
       <Filter>Sence</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Utility\CustomUtilityTool.h">
-      <Filter>Utility</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Framework\GlMainWindow.h">
       <Filter>Framework</Filter>
@@ -470,8 +473,8 @@
     <ClInclude Include="..\Classes\Object\Texture\Texture2D.h">
       <Filter>Object\Texture</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Object\Attribute\color_define.h">
-      <Filter>Object\Attribute\extratAttribute\Material</Filter>
+    <ClInclude Include="..\Classes\Utility\commonFunc.h">
+      <Filter>Utility</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
