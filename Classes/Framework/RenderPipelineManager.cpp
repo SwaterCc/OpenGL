@@ -108,6 +108,9 @@ void RenderPiplineManager::createSence(SenceType type)
 	case SenceType_LightTest:
 		m_pRunningSence = LightTestSence::create();
 		break;
+	case SenceType_ModelTest:
+		m_pRunningSence = ModelTestSence::create();
+		break;
 	default:
 		break;
 	}

@@ -27,6 +27,7 @@ void GLMainWindow::start()
 
 	//场景初始化
 	RenderPiplineManager::getInstance()->setWinSize(SizeMake(_VIEW_WIDTH_, _VIEW_HEIGHT_));
+	//RenderPiplineManager::getInstance()->createSence(SenceType_ModelTest);//模型//光照//默认
 	RenderPiplineManager::getInstance()->createSence(SenceType_LightTest);//光照//默认
 	//RenderPiplineManager::getInstance()->createSence(SenceType_Default);//光照//默认
 	//模式设置

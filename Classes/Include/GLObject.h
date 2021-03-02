@@ -3,6 +3,7 @@
 #include"../Object/Node/Triangle.h"
 #include"../Object/Node/Sprite.h"
 #include"../Object/Node/Cube.h"
+#include"../Object/Node/Model.h"
 #include"../Object/Node/LightDecorator.h"
 #include"../Object/Node/MaterialDecorator.h"
 #include"../Object/Node/TextureDecorator.h"

@@ -2,7 +2,7 @@
 #define _VertexConfig_h_
 
 #include<iostream>
-
+#include<vector>
 #include"../../Include/makeFileInclude.h"
 #include"../../Include/Include.h"
 		 
@@ -18,6 +18,8 @@ enum {
 	VertexAttrib_Color = 1,
 	VertexAttrib_Texture = 2,
 	VertexAttrib_Normal = 3,
+	VertexAttrib_Tangent = 4,
+	VertexAttrib_Bitangent = 5,
 	VertexAttrib_MaxNum,
 };
 
@@ -30,7 +32,9 @@ public:
 	void initVAO();
 	void setVBO(Quad_Vertex * arr, int size, int GL_Type = GL_STATIC_DRAW);
 	void setVBO(Triangle_Vertex * arr, int size, int GL_Type = GL_STATIC_DRAW);
+	void setVBO(vector<vertexUnit>& v, int GL_Type = GL_STATIC_DRAW);
 	void setVEO(uVec3 * arr,int size, int GL_Type = GL_STATIC_DRAW);
+	void setVEO(vector<uint>& v, int GL_Type = GL_STATIC_DRAW);
 	virtual void setup(uint target);
 	
     virtual void updateVertexAttrib() {}

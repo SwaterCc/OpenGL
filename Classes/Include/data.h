@@ -57,10 +57,7 @@ struct Size{
 #define PointZero Point(0,0)
 #define SIZE_VERTEX_UNIT sizeof(vertexUnit)
 #define QUAD_UNIT_NUM (sizeof(glmath::vec3)+sizeof(glmath::vec4)+sizeof(glmath::vec2)+sizeof(glmath::vec3))
-#define OFFSET_POSITION (void*)(0)
-#define OFFSET_COLOR (void*)(sizeof(glmath::vec3))
-#define OFFSET_TEXTURE (void*)(sizeof(glmath::vec3)+sizeof(glmath::vec4))
-#define OFFSET_NORMAL (void*)(sizeof(glmath::vec3)+sizeof(glmath::vec4)+sizeof(glmath::vec2))
+
 
 
 #endif // !_DATA_H_

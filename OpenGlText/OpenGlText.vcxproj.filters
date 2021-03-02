@@ -87,6 +87,9 @@
     <Filter Include="Object\Texture">
       <UniqueIdentifier>{151767d7-53d1-4308-9b4f-7d8ad3ce0834}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\Node\Model">
+      <UniqueIdentifier>{ddc51e9a-e1f1-43a6-8f71-3302fcb9649b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\opengl\src\glad.c">
@@ -182,6 +185,15 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Utility\commonFunc.cpp">
       <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Object\Node\Mesh.cpp">
+      <Filter>Object\Node\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Object\Node\Model.cpp">
+      <Filter>Object\Node\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Sence\ModelSence.cpp">
+      <Filter>Sence</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -475,6 +487,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Utility\commonFunc.h">
       <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Object\Node\Model.h">
+      <Filter>Object\Node\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Object\Node\Mesh.h">
+      <Filter>Object\Node\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Sence\ModelSence.h">
+      <Filter>Sence</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

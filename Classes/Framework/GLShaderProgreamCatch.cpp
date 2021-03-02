@@ -58,6 +58,11 @@ void GLShaderProgreamCatch::init()
 	loadShaderFile(p4, "default_extra_vertexShader", "default_extra_fragmentShader");
 	p4->createProgram();
 	m_ProgramList.insert(std::make_pair(ShaderProgramType_DefaultExtra, p4));
+
+	auto* p5 = new GLProgram;
+	loadShaderFile(p5, "model_vertexShader", "model_fragmentShader");
+	p5->createProgram();
+	m_ProgramList.insert(std::make_pair(ShaderProgramType_Model, p5));
 }
 
 void GLShaderProgreamCatch::loadShaderFile(GLProgram* p, std::string vertexShaderFile, std::string fragmentShaderFile)

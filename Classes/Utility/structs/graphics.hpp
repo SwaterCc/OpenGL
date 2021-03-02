@@ -8,6 +8,8 @@ typedef struct VertexColorTexture_DataStruct {
 	glmath::vec4 color;
 	glmath::vec2 texture;
 	glmath::vec3 normal;
+	glmath::vec3 tangent;//ÇÐÏß
+	glmath::vec3 bitangent;//Ë«ÇÐÏß
 }vertexUnit;
 
 class graphics_triangle
